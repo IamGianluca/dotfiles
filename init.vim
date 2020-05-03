@@ -65,6 +65,7 @@ cnoreabbrev wQ wq
 cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
+cnoreabbrev Qa qa
 cnoreabbrev Qall qall
 
 "" directories for swp files
