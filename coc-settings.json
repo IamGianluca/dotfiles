@@ -1,0 +1,4 @@
+{
+	"python.analysis.diagnosticEnabled": true,
+	"python.jediEnabled": false,
+}
