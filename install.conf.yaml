@@ -1,0 +1,13 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.tmux.conf: tmux.conf
+    ~/.zshrc: zshrc
+    ~/.config/powerline-shell/config.json: powerline-shell.json
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
