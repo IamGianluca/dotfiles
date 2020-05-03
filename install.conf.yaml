@@ -12,6 +12,7 @@
     ~/.config/nvim/coc-settings.json: coc-settings.json
 
 - create:
+  - ~/.config/powerline-shell
   - ~/.config/nvim
 
 - shell:
