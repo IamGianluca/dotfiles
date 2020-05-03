@@ -39,6 +39,8 @@ Plug 'tpope/vim-repeat'                 " enable repeating supported plugin maps
 Plug 'tpope/vim-commentary'             " comment stuff out
 Plug 'ntpeters/vim-better-whitespace'   " remove whitespaces
 Plug 'Yggdroot/indentLine'              " display the indention levels with thin vertical lines
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -315,3 +317,9 @@ let g:indentLine_enabled = 1
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
+
+
+"=====================================================
+"" Vim-Airline Settings
+"=====================================================
+let g:airline_theme='base16'
