@@ -84,7 +84,6 @@ set foldmethod=indent
 set foldlevelstart=0
 
 
-
 "=====================================================
 "" vim-better-whitespace Settings
 "=====================================================
@@ -305,9 +304,7 @@ noremap <leader>c :bd<CR>
 "" clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
 
-
 " do not require installation of neovim in each pyenv virtual environment
-let g:python_host_prog = "/home/gianluca/.pyenv/versions/neovim2/bin/python"
 let g:python3_host_prog = "/home/gianluca/.pyenv/versions/neovim3/bin/python"
 
 "=====================================================

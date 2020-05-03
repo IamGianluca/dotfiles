@@ -8,6 +8,11 @@
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.config/powerline-shell/config.json: powerline-shell.json
+    ~/.config/nvim/init.vim: init.vim
+    ~/.config/nvim/coc-settings.json: coc-settings.json
+
+- create:
+  - ~/.config/nvim
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
