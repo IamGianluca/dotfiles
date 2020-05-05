@@ -112,6 +112,7 @@ alias gcam="git commit -am"
 alias gcb="git checkout -b"
 alias gl="git log --oneline --graph --decorate"
 alias tmux="tmux -2"
+alias ta="tmux attach -t"
 alias vi="nvim"
 
 # setup virtualenvwrapper
