@@ -322,4 +322,4 @@ let g:indentLine_faster = 1
 "=====================================================
 "" Vim-Airline Settings
 "=====================================================
-let g:airline_theme='base16'
+let g:airline_theme='gruvbox'
