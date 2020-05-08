@@ -149,3 +149,6 @@ if [ -f '/home/gianluca/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/gi
 
 # required by Poetry
 export PATH=$HOME/.poetry/bin:$PATH
+
+# required by Cargo (Rust)
+source $HOME/.cargo/env
