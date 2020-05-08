@@ -137,7 +137,7 @@ eval "$(pyenv virtualenv-init -)"
 # required by fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# required by golang
+# required by Go
 export GOPATH=$HOME/git/go
 export PATH=$PATH:$GOPATH
 export GOROOT=/usr/lib/go
@@ -150,8 +150,8 @@ if [ -f '/home/gianluca/google-cloud-sdk/path.zsh.inc' ]; then . '/home/gianluca
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/gianluca/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/gianluca/google-cloud-sdk/completion.zsh.inc'; fi
 
-# required by Poetry
+# required by Poetry (Python)
 export PATH=$HOME/.poetry/bin:$PATH
 
 # required by Cargo (Rust)
-source $HOME/.cargo/env
+if [ -f '$HOME/.cargo/env' ]; then source $HOME/.cargo/env; fi
