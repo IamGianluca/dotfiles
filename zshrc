@@ -144,12 +144,6 @@ export GOROOT=/usr/lib/go
 export PATH=$PATH:$GOROOT/bin
 export GOBIN=$GOPATH/bin
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/gianluca/google-cloud-sdk/path.zsh.inc' ]; then . '/home/gianluca/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/gianluca/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/gianluca/google-cloud-sdk/completion.zsh.inc'; fi
-
 # required by Poetry (Python)
 export PATH=$HOME/.poetry/bin:$PATH
 
