@@ -28,12 +28,8 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "=====================================================
 Plug 'morhetz/gruvbox'                  " colorscheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-if isdirectory('/usr/local/opt/fzf')
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-endif
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'               " quoting/parenthesizing made simple
 Plug 'tpope/vim-repeat'                 " enable repeating supported plugin maps with .
 Plug 'tpope/vim-commentary'             " comment stuff out
@@ -44,6 +40,10 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
+
+"=====================================================
+"" Key Remappings
+"=====================================================
 "" map leader to \
 let mapleader='\'
 
@@ -53,6 +53,13 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
+"" clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
+
+
+"=====================================================
+"" General Behaviour
+"=====================================================
 "" open new splits on the right or on the bottom of the screen
 set splitbelow
 set splitright
@@ -74,9 +81,13 @@ cnoreabbrev Qall qall
 set nobackup
 set noswapfile
 
+
+"=====================================================
+"" Visual Configurations
+"=====================================================
 "" colorscheme settings
 colorscheme gruvbox
-set background=dark    " setting dark mode
+set background=dark
 
 "" display relative line numbers
 set ruler
@@ -280,7 +291,7 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
-"" copy/paste/cut
+" copy/paste/cut
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
@@ -295,20 +306,13 @@ if has('macunix')
   vmap <C-c> :w !pbcopy<CR><CR>
 endif
 
-"" buffer nav
-noremap <leader>z :bp<CR>
-noremap <leader>q :bp<CR>
-noremap <leader>x :bn<CR>
-noremap <leader>w :bn<CR>
 
-"" close buffer
-noremap <leader>c :bd<CR>
-
-"" clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
-
+"=====================================================
+"" Python Settings
+"=====================================================
 " do not require installation of neovim in each pyenv virtual environment
 let g:python3_host_prog = "/home/gianluca/.pyenv/versions/neovim3/bin/python"
+
 
 "=====================================================
 "" IndentLine Settings
