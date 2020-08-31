@@ -27,6 +27,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Install plugins
 "=====================================================
 Plug 'morhetz/gruvbox'                  " colorscheme
+Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -94,7 +95,8 @@ set ruler
 set relativenumber number
 
 "" fold everything from start
-set foldmethod=indent
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set foldlevelstart=0
 
 
@@ -327,3 +329,28 @@ let g:indentLine_faster = 1
 "" Vim-Airline Settings
 "=====================================================
 let g:airline_theme='gruvbox'
+
+
+"=====================================================
+"" Tree Sitter Settings
+"=====================================================
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "all",     -- one of "all", "language", or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
+    },
+  },
+}
+EOF
