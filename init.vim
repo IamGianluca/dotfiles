@@ -89,6 +89,8 @@ set noswapfile
 "" colorscheme settings
 colorscheme gruvbox
 set background=dark
+let g:gruvbox_contrast="soft"
+set termguicolors
 
 "" display relative line numbers
 set ruler
