@@ -26,7 +26,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "=====================================================
 "" Install plugins
 "=====================================================
-Plug 'morhetz/gruvbox'                  " colorscheme
+Plug 'habamax/vim-gruvbit'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -87,10 +87,8 @@ set noswapfile
 "" Visual Configurations
 "=====================================================
 "" colorscheme settings
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast="soft"
 set termguicolors
+colorscheme gruvbit
 
 "" display relative line numbers
 set ruler
