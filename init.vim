@@ -26,6 +26,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "=====================================================
 "" Install plugins
 "=====================================================
+Plug 'morhetz/gruvbox'
 Plug 'habamax/vim-gruvbit'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
