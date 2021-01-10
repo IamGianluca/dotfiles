@@ -113,7 +113,7 @@ let g:strip_whitespace_confirm=0
 "" Coc Settings
 "=====================================================
 " install extensions
-let g:coc_global_extensions = ['coc-explorer', 'coc-python']
+let g:coc_global_extensions = ['coc-explorer', 'coc-pyright']
 
 " TextEdit might fail if hidden is not set.
 set hidden
