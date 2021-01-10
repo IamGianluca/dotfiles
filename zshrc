@@ -151,3 +151,5 @@ export PATH=$HOME/.poetry/bin:$PATH
 
 # required by Cargo (Rust)
 if [ -f '$HOME/.cargo/env' ]; then source $HOME/.cargo/env; fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
