@@ -120,34 +120,23 @@ alias tmux="tmux -2"
 alias ta="tmux attach -t"
 alias vi="nvim"
 
-# setup virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME=~/.virtualenvs
-export PIP_VIRTUALENV_BASE=~/.virtualenvs
-
 setopt completealiases
-
-# required by pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-# required by pyenv-virtualenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 # required by fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# required by Go
-export GOPATH=$HOME/git/go
-export PATH=$PATH:$GOPATH
-export GOROOT=/usr/lib/go
-export PATH=$PATH:$GOROOT/bin
-export GOBIN=$GOPATH/bin
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/gianluca/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/gianluca/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/gianluca/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/gianluca/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# required by Poetry (Python)
-export PATH=$HOME/.poetry/bin:$PATH
-
-# required by Cargo (Rust)
-if [ -f '$HOME/.cargo/env' ]; then source $HOME/.cargo/env; fi
