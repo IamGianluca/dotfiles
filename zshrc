@@ -140,3 +140,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# needed for nvcc
+export PATH=$PATH:/usr/local/cuda/bin
+
