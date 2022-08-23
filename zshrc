@@ -73,6 +73,7 @@ plugins=(
 	gitfast
 	zsh-autosuggestions
 	zsh-syntax-highlighting
+	zsh-fzf-history-search
 )
 
 source $ZSH/oh-my-zsh.sh
