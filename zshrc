@@ -120,6 +120,8 @@ alias gl="git log --oneline --graph --decorate"
 alias tmux="tmux -2"
 alias ta="tmux attach -t"
 alias vi="nvim"
+alias xpskb='setxkbmap -option "ctrl:swapcaps"'
+alias ergkb="setxkbmap -option"
 
 setopt completealiases
 
