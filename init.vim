@@ -27,7 +27,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Install plugins
 "=====================================================
 Plug 'habamax/vim-gruvbit'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
