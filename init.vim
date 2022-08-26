@@ -36,7 +36,6 @@ Plug 'tpope/vim-repeat'                 " enable repeating supported plugin maps
 Plug 'tpope/vim-commentary'             " comment stuff out
 Plug 'ntpeters/vim-better-whitespace'   " remove whitespaces
 Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
