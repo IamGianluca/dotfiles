@@ -26,7 +26,6 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "=====================================================
 "" Install plugins
 "=====================================================
-Plug 'morhetz/gruvbox'
 Plug 'habamax/vim-gruvbit'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -37,7 +36,7 @@ Plug 'tpope/vim-repeat'                 " enable repeating supported plugin maps
 Plug 'tpope/vim-commentary'             " comment stuff out
 Plug 'ntpeters/vim-better-whitespace'   " remove whitespaces
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -312,12 +311,6 @@ endif
 "=====================================================
 " do not require installation of neovim in each pyenv virtual environment
 let g:python3_host_prog = "/home/gianluca/.pyenv/versions/neovim3/bin/python"
-
-
-"=====================================================
-"" Vim-Airline Settings
-"=====================================================
-let g:airline_theme='gruvbox'
 
 
 "=====================================================
