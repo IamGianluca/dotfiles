@@ -36,7 +36,6 @@ Plug 'tpope/vim-surround'               " quoting/parenthesizing made simple
 Plug 'tpope/vim-repeat'                 " enable repeating supported plugin maps with .
 Plug 'tpope/vim-commentary'             " comment stuff out
 Plug 'ntpeters/vim-better-whitespace'   " remove whitespaces
-Plug 'Yggdroot/indentLine'              " display the indention levels with thin vertical lines
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -94,11 +93,6 @@ colorscheme gruvbit
 "" display relative line numbers
 set ruler
 set relativenumber number
-
-"" fold everything from start
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldlevelstart=0
 
 
 "=====================================================
@@ -318,15 +312,6 @@ endif
 "=====================================================
 " do not require installation of neovim in each pyenv virtual environment
 let g:python3_host_prog = "/home/gianluca/.pyenv/versions/neovim3/bin/python"
-
-
-"=====================================================
-"" IndentLine Settings
-"=====================================================
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
 
 
 "=====================================================
