@@ -53,7 +53,7 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
 "" clean search (highlight)
-nnoremap <silent> <leader><space> :noh<cr>
+map <esc> :noh <CR>
 
 
 "=====================================================
@@ -91,6 +91,11 @@ colorscheme gruvbit
 "" display relative line numbers
 set ruler
 set relativenumber number
+
+"" extra goodies
+set nowrap
+set signcolumn=auto
+set colorcolumn=80
 
 
 "=====================================================
