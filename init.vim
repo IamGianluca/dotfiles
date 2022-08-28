@@ -80,6 +80,10 @@ cnoreabbrev Qall qall
 set nobackup
 set noswapfile
 
+"" search
+set ignorecase
+set smartcase
+
 
 "=====================================================
 "" Visual Configurations
