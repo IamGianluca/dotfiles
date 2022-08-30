@@ -14,6 +14,12 @@
     ~/.config/powerline-shell/config.json: powerline-shell.json
     ~/.config/nvim/init.vim: init.vim
     ~/.config/nvim/coc-settings.json: coc-settings.json
+    ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
+    ~/git/dwm-flexipatch/config.h: dwm-flexipatch/config.h
+    ~/git/dmenu-flexipatch/patches.h: dmenu-flexipatch/patches.h
+    ~/git/dmenu-flexipatch/config.h: dmenu-flexipatch/config.h
+    ~/git/st-flexipatch/patches.h: st-flexipatch/patches.h
+    ~/git/st-flexipatch/config.h: st-flexipatch/config.h
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
