@@ -881,9 +881,9 @@ static const Key on_empty_keys[] = {
 #endif // ON_EMPTY_KEYS_PATCH
 
 /* commands */
-static const char *volumedown[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
-static const char *volumeup[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
-static const char *mute[]       = { "amixer", "-q", "set", "Master", "toggle", NULL };
+static const char *volumedown[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *volumeup[]   = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *mute[]       = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 static const char *lightdown[]  = { "xbacklight", "-dec", "20", NULL };
 static const char *lightup[]    = { "xbacklight", "-inc", "20", NULL };
 
