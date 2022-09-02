@@ -885,9 +885,9 @@ static const char *lightdown[]  = { "xbacklight", "-dec", "20", NULL };
 static const char *lightup[]    = { "xbacklight", "-inc", "20", NULL };
 
 static const Key keys[] = {
-	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("pactl set-sink-mute 1 toggle") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pactl set-sink-volume 1 +5%") },
-	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pactl set-sink-volume 1 -5%") },
+	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+10 dwmblocks") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%;  pkill -RTMIN+10 dwmblocks") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%;  pkill -RTMIN+10 dwmblocks") },
     	{ 0, XF86XK_MonBrightnessUp,    spawn,        { .v = lightup} },
     	{ 0, XF86XK_MonBrightnessDown,  spawn,        { .v = lightdown} },
 	/* modifier                     key            function                argument */
