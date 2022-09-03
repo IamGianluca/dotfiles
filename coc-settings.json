@@ -1,4 +1,4 @@
 {
-	"python.analysis.diagnosticEnabled": true,
-	"python.jediEnabled": false,
+  "python.analysis.diagnosticEnabled": true,
+  "python.jediEnabled": false,
 }
