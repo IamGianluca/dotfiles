@@ -127,9 +127,14 @@ alias ergkb="setxkbmap -option"
 
 setopt completealiases
 
-# required by fzf
+# needed for fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # needed for nvcc
 export PATH=$PATH:/usr/local/cuda/bin
 
+# needed for pyenv and pyenv-virtualenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
