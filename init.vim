@@ -26,7 +26,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "=====================================================
 "" Install plugins
 "=====================================================
-Plug 'habamax/vim-gruvbit'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -43,7 +43,9 @@ Plug 'tpope/vim-surround'               " quoting/parenthesizing made simple
 Plug 'tpope/vim-repeat'                 " enable repeating supported plugin maps with .
 Plug 'tpope/vim-commentary'             " comment stuff out
 Plug 'ntpeters/vim-better-whitespace'   " remove whitespaces
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -98,7 +100,25 @@ set smartcase
 "=====================================================
 "" colorscheme settings
 set termguicolors
-colorscheme gruvbit
+
+lua <<EOF
+vim.o.background = "dark" -- or "light" for light mode
+require("gruvbox").setup({
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true,
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "hard", -- can be "hard", "soft" or empty string
+  overrides = {},
+})
+vim.cmd([[colorscheme gruvbox]])
+EOF
 
 "" display relative line numbers
 set ruler
@@ -108,6 +128,14 @@ set relativenumber number
 set nowrap
 set signcolumn=auto
 set colorcolumn=80
+
+"
+"=====================================================
+"" Lualine Settings
+"=====================================================
+lua << END
+require('lualine').setup()
+END
 
 
 "=====================================================
