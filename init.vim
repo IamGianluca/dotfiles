@@ -27,25 +27,28 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Install plugins
 "=====================================================
 Plug 'ellisonleao/gruvbox.nvim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'L3MON4D3/LuaSnip'
+Plug 'l3mon4d3/luasnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
+
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
 Plug 'tpope/vim-surround'               " quoting/parenthesizing made simple
 Plug 'tpope/vim-repeat'                 " enable repeating supported plugin maps with .
 Plug 'tpope/vim-commentary'             " comment stuff out
 Plug 'ntpeters/vim-better-whitespace'   " remove whitespaces
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
@@ -63,7 +66,7 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 
 "" clean search (highlight)
-map <esc> :noh <CR>
+nnoremap <silent><esc> :noh<return><esc>
 
 
 "=====================================================
