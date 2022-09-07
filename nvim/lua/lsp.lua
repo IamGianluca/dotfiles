@@ -75,12 +75,14 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),  -- <C-d>
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),   -- <C-f>
-    ['<C-Space>'] = cmp.mapping.complete(),   -- <C-space>
-    ['<C-e>'] = cmp.mapping.abort(),          -- abort <c-e>
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  }),                                         -- <c-y>
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<C-k>'] = cmp.mapping.select_prev_item(),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
   sources = cmp.config.sources({
     -- the order of the sources matters
     { name = 'nvim_lua' },
@@ -88,7 +90,11 @@ cmp.setup({
     { name = 'path' },
     { name = 'luasnip' },
     { name = 'buffer' },
-  })
+  }),
+  experimental = {
+    native_menu = false,
+    ghost_text = true,
+  },
 })
 
 -- Set configuration for specific filetype.

@@ -104,10 +104,10 @@ set smartcase
 "=====================================================
 "" Import Lua Plugins Settings
 "=====================================================
-lua require('theme')
 lua require("lsp")
-lua require("treesitter")
 lua require("telescope")
+lua require('theme')
+lua require("treesitter")
 
 
 "=====================================================
