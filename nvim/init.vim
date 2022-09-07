@@ -50,7 +50,7 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 Plug 'tpope/vim-surround'               " quoting/parenthesizing made simple
 Plug 'tpope/vim-repeat'                 " enable repeating supported plugin maps with .
-Plug 'tpope/vim-commentary'             " comment stuff out
+Plug 'numtostr/comment.nvim'            " comment stuff out
 Plug 'ntpeters/vim-better-whitespace'   " remove whitespaces
 
 call plug#end()
@@ -104,6 +104,7 @@ set smartcase
 "=====================================================
 "" Import Lua Plugins Settings
 "=====================================================
+lua require("comment")
 lua require("lsp")
 lua require("telescope")
 lua require('theme')
