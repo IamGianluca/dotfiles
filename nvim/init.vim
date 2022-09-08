@@ -59,8 +59,8 @@ call plug#end()
 "=====================================================
 "" Key Remappings
 "=====================================================
-"" map leader to \
-let mapleader='\'
+nnoremap <SPACE> <Nop>
+let mapleader=' '
 
 "" navigate between windows
 noremap <C-j> <C-w>j
