@@ -130,12 +130,3 @@ set colorcolumn=80
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
-
-
-"=====================================================
-"" Python Settings
-"=====================================================
-" " do not require installation of neovim in each pyenv virtual environment
-" let g:python3_host_prog = "/home/gianluca/.pyenv/versions/neovim3/bin/python"
-
-
