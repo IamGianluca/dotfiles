@@ -141,3 +141,7 @@ eval "$(pyenv virtualenv-init -)"
 
 # do not generate pycache
 export PYTHONDONTWRITEBYTECODE=1
+
+# needed by lau-language-server
+-e
+alias luamake=/home/gianluca/git/lua-language-server/3rd/luamake/luamake
