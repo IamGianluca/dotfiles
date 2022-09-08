@@ -1,9 +1,10 @@
-require('Comment').setup(
+require('Comment').setup({
     extra = {
-	-- these are part of the default settings, just adding them here in
-	-- case i need to find them later on
-	above = 'gcO',
-	below = 'gco',
-	eol = 'gcA'
-    }
-)
+        ---add comment on the line above
+        above = 'gcO',
+        ---add comment on the line below
+        below = 'gco',
+        ---add comment at the end of line
+        eol = 'gcA',
+    },
+})
