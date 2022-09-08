@@ -72,8 +72,8 @@ plugins=(
 	git
 	gitfast
 	zsh-autosuggestions
-	zsh-syntax-highlighting
 	zsh-fzf-history-search
+	zsh-syntax-highlighting # must be last plugin sourced
 )
 
 source $ZSH/oh-my-zsh.sh
