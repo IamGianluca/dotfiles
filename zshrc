@@ -106,24 +106,33 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# linux
+alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
+alias xpskb='setxkbmap -option "ctrl:swapcaps"'
+alias ergkb="setxkbmap -option"
+
+# bash
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CFlh'
 alias lsd="ls -alF | grep /$"
-alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
+
+# git
 alias gs="git status"
 alias gc="git checkout"
-alias gcb="git checkout -b"
+alias gcb="git switch --create"
 alias gd="git diff"
 alias ga="git add"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
 alias gl="git log --oneline --graph --decorate"
+
+# tmux
 alias tmux="tmux -2"
 alias ta="tmux attach -t"
+# nvim
 alias vi="nvim"
-alias xpskb='setxkbmap -option "ctrl:swapcaps"'
-alias ergkb="setxkbmap -option"
 
 setopt completealiases
 
@@ -143,5 +152,4 @@ eval "$(pyenv virtualenv-init -)"
 export PYTHONDONTWRITEBYTECODE=1
 
 # needed by lau-language-server
--e
 alias luamake=/home/gianluca/git/lua-language-server/3rd/luamake/luamake
