@@ -57,22 +57,6 @@ call plug#end()
 
 
 "=====================================================
-"" Key Remappings
-"=====================================================
-nnoremap <SPACE> <Nop>
-let mapleader=' '
-
-"" navigate between windows
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-
-"" clean search (highlight)
-nnoremap <silent><esc> :noh<return><esc>
-
-
-"=====================================================
 "" General Settings
 "=====================================================
 "" open new splits on the right or on the bottom of the screen
@@ -106,6 +90,7 @@ set smartcase
 "=====================================================
 lua require("comment")
 lua require("lsp")
+lua require("keymaps")
 lua require("telescope")
 lua require('theme')
 lua require("treesitter")
