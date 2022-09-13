@@ -23,4 +23,4 @@ vim.cmd("colorscheme gruvbox")
 -- "=====================================================
 -- "" Lualine Settings
 -- "=====================================================
-require('lualine').setup()
+require('lualine').setup({})

@@ -38,8 +38,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'l3mon4d3/luasnip'
 Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'  " TODO: use { 'tag': 'v<CurrentMajor>.*'}
 
 "" syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -88,12 +88,12 @@ set smartcase
 "=====================================================
 "" Import Lua Plugins Settings
 "=====================================================
-lua require("comment")
-lua require("lsp")
-lua require("keymaps")
-lua require("telescope")
 lua require('theme')
+lua require("keymaps")
 lua require("treesitter")
+lua require("lsp")
+lua require("comment")
+lua require("telescope")
 
 
 "=====================================================

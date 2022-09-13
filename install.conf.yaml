@@ -16,6 +16,7 @@
     ~/.config/nvim/lua/comment.lua: nvim/lua/comment.lua
     ~/.config/nvim/lua/lsp.lua: nvim/lua/lsp.lua
     ~/.config/nvim/lua/keymaps.lua: nvim/lua/keymaps.lua
+    ~/.config/nvim/after/plugin/luasnip.lua: nvim/after/plugin/luasnip.lua
     ~/.config/nvim/lua/telescope.lua: nvim/lua/telescope.lua
     ~/.config/nvim/lua/theme.lua: nvim/lua/theme.lua
     ~/.config/nvim/lua/treesitter.lua: nvim/lua/treesitter.lua
