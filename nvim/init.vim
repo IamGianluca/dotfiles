@@ -93,7 +93,7 @@ lua require("keymaps")
 lua require("treesitter")
 lua require("lsp")
 lua require("comment")
-lua require("telescope")
+lua require("finder")
 
 
 "=====================================================
