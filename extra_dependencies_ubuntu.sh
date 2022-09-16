@@ -29,3 +29,7 @@ apt install tmux
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
 	~/.fzf/install
 
+
+# install rust
+curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
+rustup update
