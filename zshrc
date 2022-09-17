@@ -121,7 +121,7 @@ alias lsd="ls -alF | grep /$"
 # git
 alias gs="git status"
 alias gc="git checkout"
-alias gcb="git switch --create"
+alias gsc="git switch --create"
 alias gd="git diff"
 alias ga="git add"
 alias gcm="git commit -m"
