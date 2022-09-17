@@ -130,7 +130,7 @@ alias gl="git log --oneline --graph --decorate"
 
 # tmux
 alias tmux="tmux -2"
-alias ta="tmux attach -t"
+alias ta="tmux attach"
 # nvim
 alias vi="nvim"
 
