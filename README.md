@@ -17,7 +17,6 @@ Please note that I've intentionally not forced the creation of missing folders a
 - [ ] Enable extra text objects defined by `nvim-treesitter` (e.g., `iw`, `aw`)
 - [ ] Automatically format codebase and sort import on save
 - [ ] Add command to install `pyright` and `lua-language-server` language servers to `extra_dependencies_ubuntu.sh`
-- [ ] Install rust language server
 - [ ] [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 - [ ] [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [ ] [nvim-treesitter-textsubjects](https://github.com/rrethy/nvim-treesitter-textsubjects)
