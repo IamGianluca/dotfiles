@@ -97,6 +97,10 @@ require('lspconfig')['rust_analyzer'].setup{
     }
 }
 
+-- format on save (does not work with python as pyright does not support
+-- formatting)
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
 
 -- ""=====================================================
 -- """ nvim-cmp Settings
