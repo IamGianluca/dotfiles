@@ -131,8 +131,12 @@ alias gl="git log --oneline --graph --decorate"
 # tmux
 alias tmux="tmux -2"
 alias ta="tmux attach"
+
 # nvim
 alias vi="nvim"
+
+# monitor
+alias monitor="xrandr --output DP1 --auto --same-as eDP1 --mode 2560x1440 --scale 1.25x1.25"
 
 setopt completealiases
 
