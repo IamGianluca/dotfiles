@@ -7,16 +7,16 @@ vim.keymap.set("n", "<leader>fb", ":lua require('telescope.builtin').buffers()<c
 vim.keymap.set("n", "<leader>fh", ":lua require('telescope.builtin').help_tags()<cr>")
 
 
-require'telescope'.setup{}
+require 'telescope'.setup {}
 local actions = require 'telescope.actions'
 
-require'telescope'.setup {
-    defaults = {
-        mappings = {
-            i = {
-                ["<C-j>"] = actions.move_selection_next,
-                ["<C-k>"] = actions.move_selection_previous,
-            },
-        },
-    },
+require 'telescope'.setup {
+	defaults = {
+		mappings = {
+			i = {
+				["<C-j>"] = actions.move_selection_next,
+				["<C-k>"] = actions.move_selection_previous,
+			},
+		},
+	},
 }
