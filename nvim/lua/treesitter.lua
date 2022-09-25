@@ -1,6 +1,6 @@
--- "=====================================================
--- "" TreeSitter Settings
--- "=====================================================
+--=====================================================
+-- TreeSitter Settings
+--=====================================================
 require 'nvim-treesitter.configs'.setup {
 	ensure_installed = "all", -- one of "all", "language", or a list of languages
 	highlight = {
@@ -21,9 +21,9 @@ require 'nvim-treesitter.configs'.setup {
 }
 
 
--- "=====================================================
--- "" TreeSitter-Context Settings
--- "=====================================================
+--=====================================================
+-- TreeSitter-Context Settings
+--=====================================================
 require 'treesitter-context'.setup {
 	enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
 	max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
