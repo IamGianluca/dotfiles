@@ -160,3 +160,9 @@ alias luamake=/home/gianluca/git/lua-language-server/3rd/luamake/luamake
 
 # needed by rust
 export PATH=$PATH:$HOME/.cargo/env
+
+# needed by poetry
+export PATH="/home/gianluca/.local/bin:$PATH"
+path+=~/.zfunc
+autoload -Uz compinit && compinit
+

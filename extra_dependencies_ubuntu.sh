@@ -6,6 +6,11 @@ pyenv install 3.10.6
 pyenv global 3.10.6
 
 
+# install poetry
+curl -sSL https://install.python-poetry.org | python3 -
+poetry completions zsh > ~/.zfunc/_poetry
+
+
 # install powerline-shell
 apt-get install fonts-powerline
 cd git && \
