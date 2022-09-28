@@ -1,10 +1,11 @@
+--=====================================================
+-- comment.nvim Settings
+--=====================================================
+
 require('Comment').setup({
 	extra = {
-		---add comment on the line above
-		above = 'gcO',
-		---add comment on the line below
-		below = 'gco',
-		---add comment at the end of line
-		eol = 'gcA',
+		above = 'gcO', -- add comment on the line above
+		below = 'gco', -- add comment on the line below
+		eol = 'gcA', -- add comment at the end of line
 	},
 })

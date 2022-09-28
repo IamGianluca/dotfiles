@@ -1,5 +1,5 @@
 --=====================================================
---- LuaSnip Settings
+-- LuaSnip Settings
 --=====================================================
 local ls = require("luasnip")
 local types = require("luasnip.util.types")
@@ -61,7 +61,7 @@ local func = ls.function_node
 
 
 --=====================================================
---- Snippets
+-- Snippets
 --=====================================================
 local date = function() return { os.date('%Y-%m-%d') } end
 ls.add_snippets(nil, {
