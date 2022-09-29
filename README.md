@@ -15,7 +15,6 @@ Please note that I've intentionally not forced the creation of missing folders a
 
 - [ ] Add more specific luasnip snippets
 - [ ] Enable extra text objects defined by `nvim-treesitter` (i.e., `af`, `if`, `ac`, `ic`)
-- [ ] Sort imports on save
 - [ ] Install language servers with `mason.nvim`
 - [ ] [nvim-dap](https://github.com/mfussenegger/nvim-dap)
 - [ ] [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)

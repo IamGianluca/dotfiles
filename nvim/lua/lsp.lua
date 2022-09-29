@@ -150,6 +150,7 @@ require('lspconfig')['rust_analyzer'].setup {
 require("null-ls").setup({
 	sources = {
 		require("null-ls").builtins.formatting.black,
+		require("null-ls").builtins.formatting.usort,
 	},
 })
 
