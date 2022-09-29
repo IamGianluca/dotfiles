@@ -48,6 +48,7 @@ vim.opt.smartcase = true
 -- display relative line numbers
 vim.opt.ruler = true
 vim.opt.relativenumber = true
+vim.wo.number = true
 
 -- extra goodies
 vim.wo.wrap = false -- don't wrap lines
