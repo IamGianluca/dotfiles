@@ -73,7 +73,7 @@ end
 
 require('lspconfig')['pyright'].setup {
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
 }
 
 
@@ -83,6 +83,7 @@ require('lspconfig')['pyright'].setup {
 
 require('lspconfig')['sumneko_lua'].setup {
 	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {
@@ -112,6 +113,7 @@ require('lspconfig')['sumneko_lua'].setup {
 
 require('lspconfig')['tsserver'].setup {
 	on_attach = on_attach,
+	capabilities = capabilities,
 	-- flags = lsp_flags,
 }
 
@@ -122,6 +124,7 @@ require('lspconfig')['tsserver'].setup {
 
 require('lspconfig')['rust_analyzer'].setup {
 	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		["rust-analyzer"] = {
 			imports = {
@@ -147,6 +150,8 @@ require('lspconfig')['rust_analyzer'].setup {
 -- null-ls Settings
 --=====================================================
 
+-- needed to format and sort imports in Python since PyRight doesn't offer
+-- those functionalities
 require("null-ls").setup({
 	sources = {
 		require("null-ls").builtins.formatting.black,
@@ -159,5 +164,5 @@ require("null-ls").setup({
 -- General Settings
 --=====================================================
 
--- format on save
+-- format on save for every language
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
