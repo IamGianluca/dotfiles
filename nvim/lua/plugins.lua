@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
 		requires = { { 'nvim-lua/plenary.nvim' }, { 'kyazdani42/nvim-web-devicons' } }
 	}
 
-	-- lsp
+	-- lsp and completion
 	use { 'neovim/nvim-lspconfig' }
 	use { 'hrsh7th/cmp-nvim-lsp' }
 	use { 'hrsh7th/cmp-buffer' }
@@ -47,6 +47,10 @@ return require('packer').startup(function(use)
 		end,
 		requires = { 'nvim-lua/plenary.nvim' },
 	})
+	use {
+		"windwp/nvim-autopairs",
+		config = function() require("nvim-autopairs").setup {} end
+	}
 
 	-- tree sitter
 	use {
