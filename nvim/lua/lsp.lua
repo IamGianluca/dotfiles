@@ -173,3 +173,8 @@ require('nvim-autopairs').setup()
 
 -- format on save for every language
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
+-- spelling
+local o = vim.opt
+o.spelllang = { 'en' }
+o.spell = true
