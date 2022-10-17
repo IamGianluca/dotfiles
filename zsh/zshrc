@@ -110,7 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # linux
 alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
 alias xpskb='setxkbmap -layout "dvorak" -option "ctrl:swapcaps"'
-alias ergkb="setxkbmap -option"
+alias ergkb='setxkbmap -layout "us" -option'
 
 # bash
 alias ll='ls -alh'
