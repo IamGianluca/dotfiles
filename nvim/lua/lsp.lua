@@ -39,7 +39,7 @@ cmp.setup({
 })
 
 -- Set up lspconfig
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- add to your shared on_attach callback
 local on_attach = function(client, bufnr)
