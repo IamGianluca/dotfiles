@@ -168,4 +168,4 @@ export PATH=$PATH:$HOME/.cargo/env
 export PATH="/home/gianluca/.local/bin:$PATH"
 path+=~/.zfunc
 autoload -Uz compinit && compinit
-
+export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
