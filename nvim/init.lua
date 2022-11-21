@@ -54,3 +54,4 @@ vim.wo.number = true
 vim.wo.wrap = false -- don't wrap lines
 vim.opt.signcolumn = 'auto'
 vim.opt.colorcolumn = '80'
+vim.opt.cmdheight = 0
