@@ -4,11 +4,7 @@
 
 require('keymaps')
 require('plugins')
-require('treesitter')
 require('theme')
-require('finder')
-require('lsp')
-require('comment')
 
 --=====================================================
 -- General Settings
