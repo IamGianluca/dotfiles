@@ -4,11 +4,6 @@
 local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
-lsp.ensure_installed({
-	'pyright',
-	'sumneko_lua',
-	'rust_analyzer',
-})
 
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
