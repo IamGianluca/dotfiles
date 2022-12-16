@@ -20,11 +20,11 @@
     ~/.config/nvim/init.lua: nvim/init.lua
     ~/.config/nvim/lua/keymaps.lua: nvim/lua/keymaps.lua
     ~/.config/nvim/lua/plugins.lua: nvim/lua/plugins.lua
-    ~/.config/nvim/lua/treesitter.lua: nvim/lua/treesitter.lua
+    ~/.config/nvim/after/plugin/treesitter.lua: nvim/after/plugin/treesitter.lua
     ~/.config/nvim/lua/theme.lua: nvim/lua/theme.lua
-    ~/.config/nvim/lua/finder.lua: nvim/lua/finder.lua
-    ~/.config/nvim/lua/lsp.lua: nvim/lua/lsp.lua
-    ~/.config/nvim/lua/comment.lua: nvim/lua/comment.lua
+    ~/.config/nvim/after/plugin/telescope.lua: nvim/after/plugin/telescope.lua
+    ~/.config/nvim/after/plugin/lsp.lua: nvim/after/plugin/lsp.lua
+    ~/.config/nvim/after/plugin/comment.lua: nvim/after/plugin/comment.lua
     ~/.config/nvim/after/plugin/luasnip.lua: nvim/after/plugin/luasnip.lua
     ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
     ~/git/dwm-flexipatch/config.h: dwm-flexipatch/config.h
