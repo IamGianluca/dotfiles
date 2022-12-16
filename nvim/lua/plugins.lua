@@ -1,7 +1,6 @@
 --=====================================================
 -- Packer Settings
 --=====================================================
-
 local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
@@ -31,15 +30,28 @@ return require('packer').startup(function(use)
 		requires = { { 'nvim-lua/plenary.nvim' }, { 'kyazdani42/nvim-web-devicons' } }
 	}
 
-	-- lsp and completion
-	use { 'neovim/nvim-lspconfig' }
-	use { 'hrsh7th/cmp-nvim-lsp' }
-	use { 'hrsh7th/cmp-buffer' }
-	use { 'hrsh7th/cmp-path' }
-	use { 'hrsh7th/cmp-cmdline' }
-	use { 'hrsh7th/nvim-cmp' }
-	use { 'saadparwaiz1/cmp_luasnip' }
-	use({ 'L3MON4D3/LuaSnip', tag = 'v1.*' })
+	use {
+		'VonHeikemen/lsp-zero.nvim',
+		requires = {
+			-- LSP Support
+			{ 'neovim/nvim-lspconfig' },
+			{ 'williamboman/mason.nvim' },
+			{ 'williamboman/mason-lspconfig.nvim' },
+
+			-- Autocompletion
+			{ 'hrsh7th/nvim-cmp' },
+			{ 'hrsh7th/cmp-buffer' },
+			{ 'hrsh7th/cmp-path' },
+			{ 'saadparwaiz1/cmp_luasnip' },
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-nvim-lua' },
+
+			-- Snippets
+			{ 'L3MON4D3/LuaSnip' },
+			{ 'rafamadriz/friendly-snippets' },
+		}
+	}
+
 	use({
 		'jose-elias-alvarez/null-ls.nvim',
 		config = function()
