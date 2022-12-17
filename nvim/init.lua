@@ -2,7 +2,7 @@
 -- Load Plugins
 --=====================================================
 
-require('keymaps')
+require('remap')
 require('plugins')
 require('theme')
 

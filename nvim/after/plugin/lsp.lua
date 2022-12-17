@@ -1,8 +1,8 @@
 --=====================================================
 -- nvim-cmp Settings
 --=====================================================
-local lsp = require('lsp-zero')
 
+local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 lsp.on_attach(function(client, bufnr)
@@ -23,7 +23,6 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
 	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
 end)
-
 lsp.setup()
 
 
@@ -33,11 +32,18 @@ lsp.setup()
 
 -- needed to format and sort imports in Python since PyRight doesn't offer
 -- those functionalities
-require("null-ls").setup({
+local null_ls = require('null-ls')
+local null_opts = lsp.build_options('null-ls', {})
+
+null_ls.setup({
+	on_attach = function(client, bufnr)
+		null_opts.on_attach(client, bufnr)
+		--- you can add more stuff here if you need it
+	end,
 	sources = {
-		require("null-ls").builtins.formatting.black,
-		require("null-ls").builtins.formatting.usort,
-	},
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.usort,
+	}
 })
 
 
