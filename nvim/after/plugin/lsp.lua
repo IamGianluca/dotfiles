@@ -31,15 +31,12 @@ lsp.setup()
 --=====================================================
 
 -- needed to format and sort imports in Python since PyRight doesn't offer
--- those functionalities
+-- those functionalities; expects black and usort to be available in PATH
 local null_ls = require('null-ls')
 local null_opts = lsp.build_options('null-ls', {})
 
 null_ls.setup({
-	on_attach = function(client, bufnr)
-		null_opts.on_attach(client, bufnr)
-		--- you can add more stuff here if you need it
-	end,
+	on_attach = null_opts.on_attach,
 	sources = {
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.usort,

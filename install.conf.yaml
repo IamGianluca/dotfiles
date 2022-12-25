@@ -19,6 +19,7 @@
     ~/.config/powerline-shell/config.json: powerline_shell/powerline-shell.json
     ~/.config/nvim/init.lua: nvim/init.lua
     ~/.config/nvim/lua/remap.lua: nvim/lua/remap.lua
+    ~/.config/nvim/lua/set.lua: nvim/lua/set.lua
     ~/.config/nvim/lua/plugins.lua: nvim/lua/plugins.lua
     ~/.config/nvim/after/plugin/treesitter.lua: nvim/after/plugin/treesitter.lua
     ~/.config/nvim/lua/theme.lua: nvim/lua/theme.lua
