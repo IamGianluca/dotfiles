@@ -2,7 +2,7 @@
 -- Load Plugins
 --=====================================================
 
-require('set')
-require('remap')
-require('plugins')
-require('theme')
+require('iamgianluca/set')
+require('iamgianluca/remap')
+require('iamgianluca/plugins')
+require('iamgianluca/theme')
