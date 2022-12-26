@@ -14,10 +14,6 @@ Please note that I've intentionally not forced the creation of missing folders a
 # TODO:
 
 - [ ] Add `/bin` scripts used to generate content for `dwmblocks`
-- [ ] Enable extra text objects defined by `nvim-treesitter` (i.e., `af`, `if`, `ac`, `ic`)
-- [ ] Install language servers with `mason.nvim`
 - [ ] Use `fzf` to power fuzzy finder in `nvim-telescope`
-- [ ] Add more powerful `luasnip` snippets
 - [ ] Install [nvim-dap](https://github.com/mfussenegger/nvim-dap)
-- [ ] Install [nvim-treesitter-textobjects](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
 - [ ] Install [nvim-treesitter-textsubjects](https://github.com/rrethy/nvim-treesitter-textsubjects)
