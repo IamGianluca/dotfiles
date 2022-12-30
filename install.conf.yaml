@@ -28,6 +28,7 @@
     ~/.config/nvim/after/plugin/lsp.lua: nvim/after/plugin/lsp.lua
     ~/.config/nvim/after/plugin/comment.lua: nvim/after/plugin/comment.lua
     ~/.config/nvim/after/plugin/luasnip.lua: nvim/after/plugin/luasnip.lua
+    ~/.config/nvim/after/plugin/delay.lua: nvim/after/plugin/delay.lua
     ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
     ~/git/dwm-flexipatch/config.h: dwm-flexipatch/config.h
     ~/.dwm/autostart.sh: dwm-flexipatch/autostart.sh
