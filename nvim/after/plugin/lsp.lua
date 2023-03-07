@@ -15,16 +15,16 @@ lsp.ensure_installed({
 	'pyright',
 })
 
--- -- fix undefined global 'vim'
--- lsp.configure('lua_ls', {
--- 	settings = {
--- 		Lua = {
--- 			diagnostics = {
--- 				globals = { 'vim' }
--- 			}
--- 		}
--- 	}
--- })
+-- fix undefined global 'vim'
+lsp.configure('lua_ls', {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { 'vim' }
+			}
+		}
+	}
+})
 
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
@@ -71,9 +71,9 @@ null_ls.setup({
 -- mason-null-ls Settings
 --=====================================================
 require('mason-null-ls').setup({
-  ensure_installed = nil,
-  automatic_installation = true,
-  automatic_setup = true,
+	ensure_installed = nil,
+	automatic_installation = true,
+	automatic_setup = true,
 })
 require('mason-null-ls').setup_handlers()
 
