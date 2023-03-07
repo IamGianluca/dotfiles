@@ -2,8 +2,12 @@
 -- nvim-cmp Settings
 --=====================================================
 
-local lsp = require('lsp-zero')
-lsp.preset('recommended')
+local lsp = require('lsp-zero').preset({
+	name = 'minimal',
+	set_lsp_keymaps = true,
+	manage_nvim_cmp = true,
+	suggest_lsp_servers = false,
+})
 
 lsp.ensure_installed({
 	'lua_ls',
@@ -11,16 +15,16 @@ lsp.ensure_installed({
 	'pyright',
 })
 
--- fix undefined global 'vim'
-lsp.configure('lua_ls', {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
-	}
-})
+-- -- fix undefined global 'vim'
+-- lsp.configure('lua_ls', {
+-- 	settings = {
+-- 		Lua = {
+-- 			diagnostics = {
+-- 				globals = { 'vim' }
+-- 			}
+-- 		}
+-- 	}
+-- })
 
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
@@ -53,12 +57,25 @@ local null_ls = require('null-ls')
 local null_opts = lsp.build_options('null-ls', {})
 
 null_ls.setup({
-	on_attach = null_opts.on_attach,
+	on_attach = function(client, bufnr)
+		null_opts.on_attach(client, bufnr)
+	end,
 	sources = {
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.usort,
 	}
 })
+
+
+--=====================================================
+-- mason-null-ls Settings
+--=====================================================
+require('mason-null-ls').setup({
+  ensure_installed = nil,
+  automatic_installation = true,
+  automatic_setup = true,
+})
+require('mason-null-ls').setup_handlers()
 
 
 --=====================================================
