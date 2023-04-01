@@ -2,7 +2,7 @@
 -- TreeSitter Settings
 --=====================================================
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = { "help", "lua", "python", "rust", "markdown" }, -- one of "all", "language", or a list of languages
+	ensure_installed = { "c", "lua", "vim", "help", "query", "python", "rust", "markdown" },
 	sync_install = false,
 	auto_install = true,
 	highlight = {
