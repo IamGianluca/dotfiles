@@ -16,7 +16,7 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
-	-- my plugins here
+
 	-- theme
 	use { 'ellisonleao/gruvbox.nvim' }
 	use {
@@ -83,8 +83,6 @@ return require('packer').startup(function(use)
 	}
 	use { 'tpope/vim-surround' }
 	use { 'tpope/vim-repeat' }
-	use { 'ja-ford/delaytrain.nvim' }
-
 
 	-- automatically set up your configuration after cloning packer.nvim
 	-- put this at the end after all plugins
