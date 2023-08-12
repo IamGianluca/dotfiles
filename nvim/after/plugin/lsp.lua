@@ -70,7 +70,7 @@ null_ls.setup({
 -- mason-null-ls Settings
 --=====================================================
 require('mason-null-ls').setup({
-	ensure_installed = nil,
+	ensure_installed = { "black", "usort" },
 	automatic_installation = true,
 	automatic_setup = true,
 })
