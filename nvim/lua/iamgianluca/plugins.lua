@@ -1,39 +1,40 @@
 --=====================================================
 -- Packer Settings
 --=====================================================
-local ensure_packer = function()
-	local fn = vim.fn
-	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-	if fn.empty(fn.glob(install_path)) > 0 then
-		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-		vim.cmd [[packadd packer.nvim]]
-		return true
-	end
-	return false
+-- bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
 
-return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'
-
+return require('lazy').setup({
 	-- theme
-	use { 'ellisonleao/gruvbox.nvim' }
-	use {
+	'ellisonleao/gruvbox.nvim',
+	{
 		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons' }
-	}
+		dependencies = { 'kyazdani42/nvim-web-devicons' }
+	},
 
 	-- project navigation
-	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		requires = { { 'nvim-lua/plenary.nvim' }, { 'kyazdani42/nvim-web-devicons' } }
-	}
+	{
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.0',
+		dependencies = { { 'nvim-lua/plenary.nvim' }, { 'kyazdani42/nvim-web-devicons' } }
+	},
 
-	use {
+	{
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v1.x',
-		requires = {
+		dependencies = {
 			-- LSP Support
 			{ 'neovim/nvim-lspconfig' },
 			{ 'williamboman/mason.nvim' },
@@ -52,41 +53,35 @@ return require('packer').startup(function(use)
 			{ 'L3MON4D3/LuaSnip' },
 			{ 'rafamadriz/friendly-snippets' },
 		}
-	}
+	},
 
-	use({
+	{
 		'jose-elias-alvarez/null-ls.nvim',
 		config = function()
 			require('null-ls').setup()
 		end,
-		requires = { 'nvim-lua/plenary.nvim' },
-	})
-	use {
+		dependencies = { 'nvim-lua/plenary.nvim' },
+	},
+	{
 		"windwp/nvim-autopairs",
 		config = function() require("nvim-autopairs").setup {} end
-	}
+	},
 
 	-- tree sitter
-	use {
+	{
 		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate'
-	}
-	use { 'nvim-treesitter/nvim-treesitter-textobjects' }
-	use { 'nvim-treesitter/nvim-treesitter-context' }
+		build = ':TSUpdate'
+	},
+	'nvim-treesitter/nvim-treesitter-textobjects',
+	'nvim-treesitter/nvim-treesitter-context',
 
 	-- utilities
-	use {
+	{
 		'numToStr/Comment.nvim',
 		config = function()
 			require('Comment').setup()
 		end
-	}
-	use { 'tpope/vim-surround' }
-	use { 'tpope/vim-repeat' }
-
-	-- automatically set up your configuration after cloning packer.nvim
-	-- put this at the end after all plugins
-	if packer_bootstrap then
-		require('packer').sync()
-	end
-end)
+	},
+	'tpope/vim-surround',
+	'tpope/vim-repeat',
+})
