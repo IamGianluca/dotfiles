@@ -59,4 +59,4 @@ vim.cmd('colorscheme rose-pine')
 -- "=====================================================
 -- "" Lualine Settings
 -- "=====================================================
-require('lualine').setup({})
+require('lualine').setup()
