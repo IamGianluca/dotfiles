@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
 	-- theme
-	'ellisonleao/gruvbox.nvim',
+	{ 'rose-pine/neovim', name = 'rose-pine' },
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = { 'kyazdani42/nvim-web-devicons' }
@@ -27,8 +27,8 @@ return require('lazy').setup({
 	-- project navigation
 	{
 		'nvim-telescope/telescope.nvim',
-		tag = '0.1.0',
-		dependencies = { { 'nvim-lua/plenary.nvim' }, { 'kyazdani42/nvim-web-devicons' } }
+		tag = '0.1.2',
+		dependencies = { 'nvim-lua/plenary.nvim' }
 	},
 
 	{
