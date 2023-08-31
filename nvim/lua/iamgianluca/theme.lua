@@ -1,3 +1,6 @@
+--=====================================================
+-- Theme Settings
+--=====================================================
 require('rose-pine').setup({
 	--- @usage 'auto'|'main'|'moon'|'dawn'
 	variant = 'auto',
@@ -59,4 +62,4 @@ vim.cmd('colorscheme rose-pine')
 -- "=====================================================
 -- "" Lualine Settings
 -- "=====================================================
-require('lualine').setup()
+-- require('lualine').setup()

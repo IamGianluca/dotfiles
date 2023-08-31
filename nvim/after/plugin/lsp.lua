@@ -93,3 +93,7 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 local o = vim.opt
 o.spelllang = { 'en' }
 o.spell = true
+
+-- show inline diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })

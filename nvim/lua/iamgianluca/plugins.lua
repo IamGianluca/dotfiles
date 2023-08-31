@@ -19,10 +19,11 @@ vim.opt.rtp:prepend(lazypath)
 return require('lazy').setup({
 	-- theme
 	{ 'rose-pine/neovim', name = 'rose-pine' },
-	{
-		'nvim-lualine/lualine.nvim',
-		dependencies = { 'kyazdani42/nvim-web-devicons' }
-	},
+	-- temporary disable due to issues with tmux
+	-- {
+	-- 	'nvim-lualine/lualine.nvim',
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- },
 
 	-- project navigation
 	{
