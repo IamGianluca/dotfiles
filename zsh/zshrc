@@ -166,8 +166,13 @@ alias luamake=/home/gianluca/git/lua-language-server/3rd/luamake/luamake
 export PATH=$PATH:$HOME/.cargo/env
 
 # needed by poetry
-export PATH="/home/gianluca/.local/bin:$PATH"  # linux
-export PATH="/Users/gianluca/.local/bin:$PATH" # mac os
+if [[ $(uname) == "Darwin" ]]; then
+    export PATH="/Users/gianluca/.local/bin:$PATH" # mac os
+elif command -v apt > /dev/null; then
+    export PATH="/home/gianluca/.local/bin:$PATH"  # linux
+else
+    echo "Unknown OS. Could not add Poetry executable's path to PATH"
+fi
 path+=~/.zfunc
 autoload -Uz compinit && compinit
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
