@@ -136,12 +136,6 @@ alias ta="tmux attach"
 # nvim
 alias vi="nvim"
 
-# turn off laptop's display and use desktop's monitor instead
-# desktop: only use desktop monitor
-# laptop: use laptop's monitor and, if present, mirror it on the desktop monitor
-alias desktop="xrandr --output eDP1 --off --output DP1 --mode 2560x1440 --scale 1.25x1.25"
-alias laptop="xrandr --output eDP1 --auto"
-
 setopt completealiases
 
 # needed for fzf
