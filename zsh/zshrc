@@ -108,10 +108,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# linux
-alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
-alias xpskb='setxkbmap -layout "dvorak" -option "ctrl:swapcaps"'
-alias ergkb='setxkbmap -layout "us" -option'
+# package manager
+if [[ $(uname) == "Linux" ]]; then
+    alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
+elif [[ $(uname) == "Darwin" ]]; then
+    alias update="brew update && brew upgrade"
+fi
+
+# switch keyboard settings
+if [[ $(uname) == "Linux" ]]; then
+    alias xpskb='setxkbmap -layout "dvorak" -option "ctrl:swapcaps"'
+    alias ergkb='setxkbmap -layout "us" -option'
+fi
 
 # bash
 alias ll='ls -alh'
@@ -160,10 +168,10 @@ alias luamake=/home/gianluca/git/lua-language-server/3rd/luamake/luamake
 export PATH=$PATH:$HOME/.cargo/env
 
 # needed by poetry
-if [[ $(uname) == "Darwin" ]]; then
-    export PATH="/Users/gianluca/.local/bin:$PATH" # mac os
-elif command -v apt > /dev/null; then
-    export PATH="/home/gianluca/.local/bin:$PATH"  # linux
+if [[ $(uname) == "Linux" ]]; then
+    export PATH="/home/gianluca/.local/bin:$PATH"
+elif [[ $(uname) == "Darwin" ]]; then
+    export PATH="/Users/gianluca/.local/bin:$PATH"
 else
     echo "Unknown OS. Could not add Poetry executable's path to PATH"
 fi
