@@ -1,5 +1,5 @@
 --=====================================================
--- Packer Settings
+-- Lazy.nvim Settings
 --=====================================================
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
