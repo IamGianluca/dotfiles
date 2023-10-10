@@ -31,7 +31,7 @@ lsp.on_attach(function(client, bufnr)
 
 	-- normal mode
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-	vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+	-- vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
 	vim.keymap.set("n", "<S-k>", function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
