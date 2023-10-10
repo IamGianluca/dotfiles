@@ -2,6 +2,9 @@
 -- General Settings
 --=====================================================
 
+-- use system clipboard instead of unnamed registry
+vim.opt.clipboard = "unnamedplus"
+
 -- open new splits on the right or on the bottom of the screen
 vim.opt.splitbelow = true
 vim.opt.splitright = true
