@@ -29,6 +29,7 @@
     ~/.config/nvim/after/plugin/telescope.lua: nvim/after/plugin/telescope.lua
     ~/.config/nvim/after/plugin/lsp.lua: nvim/after/plugin/lsp.lua
     ~/.config/nvim/after/plugin/dap.lua: nvim/after/plugin/dap.lua
+    ~/.config/nvim/after/plugin/rust_tools.lua: nvim/after/plugin/rust_tools.lua
     ~/.config/nvim/after/plugin/comment.lua: nvim/after/plugin/comment.lua
     ~/.config/nvim/after/plugin/luasnip.lua: nvim/after/plugin/luasnip.lua
       # ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h

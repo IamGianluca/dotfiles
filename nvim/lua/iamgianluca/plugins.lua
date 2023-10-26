@@ -44,6 +44,9 @@ return require("lazy").setup({
 				"williamboman/mason-lspconfig.nvim",
 			},
 
+			-- rust
+			'simrat39/rust-tools.nvim',
+
 			-- DAP support
 			{
 				"williamboman/mason.nvim",
