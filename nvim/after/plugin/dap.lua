@@ -14,11 +14,12 @@ require("mason-nvim-dap").setup({
 
 -- keymaps to interact with DAP
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = "DAP continue" })
-vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, { desc = "DAP step over" })
-vim.keymap.set('n', '<F11>', function() require('dap').step_into() end, { desc = "DAP step into" })
-vim.keymap.set('n', '<F12>', function() require('dap').step_out() end, { desc = "DAP step out" })
+vim.keymap.set('n', '<F1>', function() require('dap').step_into() end, { desc = "DAP step into" })
+vim.keymap.set('n', '<F2>', function() require('dap').step_over() end, { desc = "DAP step over" })
+vim.keymap.set('n', '<F3>', function() require('dap').step_out() end, { desc = "DAP step out" })
 vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() end, { desc = "DAP toggle breakpoint" })
-vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end, { desc = "DAP set breakpoint" })
+vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
+	{ desc = "DAP conditional breakpoint" })
 vim.keymap.set('n', '<Leader>lp',
 	function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
 	{ desc = "DAP log point message" })
