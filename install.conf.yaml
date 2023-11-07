@@ -10,6 +10,7 @@
   - ~/.config/nvim/lua
   - ~/.config/nvim/lua/iamgianluca
   - ~/.config/nvim/after/plugin
+  - ~/.config/kitty
   #- ~/.dwm
   - ~/.zfunc
 
