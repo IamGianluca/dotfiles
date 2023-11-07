@@ -15,6 +15,7 @@
 
 - link:
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.zshrc: 
       force: true
       path: zsh/zshrc
