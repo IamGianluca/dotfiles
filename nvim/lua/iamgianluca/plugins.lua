@@ -96,9 +96,7 @@ return require("lazy").setup({
 	-- utilities
 	{
 		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end
+		lazy = false,
 	},
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
