@@ -100,6 +100,7 @@ return require("lazy").setup({
 	},
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
+	"tpope/vim-fugitive",
 	{
 		"m4xshen/hardtime.nvim",
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
