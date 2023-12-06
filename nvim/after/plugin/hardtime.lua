@@ -2,6 +2,6 @@
 -- Hardtime Settings
 --=====================================================
 
-require('hardtime') {
+require("hardtime").setup({
 	disable_mouse = false
-}
+})
