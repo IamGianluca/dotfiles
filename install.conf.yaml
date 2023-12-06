@@ -35,7 +35,7 @@
     ~/.config/nvim/after/plugin/telescope.lua: nvim/after/plugin/telescope.lua
     ~/.config/nvim/after/plugin/treesitter.lua: nvim/after/plugin/treesitter.lua
     ~/.config/powerline-shell/config.json: powerline_shell/powerline-shell.json
-      # ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
+      #~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
       #~/git/dwm-flexipatch/config.h: dwm-flexipatch/config.h
       #~/.dwm/autostart.sh: dwm-flexipatch/autostart.sh
       #~/git/dmenu-flexipatch/patches.h: dmenu-flexipatch/patches.h
