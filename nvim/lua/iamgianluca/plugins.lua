@@ -56,9 +56,9 @@ return require("lazy").setup({
 			},
 
 			-- language server for neovim config
-			{ "folke/neodev.nvim",           opts = {} },
+			{ "folke/neodev.nvim",          opts = {} },
 
-			-- Autocompletion
+			-- autocompletion
 			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-nvim-lua" },
@@ -67,9 +67,11 @@ return require("lazy").setup({
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "jay-babu/mason-null-ls.nvim" },
 
-			-- Snippets
-			{ "L3MON4D3/LuaSnip" },
-			{ "rafamadriz/friendly-snippets" },
+			-- snippets
+			{
+				"L3MON4D3/LuaSnip",
+				dependencies = { "rafamadriz/friendly-snippets" },
+			},
 		}
 	},
 
