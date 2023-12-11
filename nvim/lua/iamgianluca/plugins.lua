@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
 	-- theme
-	{ "rose-pine/neovim", name = "rose-pine" },
+	{ "rose-pine/neovim",                         name = "rose-pine" },
 	-- temporary disable due to issues with tmux
 	-- {
 	-- 	"nvim-lualine/lualine.nvim",
@@ -32,7 +32,7 @@ return require("lazy").setup({
 		tag = "0.1.5",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" }
 	},
-
+	{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v1.x",
