@@ -108,20 +108,22 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# specific aliases on linux
+# specific aliases on linux and MacOS
 if [[ $(uname) == "Linux" ]]; then
     # package manager
     alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
 
-    # keyboard settings
+    # keyboard
     alias xpskb='setxkbmap -layout "dvorak" -option "ctrl:swapcaps"'
     alias ergkb='setxkbmap -layout "us" -option'
 
     # monitors
-    alias desktop="xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160"  
-    alias laptop="xrandr --output eDP-1 --mode 3840x2160"
+    alias bigscreen="xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160"  
+    alias smallscreen="xrandr --output eDP-1 --mode 3840x2160"
 
-# specific aliases on MacOS
+    # helpers
+    alias desktop="ergkb && bigscreen"
+    alias laptop="xpskb && smallscreen"
 elif [[ $(uname) == "Darwin" ]]; then
     alias update="brew update && brew upgrade"
 fi
