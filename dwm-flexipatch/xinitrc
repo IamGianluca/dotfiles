@@ -1,0 +1,5 @@
+# start dwm
+exec dwm
+
+# scale resolution for hidpi monitor
+xrdb -merge ~/.Xresources
