@@ -8,6 +8,12 @@ static const int corner_radius           = 10;
 #else
 static const unsigned int borderpx       = 1;   /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
+#if BAR_BORDER_PATCH
+/* This allows the bar border size to be explicitly set separately from borderpx.
+ * If left as 0 then it will default to the borderpx value of the monitor and will
+ * automatically update with setborderpx. */
+static const unsigned int barborderpx    = 0;  /* border pixel of bar */
+#endif // BAR_BORDER_PATCH
 static const unsigned int snap           = 32;  /* snap pixel */
 #if SWALLOW_PATCH
 static const int swallowfloating         = 0;   /* 1 means swallow floating windows by default */
@@ -123,6 +129,16 @@ static const int ulineall = 0;                  /* 1 to show underline on all ta
 #define NAMETAG_COMMAND "dmenu < /dev/null"
 #endif // NAMETAG_PATCH
 
+#if ALT_TAB_PATCH
+/* alt-tab configuration */
+static const unsigned int tabmodkey        = 0x40; /* (Alt) when this key is held down the alt-tab functionality stays active. Must be the same modifier as used to run alttabstart */
+static const unsigned int tabcyclekey      = 0x17; /* (Tab) when this key is hit the menu moves one position forward in client stack. Must be the same key as used to run alttabstart */
+static const unsigned int tabposy          = 1;    /* tab position on Y axis, 0 = top, 1 = center, 2 = bottom */
+static const unsigned int tabposx          = 1;    /* tab position on X axis, 0 = left, 1 = center, 2 = right */
+static const unsigned int maxwtab          = 600;  /* tab menu width */
+static const unsigned int maxhtab          = 200;  /* tab menu height */
+#endif // ALT_TAB_PATCH
+
 /* Indicators: see patch/bar_indicators.h for options */
 static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
@@ -147,9 +163,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 10";
 #else
-static const char *fonts[]               = {"Hack Nerd Font Mono:size=10", "monospace:size=10" };
+static const char *fonts[]               = {"Hack Regular:size=10", "monospace:size=10" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "Hack Nerd Font Mono:size=10";
+static const char dmenufont[]            = "Hack Regular:size=10";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -534,13 +550,13 @@ static const BarRule barrules[] = {
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_stbutton,           draw_stbutton,          click_stbutton,          NULL,                    "statusbutton" },
 	#endif // BAR_STATUSBUTTON_PATCH
 	#if BAR_POWERLINE_TAGS_PATCH
-	{  0,        0,     BAR_ALIGN_LEFT,   width_pwrl_tags,          draw_pwrl_tags,         click_pwrl_tags,         NULL,                    "powerline_tags" },
+	{  0,        0,     BAR_ALIGN_LEFT,   width_pwrl_tags,          draw_pwrl_tags,         click_pwrl_tags,         hover_pwrl_tags,         "powerline_tags" },
 	#endif // BAR_POWERLINE_TAGS_PATCH
 	#if BAR_TAGS_PATCH
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
 	#endif // BAR_TAGS_PATCH
 	#if BAR_TAGLABELS_PATCH
-	{ -1,        0,     BAR_ALIGN_LEFT,   width_taglabels,          draw_taglabels,         click_taglabels,         NULL,                    "taglabels" },
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_taglabels,          draw_taglabels,         click_taglabels,         hover_taglabels,         "taglabels" },
 	#endif // BAR_TAGLABELS_PATCH
 	#if BAR_TAGGRID_PATCH
 	{ -1,        0,     BAR_ALIGN_LEFT,   width_taggrid,            draw_taggrid,           click_taggrid,           NULL,                    "taggrid" },
@@ -695,9 +711,6 @@ static const Layout layouts[] = {
 	#if NROWGRID_LAYOUT
 	{ "###",      nrowgrid,         {0} },
 	#endif
-	#if CYCLELAYOUTS_PATCH
-	{ NULL,       NULL,             {0} },
-	#endif
 };
 #else
 static const Layout layouts[] = {
@@ -744,9 +757,6 @@ static const Layout layouts[] = {
 	#endif
 	#if NROWGRID_LAYOUT
 	{ "###",      nrowgrid },
-	#endif
-	#if CYCLELAYOUTS_PATCH
-	{ NULL,       NULL },
 	#endif
 };
 #endif // FLEXTILE_DELUXE_LAYOUT
@@ -842,8 +852,14 @@ static const char *xkb_layouts[]  = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+#if !NODMENU_PATCH
+static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+#endif // NODMENU_PATCH
 static const char *dmenucmd[] = {
 	"dmenu_run",
+	#if !NODMENU_PATCH
+	"-m", dmenumon,
+	#endif // NODMENU_PATCH
 	"-fn", dmenufont,
 	"-nb", normbgcolor,
 	"-nf", normfgcolor,
@@ -902,12 +918,15 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
 	{ MODKEY,                       XK_b,          togglebar,              {0} },
+	#if TOGGLETOPBAR_PATCH
+	{ MODKEY|ShiftMask,             XK_b,          toggletopbar,           {0} },
+	#endif // TOGGLETOPBAR_PATCH
 	#if TAB_PATCH
 	{ MODKEY|ControlMask,           XK_b,          tabmode,                {-1} },
 	#endif // TAB_PATCH
-	#if FOCUSMASTER_PATCH
+	#if FOCUSMASTER_PATCH || FOCUSMASTER_RETURN_PATCH
 	{ MODKEY|ControlMask,           XK_space,      focusmaster,            {0} },
-	#endif // FOCUSMASTER_PATCH
+	#endif // FOCUSMASTER_PATCH / FOCUSMASTER_RETURN_PATCH
 	#if STACKER_PATCH
 	STACKKEYS(MODKEY,                              focus)
 	STACKKEYS(MODKEY|ShiftMask,                    push)
@@ -1006,7 +1025,11 @@ static const Key keys[] = {
 	{ MODKEY|Mod4Mask,              XK_0,          togglegaps,             {0} },
 	{ MODKEY|Mod4Mask|ShiftMask,    XK_0,          defaultgaps,            {0} },
 	#endif // VANITYGAPS_PATCH
+	#if ALT_TAB_PATCH
+	{ Mod1Mask,                     XK_Tab,        alttabstart,            {0} },
+	#else
 	{ MODKEY,                       XK_Tab,        view,                   {0} },
+	#endif // ALT_TAB_PATCH
 	#if SHIFTTAG_PATCH
 	{ MODKEY|ShiftMask,             XK_Left,       shifttag,               { .i = -1 } }, // note keybinding conflict with focusadjacenttag tagtoleft
 	{ MODKEY|ShiftMask,             XK_Right,      shifttag,               { .i = +1 } }, // note keybinding conflict with focusadjacenttag tagtoright
@@ -1390,6 +1413,9 @@ static const Signal signals[] = {
 	{ "focusstack",              focusstack },
 	{ "setmfact",                setmfact },
 	{ "togglebar",               togglebar },
+	#if TOGGLETOPBAR_PATCH
+	{ "toggletopbar",            toggletopbar },
+	#endif // TOGGLETOPBAR_PATCH
 	{ "incnmaster",              incnmaster },
 	{ "togglefloating",          togglefloating },
 	{ "focusmon",                focusmon },
@@ -1588,6 +1614,9 @@ static IPCCommand ipccommands[] = {
 	IPCCOMMAND( tag, 1, {ARG_TYPE_UINT} ),
 	IPCCOMMAND( tagmon, 1, {ARG_TYPE_UINT} ),
 	IPCCOMMAND( togglebar, 1, {ARG_TYPE_NONE} ),
+	#if TOGGLETOPBAR_PATCH
+	IPCCOMMAND( toggletopbar, 1, {ARG_TYPE_NONE} ),
+	#endif // TOGGLETOPBAR_PATCH
 	IPCCOMMAND( togglefloating, 1, {ARG_TYPE_NONE} ),
 	IPCCOMMAND( toggletag, 1, {ARG_TYPE_UINT} ),
 	IPCCOMMAND( toggleview, 1, {ARG_TYPE_UINT} ),
