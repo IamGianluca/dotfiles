@@ -897,15 +897,12 @@ static const Key on_empty_keys[] = {
 #endif // ON_EMPTY_KEYS_PATCH
 
 /* commands */
-static const char *lightdown[]  = { "xbacklight", "-dec", "20", NULL };
-static const char *lightup[]    = { "xbacklight", "-inc", "20", NULL };
-
 static const Key keys[] = {
 	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+10 dwmblocks") },
 	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%;  pkill -RTMIN+10 dwmblocks") },
 	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%;  pkill -RTMIN+10 dwmblocks") },
-    	{ 0, XF86XK_MonBrightnessUp,    spawn,        { .v = lightup} },
-    	{ 0, XF86XK_MonBrightnessDown,  spawn,        { .v = lightdown} },
+    	{ 0, XF86XK_MonBrightnessUp,    spawn,        	SHCMD("brightnessctl set 10%+;  pkill -RTMIN+10 dwmblocks") },
+    	{ 0, XF86XK_MonBrightnessDown,  spawn, 		SHCMD("brightnessctl set 10%-;  pkill -RTMIN+10 dwmblocks") },
 	/* modifier                     key            function                argument */
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },

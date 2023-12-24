@@ -1,0 +1,6 @@
+#!/bin/bash
+
+icon=""
+temp=$(sensors | awk '/CPU/ {print $2+0}')
+
+printf "$icon ^c#f7ca88^$((temp))^c#d75f5f^°C^d^"
