@@ -2,7 +2,7 @@
 
 static const Block blocks[] = {
 	/* Command *//* Update Interval *//* Update Signal */
-	{"dwm_memory", 3, 0},
+	// {"dwm_memory", 3, 0},
 	{"dwm_kernel", 0, 0},
 	/* {"dwm_cpu_temp", 3, 0}, */
 	/* {"dwm_brightness", 0, 11}, */

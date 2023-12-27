@@ -22,5 +22,4 @@ else
 	battery_icon=" "
 fi
 
-printf "$battery_icon $bat_capacity"
-# printf "$battery_icon ^c#f7ca88^$bat_capacity%%^d^"
+printf "$battery_icon $bat_capacity%%"

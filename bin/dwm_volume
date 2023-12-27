@@ -20,5 +20,4 @@ else
         vol_icon=" "
 fi
 
-printf "$vol_icon $vol^"
-# printf "$vol_icon^c#f7ca88^$vol%%^d^"
+printf "$vol_icon $vol"
