@@ -41,8 +41,8 @@
     ~/.dwm/autostart.sh: dwm-flexipatch/autostart.sh
     ~/.xinitrc: dwm-flexipatch/xinitrc
     ~/.Xresources: dwm-flexipatch/Xresources
-    # ~/git/dmenu-flexipatch/patches.h: dmenu-flexipatch/patches.h
-    # ~/git/dmenu-flexipatch/config.h: dmenu-flexipatch/config.h
+    ~/git/dmenu-flexipatch/patches.h: dmenu-flexipatch/patches.h
+    ~/git/dmenu-flexipatch/config.h: dmenu-flexipatch/config.h
     # ~/git/st-flexipatch/patches.h: st-flexipatch/patches.h
     # ~/git/st-flexipatch/config.h: st-flexipatch/config.h
     ~/git/dwmblocks-enhanced/config.h: dwmblocks-enhanced/config.h
