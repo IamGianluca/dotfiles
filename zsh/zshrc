@@ -119,7 +119,7 @@ if [[ $(uname) == "Linux" ]]; then
 
     # monitors
     alias bigscreen="xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160"  
-    alias smallscreen="xrandr --output eDP-1 --mode 3840x2160"
+    alias smallscreen="xrandr --output eDP-1 --mode 3200x1800"
 
     # helpers
     alias desktop="ergkb && bigscreen"
