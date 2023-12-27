@@ -13,6 +13,7 @@
   - ~/.config/kitty
   - ~/.dwm
   - ~/.zfunc
+  - ~/.local/bin
 
 - link:
     ~/.tmux.conf: tmux/tmux.conf
