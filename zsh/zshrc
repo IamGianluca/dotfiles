@@ -117,7 +117,7 @@ if [[ $(uname) == "Linux" ]]; then
 
     # monitors
     alias home_screen="xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160"  
-    alias upstate_screen="xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160"  # update
+    alias upstate_screen="xrandr --output eDP-1 --off --output DP-1 --mode 2560x1440 --scale 1.5x1.5"
     alias xps_screen="xrandr --output eDP-1 --mode 3200x1800"
     alias precision_screen="xrandr --output eDP-1 --mode 3840x2160"
 
