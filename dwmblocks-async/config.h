@@ -23,5 +23,4 @@
     X("dwm_battery", 3, 0) \
     X("dwm_date", 3, 0)    \
     X("dwm_clock", 3, 0)
-
 #endif  // CONFIG_H
