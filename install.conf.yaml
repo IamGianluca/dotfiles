@@ -21,6 +21,7 @@
     ~/.zshrc: 
       force: true
       path: zsh/zshrc
+    ~/.zshenv: zsh/zshenv
     ~/.zfunc/_poetry: poetry/_poetry
     ~/.config/nvim/init.lua: nvim/init.lua
     ~/.config/nvim/lua/iamgianluca/plugins.lua: nvim/lua/iamgianluca/plugins.lua

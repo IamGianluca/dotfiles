@@ -88,9 +88,9 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	gitfast
-	poetry
+	# git
+	# gitfast
+	# poetry
 	zsh-autosuggestions
 	zsh-fzf-history-search
 	zsh-syntax-highlighting # must be last plugin sourced
