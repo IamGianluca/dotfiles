@@ -205,4 +205,4 @@ autoload -Uz compinit && compinit
 export PYTHON_KEYRING_BACKEND=keyring.backends.null.Keyring
 
 # needed by dwmblocks
-export PATH=$PATH:~/.local/bin/statusbar
+export PATH=$PATH:~/.local/bin/statusbar/
