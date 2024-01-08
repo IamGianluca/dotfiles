@@ -33,7 +33,7 @@ vim.opt.smartcase = true
 
 -- line wrapping and indentation
 vim.opt.smartindent = true
-vim.wo.wrap = false
+vim.opt.wrap = false
 
 
 --=====================================================
@@ -43,10 +43,8 @@ vim.wo.wrap = false
 vim.opt.termguicolors = true
 
 -- display relative line numbers
-vim.opt.nu = true
+vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- extra goodies
 vim.opt.scrolloff = 8 -- try to keep at least 8 lines above and below the cursor
--- vim.opt.signcolumn = 'yes'
--- vim.opt.colorcolumn = '80'
