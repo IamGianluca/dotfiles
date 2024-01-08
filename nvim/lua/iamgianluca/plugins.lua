@@ -56,7 +56,7 @@ return require("lazy").setup({
 			},
 
 			-- language server for neovim config
-			{ "folke/neodev.nvim",          opts = {} },
+			{ "folke/neodev.nvim",       opts = {} },
 
 			-- autocompletion
 			{ "hrsh7th/nvim-cmp" },
@@ -65,7 +65,6 @@ return require("lazy").setup({
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "saadparwaiz1/cmp_luasnip" },
-			{ "jay-babu/mason-null-ls.nvim" },
 
 			-- snippets
 			{
@@ -76,11 +75,8 @@ return require("lazy").setup({
 	},
 
 	{
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("null-ls").setup()
-		end,
-		dependencies = { "nvim-lua/plenary.nvim" },
+		'stevearc/conform.nvim',
+		opts = {},
 	},
 	{
 		"windwp/nvim-autopairs",

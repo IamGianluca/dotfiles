@@ -48,31 +48,20 @@ lsp.setup()
 
 
 --=====================================================
--- mason-null-ls Settings
---=====================================================
-require('mason-null-ls').setup({
-	ensure_installed = { "black", "usort" },
-	automatic_installation = true,
-	automatic_setup = true,
-	handlers = {},
-
-})
-
-
---=====================================================
--- null-ls Settings
+-- conform Settings
 --=====================================================
 
 -- needed to format and sort imports in Python since PyRight doesn't offer
 -- those functionalities; expects black and usort to be available in PATH
-local null_ls = require('null-ls')
-
-null_ls.setup({
-	sources = {
-
-		null_ls.builtins.formatting.black,
-		null_ls.builtins.formatting.usort,
-	}
+require("conform").setup({
+	formatters_by_ft = {
+		python = { "usort", "black" },
+	},
+	format_on_save = {
+		-- These options will be passed to conform.format()
+		timeout_ms = 500,
+		lsp_fallback = true,
+	},
 })
 
 
