@@ -44,9 +44,6 @@ return require("lazy").setup({
 				"williamboman/mason-lspconfig.nvim",
 			},
 
-			-- rust
-			'simrat39/rust-tools.nvim',
-
 			-- DAP support
 			{
 				"williamboman/mason.nvim",
@@ -105,4 +102,11 @@ return require("lazy").setup({
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
 		opts = {}
 	},
+
+	-- rust
+	{
+		'mrcjkb/rustaceanvim',
+		version = '^3', -- Recommended
+		ft = { 'rust' },
+	}
 })
