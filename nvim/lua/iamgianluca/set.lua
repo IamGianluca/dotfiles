@@ -2,7 +2,10 @@
 -- General Settings
 --=====================================================
 
--- use system clipboard instead of unnamed registry
+-- allow unsaved work in hidden buffers that's not displayed on our screen
+vim.opt.hidden = true
+
+-- synchronizes the system clipboard with nvim's clipboard
 vim.opt.clipboard = "unnamedplus"
 
 -- open new splits on the right or on the bottom of the screen
