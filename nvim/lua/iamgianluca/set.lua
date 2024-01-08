@@ -51,4 +51,5 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- extra goodies
-vim.opt.scrolloff = 999 -- keep cursor always in the middle
+vim.opt.scrolloff = 999       -- keep cursor always in the middle
+vim.opt.virtualedit = "block" -- allow cursor to be positioned where there is no actual character in Visual Block mode
