@@ -37,6 +37,7 @@ vim.opt.smartcase = true
 -- line wrapping and indentation
 vim.opt.smartindent = true
 vim.opt.wrap = false
+vim.opt.shiftwidth = 4
 
 
 --=====================================================
