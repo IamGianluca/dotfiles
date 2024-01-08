@@ -2,50 +2,68 @@
 -- lsp-zero Settings
 --=====================================================
 
-local lsp = require('lsp-zero').preset({
-	name = 'minimal',
-	set_lsp_keymaps = true,
-	manage_nvim_cmp = true,
-	suggest_lsp_servers = false,
-})
+local lsp_zero = require('lsp-zero')
 
-lsp.ensure_installed({
-	'lua_ls',
-	'rust_analyzer',
-	'pyright',
-})
-
--- fix undefined global 'vim'
-lsp.configure('lua_ls', {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
-	}
-})
-
-lsp.on_attach(function(client, bufnr)
-	local opts = { buffer = bufnr, remap = false }
-
-	-- normal mode
-	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-	-- vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
-	vim.keymap.set("n", "<S-k>", function() vim.lsp.buf.hover() end, opts)
-	vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-	vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-	vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end, opts)
-	vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-	vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-	-- insert mode
-	vim.keymap.set("i", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
+lsp_zero.on_attach(function(client, bufnr)
+	-- see :help lsp-zero-keybindings
+	-- to learn the available actions
+	lsp_zero.default_keymaps({ buffer = bufnr })
 end)
-lsp.skip_server_setup({ 'rust_analyzer' })
-lsp.setup()
 
+-- enable automatic installation and setup of language servers
+require('mason').setup({})
+require('mason-lspconfig').setup({
+	ensure_installed = { "lua_ls", "rust_analyzer", "pyright" },
+	handlers = {
+		lsp_zero.default_setup,
+		rust_analyzer = lsp_zero.noop, -- exclude rust_analyze from autoconfiguration, required by rustaceanvim
+	},
+})
+
+-- configure completion sources
+local cmp = require('cmp')
+local cmp_format = require('lsp-zero').cmp_format()
+local cmp_action = require('lsp-zero').cmp_action()
+
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+require('luasnip.loaders.from_vscode').lazy_load()
+
+cmp.setup({
+	sources = {
+		{ name = 'path' },
+		{ name = 'nvim_lsp' },
+		{ name = 'nvim_lua' },
+		{ name = 'buffer',  keyword_length = 3 },
+		{ name = 'luasnip', keyword_length = 2 },
+	},
+	preselect = 'item',
+	completion = {
+		completeopt = 'menu,menuone,noinsert',
+	},
+	mapping = cmp.mapping.preset.insert({
+		-- confirm completion item
+		['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+		-- toggle completion menu
+		['<C-e>'] = cmp_action.toggle_completion(),
+
+		-- tab complete
+		['<Tab>'] = cmp_action.tab_complete(),
+		['<S-Tab>'] = cmp.mapping.select_prev_item(),
+
+		-- navigate between snippet placeholder
+		['<C-d>'] = cmp_action.luasnip_jump_forward(),
+		['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+		-- scroll documentation window
+		['<C-f>'] = cmp.mapping.scroll_docs(-5),
+		['<C-d>'] = cmp.mapping.scroll_docs(5),
+	}),
+	window = {
+		documentation = cmp.config.window.bordered(),
+	},
+	formatting = cmp_format,
+})
 
 --=====================================================
 -- conform Settings

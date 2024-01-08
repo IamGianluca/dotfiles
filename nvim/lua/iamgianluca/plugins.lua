@@ -33,44 +33,39 @@ return require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" }
 	},
 	{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+
+	-- lsp
+	{ 'williamboman/mason.nvim' },
+	{ 'williamboman/mason-lspconfig.nvim' },
+
+	{ 'VonHeikemen/lsp-zero.nvim',                branch = 'v3.x' },
+	{ 'neovim/nvim-lspconfig' },
+	{ 'hrsh7th/cmp-nvim-lsp' },
+	{ 'hrsh7th/nvim-cmp' },
+	{ 'L3MON4D3/LuaSnip' },
+
+	-- autocompletion
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-nvim-lua" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-path" },
+	{ "saadparwaiz1/cmp_luasnip" },
+
+	-- language server for neovim config
+	{ "folke/neodev.nvim",                        opts = {} },
+
+	-- debugging
+	{ "mfussenegger/nvim-dap" },
+	{ "jay-babu/mason-nvim-dap.nvim" },
+	{ "rcarriga/nvim-dap-ui" },
+
+	-- snippets
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v1.x",
-		dependencies = {
-			-- LSP support
-			{
-				"neovim/nvim-lspconfig",
-				"williamboman/mason.nvim",
-				"williamboman/mason-lspconfig.nvim",
-			},
-
-			-- DAP support
-			{
-				"williamboman/mason.nvim",
-				"mfussenegger/nvim-dap",
-				"jay-babu/mason-nvim-dap.nvim",
-				"rcarriga/nvim-dap-ui",
-			},
-
-			-- language server for neovim config
-			{ "folke/neodev.nvim",       opts = {} },
-
-			-- autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
-
-			-- snippets
-			{
-				"L3MON4D3/LuaSnip",
-				dependencies = { "rafamadriz/friendly-snippets" },
-			},
-		}
+		"L3MON4D3/LuaSnip",
+		dependencies = { "rafamadriz/friendly-snippets" },
 	},
 
+	-- formatting
 	{
 		'stevearc/conform.nvim',
 		opts = {},
