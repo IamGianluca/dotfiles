@@ -12,19 +12,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- prevent common typos when closing/saving
-vim.cmd.abbrev('W!', 'w!')
-vim.cmd.abbrev('Q!', 'q!')
-vim.cmd.abbrev('Qall!', 'qall!')
-vim.cmd.abbrev('Wq', 'wq')
-vim.cmd.abbrev('Wa', 'wa')
-vim.cmd.abbrev('wQ', 'wq')
-vim.cmd.abbrev('WQ', 'wq')
-vim.cmd.abbrev('W', 'w')
-vim.cmd.abbrev('Q', 'q')
-vim.cmd.abbrev('Qa', 'qa')
-vim.cmd.abbrev('Qall', 'qall')
-
 -- directories and swap files
 vim.opt.backup = false
 vim.opt.swapfile = false
@@ -53,3 +40,21 @@ vim.opt.relativenumber = true
 -- extra goodies
 vim.opt.scrolloff = 999       -- keep cursor always in the middle
 vim.opt.virtualedit = "block" -- allow cursor to be positioned where there is no actual character in Visual Block mode
+
+
+--=====================================================
+-- Other Settings
+--=====================================================
+
+-- prevent common typos when closing/saving
+vim.cmd.abbrev('W!', 'w!')
+vim.cmd.abbrev('Q!', 'q!')
+vim.cmd.abbrev('Qall!', 'qall!')
+vim.cmd.abbrev('Wq', 'wq')
+vim.cmd.abbrev('Wa', 'wa')
+vim.cmd.abbrev('wQ', 'wq')
+vim.cmd.abbrev('WQ', 'wq')
+vim.cmd.abbrev('W', 'w')
+vim.cmd.abbrev('Q', 'q')
+vim.cmd.abbrev('Qa', 'qa')
+vim.cmd.abbrev('Qall', 'qall')

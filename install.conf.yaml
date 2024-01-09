@@ -26,7 +26,7 @@
     ~/.config/nvim/init.lua: nvim/init.lua
     ~/.config/nvim/lua/iamgianluca/plugins.lua: nvim/lua/iamgianluca/plugins.lua
     ~/.config/nvim/lua/iamgianluca/remap.lua: nvim/lua/iamgianluca/remap.lua
-    ~/.config/nvim/lua/iamgianluca/set.lua: nvim/lua/iamgianluca/set.lua
+    ~/.config/nvim/lua/iamgianluca/options.lua: nvim/lua/iamgianluca/options.lua
     ~/.config/nvim/lua/iamgianluca/theme.lua: nvim/lua/iamgianluca/theme.lua
     ~/.config/nvim/after/plugin/comment.lua: nvim/after/plugin/comment.lua
     ~/.config/nvim/after/plugin/dap.lua: nvim/after/plugin/dap.lua
