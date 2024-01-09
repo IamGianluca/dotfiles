@@ -82,7 +82,7 @@ cmp.setup({
 -- We can accomplish that by installing both tools via Mason
 require("conform").setup({
 	formatters_by_ft = {
-		python = { "usort", "black" },
+		python = { "usort", "ruff_format" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
