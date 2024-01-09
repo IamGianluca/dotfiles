@@ -23,19 +23,9 @@
       path: zsh/zshrc
     ~/.zshenv: zsh/zshenv
     ~/.zfunc/_poetry: poetry/_poetry
-    ~/.config/nvim/init.lua: nvim/init.lua
-    ~/.config/nvim/lua/iamgianluca/plugins.lua: nvim/lua/iamgianluca/plugins.lua
-    ~/.config/nvim/lua/iamgianluca/remap.lua: nvim/lua/iamgianluca/remap.lua
-    ~/.config/nvim/lua/iamgianluca/options.lua: nvim/lua/iamgianluca/options.lua
-    ~/.config/nvim/lua/iamgianluca/theme.lua: nvim/lua/iamgianluca/theme.lua
-    ~/.config/nvim/after/plugin/comment.lua: nvim/after/plugin/comment.lua
-    ~/.config/nvim/after/plugin/dap.lua: nvim/after/plugin/dap.lua
-    ~/.config/nvim/after/plugin/fugitive.lua: nvim/after/plugin/fugitive.lua
-    ~/.config/nvim/after/plugin/hardtime.lua: nvim/after/plugin/hardtime.lua
-    ~/.config/nvim/after/plugin/lsp.lua: nvim/after/plugin/lsp.lua
-    ~/.config/nvim/after/plugin/luasnip.lua: nvim/after/plugin/luasnip.lua
-    ~/.config/nvim/after/plugin/telescope.lua: nvim/after/plugin/telescope.lua
-    ~/.config/nvim/after/plugin/treesitter.lua: nvim/after/plugin/treesitter.lua
+    ~/.config/nvim: 
+      force: true
+      path: nvim/
     ~/.config/powerline-shell/config.json: powerline_shell/powerline-shell.json
     ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
     ~/git/dwm-flexipatch/config.h: dwm-flexipatch/config.h
