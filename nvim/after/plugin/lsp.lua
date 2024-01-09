@@ -19,7 +19,11 @@ lsp_zero.on_attach(function(client, bufnr)
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
--- enable automatic installation and setup of language servers
+
+--=====================================================
+-- mason Settings
+--=====================================================
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = { "lua_ls", "rust_analyzer", "pyright" },
@@ -33,7 +37,11 @@ require('mason-lspconfig').setup({
 	},
 })
 
--- configure nvim-cmp
+
+--=====================================================
+-- nvim-cmp Settings
+--=====================================================
+
 local cmp = require('cmp')
 local cmp_format = require('lsp-zero').cmp_format()
 local cmp_action = require('lsp-zero').cmp_action()
