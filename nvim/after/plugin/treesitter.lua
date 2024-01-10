@@ -1,35 +1,68 @@
 --=====================================================
--- TreeSitter Settings
+-- treesitter Settings
 --=====================================================
 
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust", "markdown" },
-	sync_install = false,
+	ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust" },
 	auto_install = true,
 	highlight = {
 		enable = true,
-		additional_vim_regex_highlighting = false,
 	},
 	textobjects = {
 		select = {
 			enable = true,
 			lookahead = true,
 			keymaps = {
-				-- You can use the capture groups defined in textobjects.scm
+				["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter region" },
+				["ia"] = { query = "@parameter.inner", desc = "Select inner part of a parameter region" },
+
 				["af"] = { query = "@function.outer", desc = "Select outer part of a function region" },
 				["if"] = { query = "@function.inner", desc = "Select inner part of a function region" },
+
 				["ac"] = { query = "@class.outer", desc = "Select the outer part of a class region" },
 				["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
 			},
 			include_surrounding_whitespace = true,
+		},
+		move = {
+			enable = true,
+			set_jumps = true,
+			goto_next_start = {
+				["]a"] = { query = "@parameter.inner", desc = "Next parameter start" },
+				["]m"] = { query = "@function.outer", desc = "Next function start" },
+				["]]"] = { query = "@class.outer", desc = "Next class start" },
+			},
+			goto_next_end = {
+				["]M"] = { query = "@function.outer", desc = "Next function end" },
+				["]["] = { query = "@class.outer", desc = "Nexc class end" },
+			},
+			goto_previous_start = {
+				["[a"] = { query = "@parameter.inner", desc = "Previous parameter start" },
+				["[m"] = { query = "@function.outer", desc = "Previous function start" },
+				["[]"] = { query = "@class.outer", desc = "Previous class start" },
+			},
+			goto_previous_end = {
+				["[M"] = { query = "@function.outer", desc = "Previous function end" },
+				["[["] = { query = "@class.outer", desc = "Previous class end" },
+			},
+		},
+	},
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<Leader>ss", -- selection start
+			node_incremental = "<Leader>si", -- selection increase
+			scope_incremental = "<Leader>sc", -- selection scope
+			node_decremental = "<Leader>sd", -- selection decrease
 		},
 	},
 }
 
 
 --=====================================================
--- TreeSitter-Context Settings
+-- treesitter-context Settings
 --=====================================================
+
 require 'treesitter-context'.setup {
 	enable = true,     -- Enable this plugin (Can be enabled/disabled later via commands)
 	max_lines = 0,     -- How many lines the window should span. Values <= 0 mean no limit.
