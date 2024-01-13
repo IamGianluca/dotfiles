@@ -13,6 +13,7 @@ A companion [repository](https://github.com/IamGianluca/ansible/tree/main) exist
 
 # TODO
 
-- [ ] `dmenu` freezes after switching `xrandr` settings
+- [ ] Fix bug where `dmenu` freezes after changing `xrandr` settings (switching from `xps` to `desktop` setting)
 - [ ] Copy/yank to host system clipboard does not work in Docker (e.g., yank some text inside a Docker container, then paste in host system)
 - [ ] Use `$TERM` instead of hardcoding value in `tmux` config
+- [ ] Switch from `powerline-shell` to [`powerlevel10k`](https://github.com/romkatv/powerlevel10k)
