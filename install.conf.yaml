@@ -5,7 +5,6 @@
 - clean: ['~']
 
 - create:
-  - ~/.config/powerline-shell
   - ~/.config/nvim
   - ~/.config/nvim/lua
   - ~/.config/nvim/lua/iamgianluca
@@ -22,11 +21,11 @@
       force: true
       path: zsh/zshrc
     ~/.zshenv: zsh/zshenv
+    ~/.p10k.zsh: zsh/p10k.zsh
     ~/.zfunc/_poetry: poetry/_poetry
     ~/.config/nvim: 
       force: true
       path: nvim/
-    ~/.config/powerline-shell/config.json: powerline_shell/powerline-shell.json
     ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
     ~/git/dwm-flexipatch/config.h: dwm-flexipatch/config.h
     ~/.dwm/autostart.sh: dwm-flexipatch/autostart.sh
