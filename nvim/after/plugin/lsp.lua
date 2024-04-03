@@ -78,11 +78,10 @@ cmp.setup({
 --=====================================================
 
 -- needed to format and sort imports in Python since PyRight doesn't offer
--- those functionalities; expects black and usort to be available in PATH.
--- We can accomplish that by installing both tools via Mason
+-- those functionalities; expects ruff to be installed via Mason
 require("conform").setup({
 	formatters_by_ft = {
-		python = { "usort", "ruff_format" },
+		python = { "ruff_format" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
