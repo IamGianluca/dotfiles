@@ -80,10 +80,6 @@ return require("lazy").setup({
 	"nvim-treesitter/nvim-treesitter-context",
 
 	-- utilities
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
-	},
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
 	"tpope/vim-fugitive",
