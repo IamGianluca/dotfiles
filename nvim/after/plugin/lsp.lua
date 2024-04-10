@@ -29,6 +29,17 @@ require('mason-lspconfig').setup({
 	ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright" },
 	handlers = {
 		lsp_zero.default_setup,
+		basedpyright = function()
+			require("lspconfig").basedpyright.setup {
+				settings = {
+					basedpyright = {
+						analysis = {
+							typeCheckingMode = "standard",
+						},
+					},
+				}
+			}
+		end,
 		lua_ls = function()
 			local lua_opts = lsp_zero.nvim_lua_ls()
 			require('lspconfig').lua_ls.setup(lua_opts)
