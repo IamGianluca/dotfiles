@@ -89,10 +89,12 @@ cmp.setup({
 --=====================================================
 
 -- needed to format and sort imports in Python since PyRight doesn't offer
--- those functionalities; expects ruff to be installed via Mason
+-- those functionalities; it expects ruff to be installed in the local Python
+-- virtual environment (Mason won't auto-install it)
 require("conform").setup({
 	formatters_by_ft = {
-		python = { "ruff_format" },
+		-- ruff_fix to sort imports, ruff_format to format the rest of the file
+		python = { "ruff_fix", "ruff_format" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
