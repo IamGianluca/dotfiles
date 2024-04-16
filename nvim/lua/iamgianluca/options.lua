@@ -21,7 +21,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- While typing a search command, show where the pattern, as it was typed
--- So far, matches.  The matched string is highlighted.  If the pattern
+-- so far, matches
 vim.opt.incsearch = true
 
 -- Line wrapping and indentation

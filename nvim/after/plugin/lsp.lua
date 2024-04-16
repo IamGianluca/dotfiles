@@ -88,7 +88,7 @@ cmp.setup({
 -- conform Settings
 --=====================================================
 
--- needed to format and sort imports in Python since PyRight doesn't offer
+-- Needed to format and sort imports in Python since PyRight doesn't offer
 -- those functionalities; it expects ruff to be installed in the local Python
 -- virtual environment (Mason won't auto-install it)
 require("conform").setup({
@@ -110,7 +110,7 @@ require("conform").setup({
 
 require('nvim-autopairs').setup()
 
--- insert `(` after select function or method item
+-- Insert `(` after select function or method item
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
 	'confirm_done',
@@ -122,15 +122,15 @@ cmp.event:on(
 -- General Settings
 --=====================================================
 
--- format on save for every language
+-- Format on save for every language
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
--- spelling
+-- Spelling
 local o = vim.opt
 o.spelllang = { 'en' }
 o.spell = true
 
--- show inline diagnostics
+-- Show inline diagnostics
 vim.lsp.handlers["textDocument/publishDiagnostics"] =
 	vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })
 

@@ -31,11 +31,11 @@ vim.keymap.set({ "i", "s" }, "<C-E>", function()
 	end
 end, { silent = true })
 vim.keymap.set("i", "<c-u>", require "luasnip.extras.select_choice")
--- shorcut to source my luasnips file again, which will reload my snippets
+-- Shorcut to source my luasnips file again, which will reload my snippets
 vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
 
 
--- snippets
+-- Snippets
 local snip = ls.snippet
 local func = ls.function_node
 

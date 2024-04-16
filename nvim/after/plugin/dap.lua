@@ -12,7 +12,7 @@ require("mason-nvim-dap").setup({
 	handlers = {}, -- sets up dap in the predefined manner
 })
 
--- keymaps to interact with DAP
+-- Keymaps to interact with DAP
 vim.keymap.set('n', '<F5>', function() require('dap').continue() end, { desc = "DAP continue" })
 vim.keymap.set('n', '<F1>', function() require('dap').step_into() end, { desc = "DAP step into" })
 vim.keymap.set('n', '<F2>', function() require('dap').step_over() end, { desc = "DAP step over" })
