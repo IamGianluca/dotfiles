@@ -2,26 +2,29 @@
 -- General Settings
 --=====================================================
 
--- allow unsaved work in hidden buffers that's not displayed on our screen
+-- Allow unsaved work in hidden buffers that's not displayed on our screen
 vim.opt.hidden = true
 
--- synchronizes the system clipboard with neovim's clipboard
+-- Sync clipboard between OS and Neovim
 vim.opt.clipboard = "unnamedplus"
 
--- open new splits on the right or on the bottom of the screen
+-- Configure how new splits should be opened
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- directories and swap files
+-- Directories and swap files
 vim.opt.backup = false
 vim.opt.swapfile = false
 
--- search
-vim.opt.incsearch = true
+-- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- line wrapping and indentation
+-- While typing a search command, show where the pattern, as it was typed
+-- So far, matches.  The matched string is highlighted.  If the pattern
+vim.opt.incsearch = true
+
+-- Line wrapping and indentation
 vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.shiftwidth = 4
@@ -33,20 +36,29 @@ vim.opt.shiftwidth = 4
 
 vim.opt.termguicolors = true
 
--- display relative line numbers
+-- Display relative line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- extra goodies
-vim.opt.scrolloff = 999       -- keep cursor always in the middle
-vim.opt.virtualedit = "block" -- allow cursor to be positioned where there is no actual character in Visual Block mode
+-- Show which line your cursor is on
+vim.opt.cursorline = true
+
+-- Set highlight on search
+vim.opt.hlsearch = true
+
+-- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.mouse = 'a'
+
+-- Extra goodies
+vim.opt.scrolloff = 999       -- Keep cursor always in the middle
+vim.opt.virtualedit = "block" -- Allow cursor to be positioned where there is no actual character in Visual Block mode
 
 
 --=====================================================
 -- Other Settings
 --=====================================================
 
--- prevent common typos when closing/saving
+-- Prevent common typos when closing/saving
 vim.cmd.abbrev('W!', 'w!')
 vim.cmd.abbrev('Q!', 'q!')
 vim.cmd.abbrev('Qall!', 'qall!')
