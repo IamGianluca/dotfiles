@@ -20,8 +20,7 @@ vim.opt.swapfile = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- While typing a search command, show where the pattern, as it was typed
--- so far, matches
+-- While typing a search command, show where the pattern, as it was typed so far, matches
 vim.opt.incsearch = true
 
 -- Line wrapping and indentation

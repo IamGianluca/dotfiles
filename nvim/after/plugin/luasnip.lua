@@ -5,12 +5,12 @@ local ls = require("luasnip")
 local types = require("luasnip.util.types")
 
 ls.config.set_config {
-	-- this tells luasnip to remember to keep around the last snippet.
-	-- you can jump back into it even if you move outside of the selection
+	-- This tells luasnip to remember to keep around the last snippet.
+	-- You can jump back into it even if you move outside of the selection
 	history = true,
-	-- this one is cool cause if you have dynamic snippets, it updates as you type!
+	-- This one is cool cause if you have dynamic snippets, it updates as you type!
 	updateevents = "TextChanged,TextChangedI",
-	-- autosnippets:
+	-- Autosnippets:
 	enable_autosnippets = true,
 	ext_opts = {
 		[types.choiceNode] = {

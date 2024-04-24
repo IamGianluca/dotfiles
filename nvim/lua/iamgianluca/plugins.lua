@@ -18,10 +18,10 @@ vim.opt.rtp:prepend(lazypath)
 
 
 return require("lazy").setup({
-	-- theme
+	-- Theme
 	{ "rose-pine/neovim",                  name = "rose-pine" },
 
-	-- project navigation
+	-- Project navigation
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
@@ -32,7 +32,7 @@ return require("lazy").setup({
 		}
 	},
 
-	-- lsp
+	-- Lsp
 	{ 'VonHeikemen/lsp-zero.nvim',         branch = 'v3.x' },
 	{ 'neovim/nvim-lspconfig' },
 
@@ -43,28 +43,28 @@ return require("lazy").setup({
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'L3MON4D3/LuaSnip' },
 
-	-- autocompletion
+	-- Autocompletion
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-nvim-lua" },
 	{ "hrsh7th/cmp-buffer" },
 	{ "hrsh7th/cmp-path" },
 	{ "saadparwaiz1/cmp_luasnip" },
 
-	-- language server for neovim config
+	-- Language server for neovim config
 	{ "folke/neodev.nvim",                 opts = {} },
 
-	-- debugging
+	-- Debugging
 	{ "mfussenegger/nvim-dap" },
 	{ "jay-babu/mason-nvim-dap.nvim" },
 	{ "rcarriga/nvim-dap-ui",              dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
-	-- snippets
+	-- Snippets
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = { "rafamadriz/friendly-snippets" },
 	},
 
-	-- formatting
+	-- Formatting
 	{
 		'stevearc/conform.nvim',
 		opts = {},
@@ -72,10 +72,10 @@ return require("lazy").setup({
 	{
 		'windwp/nvim-autopairs',
 		event = "InsertEnter",
-		opts = {} -- this is equalent to setup({}) function
+		opts = {} -- This is equalent to setup({}) function
 	},
 
-	-- treesitter
+	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate"
@@ -83,7 +83,7 @@ return require("lazy").setup({
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	"nvim-treesitter/nvim-treesitter-context",
 
-	-- utilities
+	-- Utilities
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
 	"tpope/vim-fugitive",
@@ -93,7 +93,7 @@ return require("lazy").setup({
 		opts = {}
 	},
 
-	-- rust
+	-- Rust
 	{
 		'mrcjkb/rustaceanvim',
 		version = '^3', -- Recommended

@@ -36,7 +36,7 @@ require('rose-pine').setup({
 			h5 = 'pine',
 			h6 = 'foam',
 		}
-		-- or set all headings at once
+		-- Or set all headings at once
 		-- headings = 'subtle'
 	},
 
