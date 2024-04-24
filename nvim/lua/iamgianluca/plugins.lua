@@ -19,22 +19,25 @@ vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
 	-- theme
-	{ "rose-pine/neovim",                         name = "rose-pine" },
+	{ "rose-pine/neovim",                  name = "rose-pine" },
 
 	-- project navigation
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
-		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" }
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+		}
 	},
-	{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 
 	-- lsp
-	{ 'VonHeikemen/lsp-zero.nvim',                branch = 'v3.x' },
+	{ 'VonHeikemen/lsp-zero.nvim',         branch = 'v3.x' },
 	{ 'neovim/nvim-lspconfig' },
 
 	{ 'williamboman/mason.nvim' },
-	{ 'williamboman/mason-lspconfig.nvim',        dependencies = { "mason.nvim" } },
+	{ 'williamboman/mason-lspconfig.nvim', dependencies = { "mason.nvim" } },
 
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'hrsh7th/nvim-cmp' },
@@ -48,12 +51,12 @@ return require("lazy").setup({
 	{ "saadparwaiz1/cmp_luasnip" },
 
 	-- language server for neovim config
-	{ "folke/neodev.nvim",                        opts = {} },
+	{ "folke/neodev.nvim",                 opts = {} },
 
 	-- debugging
 	{ "mfussenegger/nvim-dap" },
 	{ "jay-babu/mason-nvim-dap.nvim" },
-	{ "rcarriga/nvim-dap-ui",                     dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+	{ "rcarriga/nvim-dap-ui",              dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
 	-- snippets
 	{

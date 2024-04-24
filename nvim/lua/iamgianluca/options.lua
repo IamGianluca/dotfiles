@@ -40,11 +40,26 @@ vim.opt.termguicolors = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Keep signcolumn on by default
+vim.opt.signcolumn = 'yes'
+
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = 'split'
+
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
 -- Set highlight on search
 vim.opt.hlsearch = true
+
+-- Highlight when yanking (copying) text
+vim.api.nvim_create_autocmd('TextYankPost', {
+	desc = 'Highlight when yanking (copying) text',
+	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
