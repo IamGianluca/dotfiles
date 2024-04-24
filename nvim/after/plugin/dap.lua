@@ -6,10 +6,10 @@ require("mason").setup()
 require("mason-nvim-dap").setup({
 	ensure_installed = {
 		"python",
-		"codelldb", -- rust debugger
+		"codelldb", -- Rust debugger
 	},
 	automatic_installation = true,
-	handlers = {}, -- sets up dap in the predefined manner
+	handlers = {}, -- Sets up dap in the predefined manner
 })
 
 -- Keymaps to interact with DAP
