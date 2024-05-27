@@ -43,6 +43,22 @@ return require("lazy").setup({
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'L3MON4D3/LuaSnip' },
 
+	-- Navigation
+	{
+		'folke/flash.nvim',
+		event = 'VeryLazy',
+		---@type Flash.Config
+		opts = {},
+		-- stylua: ignore
+		keys = {
+			{ "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+			{ "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+			{ "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+			{ "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+			{ "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+		},
+	},
+
 	-- Autocompletion
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-nvim-lua" },
@@ -51,12 +67,12 @@ return require("lazy").setup({
 	{ "saadparwaiz1/cmp_luasnip" },
 
 	-- Language server for neovim config
-	{ "folke/neodev.nvim",                 opts = {} },
+	{ "folke/neodev.nvim",           opts = {} },
 
 	-- Debugging
 	{ "mfussenegger/nvim-dap" },
 	{ "jay-babu/mason-nvim-dap.nvim" },
-	{ "rcarriga/nvim-dap-ui",              dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+	{ "rcarriga/nvim-dap-ui",        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
 	-- Snippets
 	{
@@ -84,6 +100,11 @@ return require("lazy").setup({
 	"nvim-treesitter/nvim-treesitter-context",
 
 	-- Utilities
+	{
+		'stevearc/oil.nvim',
+		opts = {},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 	"tpope/vim-surround",
 	"tpope/vim-repeat",
 	"tpope/vim-fugitive",
