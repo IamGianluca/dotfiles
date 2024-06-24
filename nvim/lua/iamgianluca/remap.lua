@@ -6,9 +6,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Set keymap to open Netrw
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "Start netrw file explorer" })
-
 -- Navigate between windows
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus to the upper window" })
