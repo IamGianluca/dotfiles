@@ -179,9 +179,6 @@ export PYTHONDONTWRITEBYTECODE=1
 # needed by lua-language-server
 alias luamake=/home/gianluca/git/lua-language-server/3rd/luamake/luamake
 
-# needed by rust
-export PATH=$PATH:$HOME/.cargo/env
-
 # needed by poetry
 if [[ $(uname) == "Linux" ]]; then
     export PATH="/home/gianluca/.local/bin:$PATH"
@@ -199,3 +196,6 @@ export PATH=$PATH:~/.local/bin/statusbar/
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/p10k.zsh ]] || source ~/.dotfiles/zsh/p10k.zsh
+
+# needed by rust
+. "$HOME/.cargo/env"
