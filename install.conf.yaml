@@ -23,6 +23,7 @@
     ~/.zshenv: zsh/zshenv
     ~/.p10k.zsh: zsh/p10k.zsh
     ~/.zfunc/_poetry: poetry/_poetry
+    ~/.config/direnv/direnvrc: direnv/direnvrc
     ~/.config/nvim: 
       force: true
       path: nvim/
