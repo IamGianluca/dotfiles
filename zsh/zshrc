@@ -83,6 +83,7 @@ plugins=(
 	# poetry
 	zsh-autosuggestions
 	zsh-fzf-history-search
+	direnv
 	zsh-syntax-highlighting # must be last plugin sourced
 )
 
