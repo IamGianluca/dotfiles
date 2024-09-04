@@ -1,4 +1,3 @@
---=====================================================
 -- Lazy.nvim Settings
 --=====================================================
 
@@ -31,6 +30,9 @@ return require("lazy").setup({
 			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 		}
 	},
+
+	-- LLM
+	{ "David-Kunz/gen.nvim" },
 
 	-- Lsp
 	{ 'VonHeikemen/lsp-zero.nvim',         branch = 'v3.x' },
