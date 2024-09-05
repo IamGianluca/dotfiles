@@ -16,11 +16,11 @@
 // Control whether a trailing delimiter should be appended to the status.
 #define TRAILING_DELIMITER 0
 
-// Define blocks for the status feed as X(cmd, interval, signal).
-#define BLOCKS(X)          \
-    X("dwm_kernel", 0, 0)  \
-    X("dwm_volume", 0, 10) \
-    X("dwm_battery", 3, 0) \
-    X("dwm_date", 3, 0)    \
-    X("dwm_clock", 3, 0)
+// Define blocks for the status feed as X(icon, cmd, interval, signal).
+#define BLOCKS(X)              \
+    X("", "dwm_kernel", 0, 0)  \
+    X("", "dwm_volume", 0, 10) \
+    X("", "dwm_battery", 3, 0) \
+    X("", "dwm_date", 3, 0)    \
+    X("", "dwm_clock", 3, 0)
 #endif  // CONFIG_H
