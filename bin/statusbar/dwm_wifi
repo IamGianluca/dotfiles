@@ -3,22 +3,31 @@
 # Get the name of the wireless interface
 interface=$(iwconfig 2>/dev/null | grep -o '^[[:alnum:]]\+' | head -n 1)
 
-# If no wireless interface is found, exit
-if [ -z "$interface" ]; then
-    echo "No WiFi"
-    exit 1
+# Check if wireless interface exists
+if [[ -z "${interface}" ]]; then
+    printf "󰤭  0/70"
+    exit 0
+fi
+
+# Get iwconfig output once
+iwconfig_output=$(iwconfig "${interface}")
+
+# Check if we're connected to a network
+if ! grep -q "ESSID:\"" <<< "${iwconfig_output}"; then
+    printf "󰤭  0/70"
+    exit 0
 fi
 
 # Get link quality
-quality=$(iwconfig "$interface" | grep -i quality | awk '{print $2}' | cut -d'=' -f2 | cut -d'/' -f1)
+quality=$(grep -i quality <<< "${iwconfig_output}" | awk '{print $2}' | cut -d'=' -f2 | cut -d'/' -f1)
 
 # Set icon based on quality
-if [ "$quality" -ge 60 ]; then
-    wifi_icon="󰤨"  # 3 bars
-elif [ "$quality" -ge 50 ]; then
-    wifi_icon="󰤥"  # 2 bars
+if [[ "${quality}" -ge 60 ]]; then
+    wifi_icon="󰤨"
+elif [[ "${quality}" -ge 50 ]]; then
+    wifi_icon="󰤥"
 else
-    wifi_icon="󰤟"  # 1 bar
+    wifi_icon="󰤟"
 fi
 
-printf "$wifi_icon $quality/70"
+printf "%s %s/70" "${wifi_icon}" "${quality}"
