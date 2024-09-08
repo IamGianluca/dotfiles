@@ -15,10 +15,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 return require("lazy").setup({
 	-- Theme
-	{ "rose-pine/neovim",                  name = "rose-pine" },
+	{ "rose-pine/neovim", name = "rose-pine" },
 
 	-- Project navigation
 	{
@@ -27,28 +26,28 @@ return require("lazy").setup({
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
-			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-		}
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
 	},
 
 	-- LLM
 	{ "David-Kunz/gen.nvim" },
 
 	-- Lsp
-	{ 'VonHeikemen/lsp-zero.nvim',         branch = 'v3.x' },
-	{ 'neovim/nvim-lspconfig' },
+	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
+	{ "neovim/nvim-lspconfig" },
 
-	{ 'williamboman/mason.nvim' },
-	{ 'williamboman/mason-lspconfig.nvim', dependencies = { "mason.nvim" } },
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim", dependencies = { "mason.nvim" } },
 
-	{ 'hrsh7th/cmp-nvim-lsp' },
-	{ 'hrsh7th/nvim-cmp' },
-	{ 'L3MON4D3/LuaSnip' },
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/nvim-cmp" },
+	{ "L3MON4D3/LuaSnip" },
 
 	-- Navigation
 	{
-		'folke/flash.nvim',
-		event = 'VeryLazy',
+		"folke/flash.nvim",
+		event = "VeryLazy",
 		---@type Flash.Config
 		opts = {},
 		-- stylua: ignore
@@ -69,12 +68,12 @@ return require("lazy").setup({
 	{ "saadparwaiz1/cmp_luasnip" },
 
 	-- Language server for neovim config
-	{ "folke/neodev.nvim",           opts = {} },
+	{ "folke/neodev.nvim", opts = {} },
 
 	-- Debugging
 	{ "mfussenegger/nvim-dap" },
 	{ "jay-babu/mason-nvim-dap.nvim" },
-	{ "rcarriga/nvim-dap-ui",        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
 
 	-- Snippets
 	{
@@ -84,26 +83,26 @@ return require("lazy").setup({
 
 	-- Formatting
 	{
-		'stevearc/conform.nvim',
+		"stevearc/conform.nvim",
 		opts = {},
 	},
 	{
-		'windwp/nvim-autopairs',
+		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		opts = {} -- This is equalent to setup({}) function
+		opts = {}, -- This is equalent to setup({}) function
 	},
 
 	-- Treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate"
+		build = ":TSUpdate",
 	},
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	"nvim-treesitter/nvim-treesitter-context",
 
 	-- Utilities
 	{
-		'stevearc/oil.nvim',
+		"stevearc/oil.nvim",
 		opts = {},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
@@ -113,13 +112,13 @@ return require("lazy").setup({
 	{
 		"m4xshen/hardtime.nvim",
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		opts = {}
+		opts = {},
 	},
 
 	-- Rust
 	{
-		'mrcjkb/rustaceanvim',
-		version = '^3', -- Recommended
-		ft = { 'rust' },
-	}
+		"mrcjkb/rustaceanvim",
+		version = "^3", -- Recommended
+		ft = { "rust" },
+	},
 })

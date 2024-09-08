@@ -36,7 +36,7 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- When copy-pasting, do not put replaced word into registry
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- Clear search highlight on pressing <Esc> in Normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { silent = true, desc = "Clean search highlight" })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { silent = true, desc = "Clean search highlight" })

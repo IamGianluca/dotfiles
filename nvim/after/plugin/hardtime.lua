@@ -3,5 +3,5 @@
 --=====================================================
 
 require("hardtime").setup({
-	disable_mouse = false
+	disable_mouse = false,
 })

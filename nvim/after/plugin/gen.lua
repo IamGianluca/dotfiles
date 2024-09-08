@@ -1,6 +1,5 @@
-require('gen').setup({
+require("gen").setup({
 	model = "llama3.1",
 	display_mode = "split",
-	show_prompt = true
-
+	show_prompt = true,
 })

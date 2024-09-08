@@ -2,87 +2,104 @@
 -- lsp-zero Settings
 --=====================================================
 
-local lsp_zero = require('lsp-zero')
+local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
-	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-	vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-	vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-	vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
-	vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
-	vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-	vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
-	vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+	vim.keymap.set("n", "gd", function()
+		vim.lsp.buf.definition()
+	end, opts)
+	vim.keymap.set("n", "K", function()
+		vim.lsp.buf.hover()
+	end, opts)
+	vim.keymap.set("n", "<leader>vws", function()
+		vim.lsp.buf.workspace_symbol()
+	end, opts)
+	vim.keymap.set("n", "<leader>vd", function()
+		vim.diagnostic.open_float()
+	end, opts)
+	vim.keymap.set("n", "[d", function()
+		vim.diagnostic.jump({ count = 1, float = true })
+	end, opts)
+	vim.keymap.set("n", "]d", function()
+		vim.diagnostic.jump({ count = -1, float = true })
+	end, opts)
+	vim.keymap.set("n", "<leader>ca", function()
+		vim.lsp.buf.code_action()
+	end, opts)
+	vim.keymap.set("n", "<leader>rr", function()
+		vim.lsp.buf.references()
+	end, opts)
+	vim.keymap.set("n", "<leader>rn", function()
+		vim.lsp.buf.rename()
+	end, opts)
+	vim.keymap.set("i", "<C-h>", function()
+		vim.lsp.buf.signature_help()
+	end, opts)
 end)
-
 
 --=====================================================
 -- mason Settings
 --=====================================================
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
+require("mason").setup({})
+require("mason-lspconfig").setup({
 	ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright", "clangd" },
 	handlers = {
 		lsp_zero.default_setup,
 		basedpyright = function()
-			require("lspconfig").basedpyright.setup {
+			require("lspconfig").basedpyright.setup({
 				settings = {
 					basedpyright = {
 						analysis = {
 							typeCheckingMode = "standard",
 						},
 					},
-				}
-			}
+				},
+			})
 		end,
 		lua_ls = function()
 			local lua_opts = lsp_zero.nvim_lua_ls()
-			require('lspconfig').lua_ls.setup(lua_opts)
+			require("lspconfig").lua_ls.setup(lua_opts)
 		end,
 		rust_analyzer = lsp_zero.noop, -- Exclude rust_analyze from autoconfiguration, required by rustaceanvim
 	},
 })
 
-
 --=====================================================
 -- nvim-cmp Settings
 --=====================================================
 
-local cmp = require('cmp')
-local cmp_format = require('lsp-zero').cmp_format()
-local cmp_action = require('lsp-zero').cmp_action()
+local cmp = require("cmp")
+local cmp_format = require("lsp-zero").cmp_format()
+local cmp_action = require("lsp-zero").cmp_action()
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-require('luasnip.loaders.from_vscode').lazy_load()
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
 	sources = {
-		{ name = 'path' },
-		{ name = 'nvim_lsp' },
-		{ name = 'nvim_lua' },
-		{ name = 'buffer',  keyword_length = 3 },
-		{ name = 'luasnip', keyword_length = 2 },
+		{ name = "path" },
+		{ name = "nvim_lsp" },
+		{ name = "nvim_lua" },
+		{ name = "buffer", keyword_length = 3 },
+		{ name = "luasnip", keyword_length = 2 },
 	},
-	preselect = 'item',
+	preselect = "item",
 	completion = {
-		completeopt = 'menu,menuone,noinsert',
+		completeopt = "menu,menuone,noinsert",
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<CR>'] = cmp.mapping.confirm({ select = false }),
-		['<Tab>'] = cmp_action.tab_complete(),
-		['<S-Tab>'] = cmp.mapping.select_prev_item(),
+		["<CR>"] = cmp.mapping.confirm({ select = false }),
+		["<Tab>"] = cmp_action.tab_complete(),
+		["<S-Tab>"] = cmp.mapping.select_prev_item(),
 	}),
 	window = {
 		documentation = cmp.config.window.bordered(),
 	},
 	formatting = cmp_format,
 })
-
 
 --=====================================================
 -- conform Settings
@@ -103,31 +120,26 @@ require("conform").setup({
 	},
 })
 
-
 --=====================================================
 -- nvim-autopairs Settings
 --=====================================================
 
-require('nvim-autopairs').setup()
+require("nvim-autopairs").setup()
 
 -- Insert `(` after select function or method item
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on(
-	'confirm_done',
-	cmp_autopairs.on_confirm_done()
-)
-
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 --=====================================================
 -- General Settings
 --=====================================================
 
 -- Format on save for every language
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
 -- Spelling
 local o = vim.opt
-o.spelllang = { 'en' }
+o.spelllang = { "en" }
 o.spell = true
 
 -- Show inline diagnostics

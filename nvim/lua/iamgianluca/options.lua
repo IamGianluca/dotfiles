@@ -28,7 +28,6 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.shiftwidth = 4
 
-
 --=====================================================
 -- Visual Settings
 --=====================================================
@@ -40,10 +39,10 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
@@ -52,35 +51,34 @@ vim.opt.cursorline = true
 vim.opt.hlsearch = true
 
 -- Highlight when yanking (copying) text
-vim.api.nvim_create_autocmd('TextYankPost', {
-	desc = 'Highlight when yanking (copying) text',
-	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 
 -- Extra goodies
-vim.opt.scrolloff = 999       -- Keep cursor always in the middle
+vim.opt.scrolloff = 999 -- Keep cursor always in the middle
 vim.opt.virtualedit = "block" -- Allow cursor to be positioned where there is no actual character in Visual Block mode
-
 
 --=====================================================
 -- Other Settings
 --=====================================================
 
 -- Prevent common typos when closing/saving
-vim.cmd.abbrev('W!', 'w!')
-vim.cmd.abbrev('Q!', 'q!')
-vim.cmd.abbrev('Qall!', 'qall!')
-vim.cmd.abbrev('Wq', 'wq')
-vim.cmd.abbrev('Wa', 'wa')
-vim.cmd.abbrev('wQ', 'wq')
-vim.cmd.abbrev('WQ', 'wq')
-vim.cmd.abbrev('W', 'w')
-vim.cmd.abbrev('Q', 'q')
-vim.cmd.abbrev('Qa', 'qa')
-vim.cmd.abbrev('Qall', 'qall')
+vim.cmd.abbrev("W!", "w!")
+vim.cmd.abbrev("Q!", "q!")
+vim.cmd.abbrev("Qall!", "qall!")
+vim.cmd.abbrev("Wq", "wq")
+vim.cmd.abbrev("Wa", "wa")
+vim.cmd.abbrev("wQ", "wq")
+vim.cmd.abbrev("WQ", "wq")
+vim.cmd.abbrev("W", "w")
+vim.cmd.abbrev("Q", "q")
+vim.cmd.abbrev("Qa", "qa")
+vim.cmd.abbrev("Qall", "qall")
