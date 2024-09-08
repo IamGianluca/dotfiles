@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Get the name of the wireless interface
+interface=$(iwconfig 2>/dev/null | grep -o '^[[:alnum:]]\+' | head -n 1)
+
+# If no wireless interface is found, exit
+if [ -z "$interface" ]; then
+    echo "No WiFi"
+    exit 1
+fi
+
+# Get link quality
+quality=$(iwconfig "$interface" | grep -i quality | awk '{print $2}' | cut -d'=' -f2 | cut -d'/' -f1)
+
+# Set icon based on quality
+if [ "$quality" -ge 60 ]; then
+    wifi_icon="󰤨"  # 3 bars
+elif [ "$quality" -ge 50 ]; then
+    wifi_icon="󰤥"  # 2 bars
+else
+    wifi_icon="󰤟"  # 1 bar
+fi
+
+printf "$wifi_icon $quality/70"

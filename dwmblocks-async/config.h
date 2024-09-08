@@ -19,8 +19,9 @@
 // Define blocks for the status feed as X(icon, cmd, interval, signal).
 #define BLOCKS(X)                                                              \
   X("", "dwm_kernel", 0, 0)                                                    \
-  X("", "dwm_battery", 3, 0)                                                   \
+  X("", "dwm_battery", 5, 0)                                                   \
+  X("", "dwm_wifi", 5, 0)                                                      \
   X("", "dwm_volume", 0, 10)                                                   \
-  X("", "dwm_date", 3, 0)                                                      \
-  X("", "dwm_clock", 3, 0)
+  X("", "dwm_date", 5, 0)                                                      \
+  X("", "dwm_clock", 5, 0)
 #endif // CONFIG_H
