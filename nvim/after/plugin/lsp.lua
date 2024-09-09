@@ -20,10 +20,10 @@ lsp_zero.on_attach(function(client, bufnr)
 		vim.diagnostic.open_float()
 	end, opts)
 	vim.keymap.set("n", "[d", function()
-		vim.diagnostic.jump({ count = 1, float = true })
+		vim.diagnostic.jump({ count = -1, float = true })
 	end, opts)
 	vim.keymap.set("n", "]d", function()
-		vim.diagnostic.jump({ count = -1, float = true })
+		vim.diagnostic.jump({ count = 1, float = true })
 	end, opts)
 	vim.keymap.set("n", "<leader>ca", function()
 		vim.lsp.buf.code_action()
@@ -83,7 +83,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
-		{ name = "buffer", keyword_length = 3 },
+		{ name = "buffer",  keyword_length = 3 },
 		{ name = "luasnip", keyword_length = 2 },
 	},
 	preselect = "item",
