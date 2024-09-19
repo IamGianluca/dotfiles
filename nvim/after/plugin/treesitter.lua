@@ -4,9 +4,11 @@
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust" },
+	sync_install = false,
 	auto_install = true,
 	highlight = {
 		enable = true,
+		additional_vim_regex_highlighting = false,
 	},
 	indent = {
 		enable = true,
@@ -49,6 +51,15 @@ require("nvim-treesitter.configs").setup({
 				["[["] = { query = "@class.outer", desc = "Previous class end" },
 			},
 		},
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>a"] = "@parameter.inner",
+			},
+			swap_previous = {
+				["<leader>A"] = "@parameter.inner",
+			},
+		},
 	},
 	incremental_selection = {
 		enable = true,
@@ -66,10 +77,10 @@ require("nvim-treesitter.configs").setup({
 --=====================================================
 
 require("treesitter-context").setup({
-	enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-	max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+	enable = true,     -- Enable this plugin (Can be enabled/disabled later via commands)
+	max_lines = 0,     -- How many lines the window should span. Values <= 0 mean no limit.
 	trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-	patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+	patterns = {       -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
 		-- For all filetypes
 		-- Note that setting an entry here replaces all other patterns for this entry.
 		-- By setting the 'default' entry below, you can control which nodes you want to
@@ -100,7 +111,7 @@ require("treesitter-context").setup({
 	-- [!] The options below are exposed but shouldn't require your attention,
 	--     you can safely ignore them.
 
-	zindex = 20, -- The Z-index of the context window
+	zindex = 20,  -- The Z-index of the context window
 	mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
 	separator = nil, -- Separator between context and content. Should be a single character string, like '-'.
 })
