@@ -7,7 +7,11 @@ return {
 			{ "neovim/nvim-lspconfig" },
 			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-nvim-lua" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
 			{ "L3MON4D3/LuaSnip" },
+			{ "saadparwaiz1/cmp_luasnip" },
 			{ "williamboman/mason.nvim" },
 			{ "williamboman/mason-lspconfig.nvim" },
 		},
@@ -142,6 +146,13 @@ return {
 			vim.lsp.inlay_hint.enable(true, { 0 })
 		end,
 	},
+
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^5",
+		lazy = false, -- this plugin is already lazy
+	},
+	{ "folke/neodev.nvim", opts = {} },
 	{
 		"stevearc/conform.nvim",
 		config = function()
