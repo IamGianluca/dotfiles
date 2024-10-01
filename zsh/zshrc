@@ -81,6 +81,7 @@ plugins=(
 	# git
 	# gitfast
 	# poetry
+	zsh-vi-mode
 	zsh-autosuggestions
 	zsh-fzf-history-search
 	direnv
