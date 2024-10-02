@@ -164,9 +164,6 @@ alias vi="nvim"
 
 setopt completealiases
 
-# needed for fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # needed for nvcc
 export PATH=$PATH:/usr/local/cuda/bin
 
