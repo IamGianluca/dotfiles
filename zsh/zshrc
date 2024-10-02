@@ -88,6 +88,7 @@ plugins=(
 	zsh-syntax-highlighting # must be last plugin sourced
 )
 
+ZVM_INIT_MODE=sourcing
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
