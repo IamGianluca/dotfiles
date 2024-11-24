@@ -121,7 +121,7 @@ if [[ $(uname) == "Linux" ]]; then
     alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
 
     # keyboard
-    alias xpskb='setxkbmap -layout "dvorak" -option "ctrl:swapcaps"'
+    alias xpskb='setxkbmap us -variant dvorak -option ctrl:swapcaps'
     alias ergkb='setxkbmap -layout "us" -option'
 
     # monitors
