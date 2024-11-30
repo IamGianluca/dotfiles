@@ -161,6 +161,7 @@ return {
 					lua = { "stylua" },
 					-- ruff_fix to sort imports, ruff_format to format the rest of the file
 					python = { "ruff_fix", "ruff_format" },
+					rust = { "rust_analyzer" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
