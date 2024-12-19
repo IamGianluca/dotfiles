@@ -1,28 +1,73 @@
 return {
 	{
-		"neovim/nvim-lspconfig",
-		dependencies = {
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "L3MON4D3/LuaSnip" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "williamboman/mason.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
+		"saghen/blink.cmp",
+		dependencies = "rafamadriz/friendly-snippets",
+		version = "v0.*",
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			keymap = {
+				["<S-Tab>"] = { "select_prev", "fallback" },
+				["<Tab>"] = { "select_next", "fallback" },
+				["<CR>"] = { "accept", "fallback" },
+				["<C-l>"] = { "snippet_forward", "fallback" },
+				["<C-h>"] = { "snippet_backward", "fallback" },
+			},
+
+			appearance = {
+				use_nvim_cmp_as_default = false,
+				nerd_font_variant = "mono",
+			},
+			completion = {
+				accept = {
+					auto_brackets = {
+						enabled = true,
+					},
+				},
+				menu = {
+
+					border = vim.g.border_style,
+					scrolloff = 1,
+					scrollbar = false,
+					draw = {
+						treesitter = { "lsp" },
+					},
+				},
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 200,
+					window = {
+						border = vim.g.border_style,
+					},
+				},
+				ghost_text = {
+					enabled = vim.g.ai_cmp,
+				},
+			},
+			sources = {
+				default = { "lsp", "path", "snippets", "buffer" },
+			},
+			signature = {
+				enabled = true,
+				window = {
+					border = vim.g.border_style,
+				},
+			},
 		},
+		opts_extend = { "sources.default" },
+	},
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = { "saghen/blink.cmp" },
 
-		config = function()
-			-- Add cmp_nvim_lsp capabilities settings to lspconfig
-			-- This should be executed before you configure any language server
-			local lspconfig_defaults = require("lspconfig").util.default_config
-			lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-				"force",
-				lspconfig_defaults.capabilities,
-				require("cmp_nvim_lsp").default_capabilities()
-			)
-
+		-- example using `opts` for defining servers
+		-- opts = {
+		-- 	servers = {
+		-- 		lua_ls = {},
+		-- 	},
+		-- },
+		config = function(_, opts)
+			local lspconfig = require("lspconfig")
 			-- This is where you enable features that only work
 			-- if there is a language server active in the file
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -62,37 +107,21 @@ return {
 					end, opts)
 				end,
 			})
-
-			local cmp = require("cmp")
-			cmp.setup({
-				sources = {
-					{ name = "path" },
-					{ name = "nvim_lsp" },
-					{ name = "nvim_lua" },
-					{ name = "buffer", keyword_length = 3 },
-					{ name = "luasnip", keyword_length = 2 },
-				},
-				preselect = "item",
-				completion = {
-					completeopt = "menu,menuone,noinsert",
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
-					["<Tab>"] = cmp.mapping.select_next_item(),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(),
-				}),
-				window = {
-					documentation = cmp.config.window.bordered(),
-				},
-				-- old
-				snippet = {
-					expand = function(args)
-						-- You need Neovim v0.10 to use vim.snippet
-						vim.snippet.expand(args.body)
-					end,
-				},
-			})
-
+			-- for server, config in pairs(opts.servers) do
+			-- 	-- passing config.capabilities to blink.cmp merges with the capabilities in your
+			-- 	-- `opts[server].capabilities, if you've defined it
+			-- 	config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+			-- 	lspconfig[server].setup(config)
+			-- end
+		end,
+	},
+	{
+		"williamboman/mason.nvim",
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright", "ruff", "clangd" },
@@ -141,7 +170,6 @@ return {
 			vim.lsp.inlay_hint.enable(true, { 0 })
 		end,
 	},
-
 	{
 		"mrcjkb/rustaceanvim",
 		version = "^5",
@@ -163,15 +191,6 @@ return {
 					lsp_fallback = true,
 				},
 			})
-		end,
-	},
-	{
-		"windwp/nvim-autopairs",
-		config = function()
-			require("nvim-autopairs").setup()
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			local cmp = require("cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		end,
 	},
 }
