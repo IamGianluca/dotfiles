@@ -1,10 +1,7 @@
 return {
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v4.x",
-		lazy = false,
+		"neovim/nvim-lspconfig",
 		dependencies = {
-			{ "neovim/nvim-lspconfig" },
 			{ "hrsh7th/nvim-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-nvim-lua" },
@@ -17,58 +14,82 @@ return {
 		},
 
 		config = function()
-			local lsp_zero = require("lsp-zero")
-			local lsp_attach = function(client, bufnr)
-				local opts = { buffer = bufnr }
+			-- Add cmp_nvim_lsp capabilities settings to lspconfig
+			-- This should be executed before you configure any language server
+			local lspconfig_defaults = require("lspconfig").util.default_config
+			lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+				"force",
+				lspconfig_defaults.capabilities,
+				require("cmp_nvim_lsp").default_capabilities()
+			)
 
-				vim.keymap.set("n", "gd", function()
-					vim.lsp.buf.definition()
-				end, opts)
-				vim.keymap.set("n", "K", function()
-					vim.lsp.buf.hover()
-				end, opts)
-				vim.keymap.set("n", "<leader>vws", function()
-					vim.lsp.buf.workspace_symbol()
-				end, opts)
-				vim.keymap.set("n", "<leader>vd", function()
-					vim.diagnostic.open_float()
-				end, opts)
-				vim.keymap.set("n", "[d", function()
-					vim.diagnostic.jump({ count = -1, float = true })
-				end, opts)
-				vim.keymap.set("n", "]d", function()
-					vim.diagnostic.jump({ count = 1, float = true })
-				end, opts)
-				vim.keymap.set("n", "<leader>ca", function()
-					vim.lsp.buf.code_action()
-				end, opts)
-				vim.keymap.set("n", "<leader>rr", function()
-					vim.lsp.buf.references()
-				end, opts)
-				vim.keymap.set("n", "<leader>rn", function()
-					vim.lsp.buf.rename()
-				end, opts)
-				vim.keymap.set("i", "<C-h>", function()
-					vim.lsp.buf.signature_help()
-				end, opts)
+			-- This is where you enable features that only work
+			-- if there is a language server active in the file
+			vim.api.nvim_create_autocmd("LspAttach", {
+				desc = "LSP actions",
+				callback = function(event)
+					local opts = { buffer = event.buf }
 
-				-- Enable formatting on save
-				lsp_zero.buffer_autoformat()
-			end
-
-			lsp_zero.extend_lspconfig({
-				float_border = "rounded",
-				sign_text = true,
-				lsp_attach = lsp_attach,
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+					vim.keymap.set("n", "gd", function()
+						vim.lsp.buf.definition()
+					end, opts)
+					vim.keymap.set("n", "K", function()
+						vim.lsp.buf.hover()
+					end, opts)
+					vim.keymap.set("n", "<leader>vws", function()
+						vim.lsp.buf.workspace_symbol()
+					end, opts)
+					vim.keymap.set("n", "<leader>vd", function()
+						vim.diagnostic.open_float()
+					end, opts)
+					vim.keymap.set("n", "[d", function()
+						vim.diagnostic.jump({ count = -1, float = true })
+					end, opts)
+					vim.keymap.set("n", "]d", function()
+						vim.diagnostic.jump({ count = 1, float = true })
+					end, opts)
+					vim.keymap.set("n", "<leader>ca", function()
+						vim.lsp.buf.code_action()
+					end, opts)
+					vim.keymap.set("n", "<leader>rr", function()
+						vim.lsp.buf.references()
+					end, opts)
+					vim.keymap.set("n", "<leader>rn", function()
+						vim.lsp.buf.rename()
+					end, opts)
+					vim.keymap.set("i", "<C-h>", function()
+						vim.lsp.buf.signature_help()
+					end, opts)
+				end,
 			})
-			lsp_zero.ui({
-				float_border = "rounded",
-				sign_text = {
-					error = "✘",
-					warn = "▲",
-					hint = "⚑",
-					info = "»",
+
+			local cmp = require("cmp")
+			cmp.setup({
+				sources = {
+					{ name = "path" },
+					{ name = "nvim_lsp" },
+					{ name = "nvim_lua" },
+					{ name = "buffer", keyword_length = 3 },
+					{ name = "luasnip", keyword_length = 2 },
+				},
+				preselect = "item",
+				completion = {
+					completeopt = "menu,menuone,noinsert",
+				},
+				mapping = cmp.mapping.preset.insert({
+					["<CR>"] = cmp.mapping.confirm({ select = false }),
+					["<Tab>"] = cmp.mapping.select_next_item(),
+					["<S-Tab>"] = cmp.mapping.select_prev_item(),
+				}),
+				window = {
+					documentation = cmp.config.window.bordered(),
+				},
+				-- old
+				snippet = {
+					expand = function(args)
+						-- You need Neovim v0.10 to use vim.snippet
+						vim.snippet.expand(args.body)
+					end,
 				},
 			})
 
@@ -76,9 +97,12 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright", "ruff", "clangd" },
 				handlers = {
-					lsp_zero.default_setup,
+					lua_ls = function()
+						require("lspconfig").lua_ls.setup({})
+					end,
 					basedpyright = function()
 						require("lspconfig").basedpyright.setup({
+
 							settings = {
 								basedpyright = {
 									analysis = {
@@ -88,39 +112,10 @@ return {
 							},
 						})
 					end,
-					lua_ls = function()
-						local lua_opts = lsp_zero.nvim_lua_ls()
-						require("lspconfig").lua_ls.setup(lua_opts)
-					end,
-					rust_analyzer = lsp_zero.noop, -- Exclude rust_analyze from autoconfiguration, required by rustaceanvim
 				},
 			})
 
-			local cmp = require("cmp")
-			local cmp_action = require("lsp-zero").cmp_action()
-
-			cmp.setup({
-				sources = {
-					{ name = "path" },
-					{ name = "nvim_lsp" },
-					{ name = "nvim_lua" },
-					{ name = "buffer",  keyword_length = 3 },
-					{ name = "luasnip", keyword_length = 2 },
-				},
-				preselect = "item",
-				completion = {
-					completeopt = "menu,menuone,noinsert",
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
-					["<Tab>"] = cmp_action.tab_complete(),
-					["<S-Tab>"] = cmp.mapping.select_prev_item(),
-				}),
-				window = {
-					documentation = cmp.config.window.bordered(),
-				},
-			})
-
+			-- Diagnostics
 			vim.diagnostic.config({
 				virtual_text = true,
 				severity_sort = true,
