@@ -66,7 +66,7 @@ vim.opt.mouse = "a"
 vim.opt.scrolloff = 999 -- Keep cursor always in the middle
 vim.opt.virtualedit = "block" -- Allow cursor to be positioned where there is no actual character in Visual Block mode
 
-vim.g.border_style = "single" ---@type "single"|"double"|"rounded"
+vim.g.border_style = "rounded" ---@type "single"|"double"|"rounded"
 
 --=====================================================
 -- Key Remappings
