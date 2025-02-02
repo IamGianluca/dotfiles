@@ -170,6 +170,9 @@ export PATH=$PATH:/usr/local/cuda/bin
 # do not generate pycache
 export PYTHONDONTWRITEBYTECODE=1
 
+# use ipdb as interactive debugger
+export PYTHONBREAKPOINT=ipdb.set_trace
+
 # needed by lua-language-server
 alias luamake=/home/gianluca/git/lua-language-server/3rd/luamake/luamake
 
