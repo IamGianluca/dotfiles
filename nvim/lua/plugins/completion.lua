@@ -43,8 +43,10 @@ return {
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
+		},
+		cmdline = {
 			-- Disable cmdline completions
-			cmdline = {},
+			enabled = false,
 		},
 		signature = {
 			enabled = true,
