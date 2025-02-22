@@ -17,6 +17,9 @@ return {
 				indent = {
 					enable = true,
 				},
+				fold = {
+					enable = true,
+				},
 				textobjects = {
 					select = {
 						enable = true,

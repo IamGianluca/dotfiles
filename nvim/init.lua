@@ -28,6 +28,11 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.shiftwidth = 4
 
+-- Use treesitter to manage folding
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldenable = false
+
 --=====================================================
 -- Visual Settings
 --=====================================================
