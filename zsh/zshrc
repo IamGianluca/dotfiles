@@ -184,3 +184,6 @@ export PATH=$PATH:~/.local/bin/statusbar/
 
 # needed by rust
 . "$HOME/.cargo/env"
+
+# needed by uv-python
+. "$HOME/.local/bin/env"
