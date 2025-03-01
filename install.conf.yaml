@@ -8,6 +8,7 @@
   - ~/.config/nvim
   - ~/.config/kitty
   - ~/.config/ghostty
+  - ~/.config/gtk-4.0
   - ~/.dwm
   - ~/.zfunc
   - ~/.local/bin
@@ -16,6 +17,9 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/ghostty/config: ghostty/config
+    ~/.config/gtk-4.0: 
+      force: true
+      path: gtk-4.0/
     ~/.zshrc: 
       force: true
       path: zsh/zshrc
