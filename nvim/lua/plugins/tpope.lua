@@ -1,4 +1,4 @@
 return {
 	{ "tpope/vim-surround", opt = {} },
-	{ "tpope/vim-repeat",   opt = {} },
+	{ "tpope/vim-repeat", opt = {} },
 }
