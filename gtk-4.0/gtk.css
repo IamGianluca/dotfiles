@@ -53,5 +53,5 @@
 
 /* Hover effect for non-selected rows */
 .navigation-sidebar row:hover:not(:selected) {
-  background-color: rgba(196, 167, 231, 0.2);
+  background-color: #c4a7e733;
 }
