@@ -6,7 +6,6 @@
 
 - create:
   - ~/.config/nvim
-  - ~/.config/kitty
   - ~/.config/ghostty
   - ~/.config/gtk-4.0
   - ~/.config/direnv
@@ -16,7 +15,6 @@
 
 - link:
     ~/.tmux.conf: tmux/tmux.conf
-    ~/.config/kitty/kitty.conf: kitty/kitty.conf
     ~/.config/ghostty/config: ghostty/config
     ~/.config/gtk-4.0: 
       force: true
