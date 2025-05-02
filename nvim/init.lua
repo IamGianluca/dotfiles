@@ -91,6 +91,18 @@ vim.opt.signcolumn = "yes"
 
 -- Highlight column 80
 vim.opt.colorcolumn = "80"
+
+-- Create an autocmd that runs after colorscheme changes
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		-- This will run after any colorscheme is loaded
+		vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#eb6f92" })
+	end,
+	group = vim.api.nvim_create_augroup("CustomHighlights", { clear = true }),
+})
+
+-- Also set it immediately in case it's before colorscheme loading
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#eb6f92" })
 
 -- Preview substitutions live, as you type!
