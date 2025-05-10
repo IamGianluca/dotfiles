@@ -3,30 +3,8 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
-			-- Diagnostics
-			vim.diagnostic.config({
-				virtual_text = true,
-				signs = true,
-				underline = true,
-				update_in_insert = false,
-				severity_sort = true,
-				float = {
-					style = "minimal",
-					border = "rounded",
-					source = true,
-					header = "",
-					prefix = "",
-				},
-			})
 
-			-- -- Spelling
-			local o = vim.opt
-			o.spelllang = { "en" }
-			o.spell = true
-
-			-- Inlay type hints
 			vim.lsp.inlay_hint.enable(true, { 0 })
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				desc = "LSP actions",
 				callback = function(event)
@@ -88,13 +66,18 @@ return {
 		},
 	},
 	{
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+	{
 		"mrcjkb/rustaceanvim",
 		version = "^5",
 		lazy = false, -- this plugin is already lazy
-	},
-	{
-		"folke/neodev.nvim",
-		opts = {},
 	},
 	{
 		"stevearc/conform.nvim",

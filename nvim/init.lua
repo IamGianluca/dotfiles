@@ -76,6 +76,27 @@ vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.wo.foldenable = false
 
+-- Diagnostics
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
+	float = {
+		style = "minimal",
+		border = "rounded",
+		source = true,
+		header = "",
+		prefix = "",
+	},
+})
+
+-- -- Spelling
+local o = vim.opt
+o.spelllang = { "en" }
+o.spell = true
+
 --=====================================================
 -- Visual Settings
 --=====================================================

@@ -19,8 +19,3 @@ git clone git@github.com:IamGianluca/dotfiles.git .dotfiles && cd .dotfiles && .
 This will take care of automatically generate the necessary folders and symlinks to get you started.
 
 A companion [repository](https://github.com/IamGianluca/ansible/tree/main) exists to install all dependencies needed to replicate my Operating System.
-
-
-# TODO
-
-- [ ] Use `$TERM` instead of hardcoding value in the `tmux`'s config.
