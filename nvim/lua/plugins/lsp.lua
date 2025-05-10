@@ -53,10 +53,10 @@ return {
 			"neovim/nvim-lspconfig",
 		},
 		config = function()
-			require("mason").setup({})
+			require("mason").setup()
 			require("mason-lspconfig").setup({
-				automatic_enable = true,
 				ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright", "ruff", "clangd" },
+				automatic_enable = true,
 			})
 
 			-- Diagnostics
@@ -77,7 +77,7 @@ return {
 			o.spelllang = { "en" }
 			o.spell = true
 
-			-- Show inline diagnostics
+			-- Inline diagnostics
 			vim.diagnostic.config({
 				virtual_text = true,
 				signs = true,
@@ -86,7 +86,7 @@ return {
 				severity_sort = true,
 			})
 
-			-- Show inlay hints
+			-- Inlay type hints
 			vim.lsp.inlay_hint.enable(true, { 0 })
 		end,
 	},
