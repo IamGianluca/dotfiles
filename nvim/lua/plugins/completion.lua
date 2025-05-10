@@ -1,7 +1,7 @@
 return {
 	"saghen/blink.cmp",
 	dependencies = "rafamadriz/friendly-snippets",
-	version = "v0.*",
+	version = "1.*",
 	opts = {
 		keymap = {
 			["<S-Tab>"] = { "select_prev", "fallback" },
@@ -45,7 +45,6 @@ return {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
 		cmdline = {
-			-- Disable cmdline completions
 			enabled = false,
 		},
 		signature = {
@@ -54,6 +53,7 @@ return {
 				border = vim.g.border_style,
 			},
 		},
+		fuzzy = { implementation = "prefer_rust_with_warning" },
 	},
 	opts_extend = { "sources.default" },
 }
