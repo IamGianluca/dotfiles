@@ -1,12 +1,32 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = { "saghen/blink.cmp" },
-
 		config = function(_, opts)
 			local lspconfig = require("lspconfig")
-			-- This is where you enable features that only work
-			-- if there is a language server active in the file
+			-- Diagnostics
+			vim.diagnostic.config({
+				virtual_text = true,
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = true,
+				float = {
+					style = "minimal",
+					border = "rounded",
+					source = true,
+					header = "",
+					prefix = "",
+				},
+			})
+
+			-- -- Spelling
+			local o = vim.opt
+			o.spelllang = { "en" }
+			o.spell = true
+
+			-- Inlay type hints
+			vim.lsp.inlay_hint.enable(true, { 0 })
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				desc = "LSP actions",
 				callback = function(event)
@@ -44,58 +64,38 @@ return {
 					end, opts)
 				end,
 			})
+
+			vim.lsp.config("basedpyright", {
+				settings = {
+					basedpyright = {
+						analysis = {
+							typeCheckingMode = "standard",
+						},
+					},
+				},
+			})
 		end,
 	},
 	{
 		"mason-org/mason.nvim",
-		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-			"neovim/nvim-lspconfig",
+		opts = {},
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {
+			ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright", "ruff", "clangd" },
+			automatic_enable = true,
 		},
-		config = function()
-			require("mason").setup()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright", "ruff", "clangd" },
-				automatic_enable = true,
-			})
-
-			-- Diagnostics
-			vim.diagnostic.config({
-				virtual_text = true,
-				severity_sort = true,
-				float = {
-					style = "minimal",
-					border = "rounded",
-					source = true,
-					header = "",
-					prefix = "",
-				},
-			})
-
-			-- Spelling
-			local o = vim.opt
-			o.spelllang = { "en" }
-			o.spell = true
-
-			-- Inline diagnostics
-			vim.diagnostic.config({
-				virtual_text = true,
-				signs = true,
-				underline = true,
-				update_in_insert = false,
-				severity_sort = true,
-			})
-
-			-- Inlay type hints
-			vim.lsp.inlay_hint.enable(true, { 0 })
-		end,
 	},
 	{
 		"mrcjkb/rustaceanvim",
 		version = "^5",
 		lazy = false, -- this plugin is already lazy
 	},
-	{ "folke/neodev.nvim", opts = {} },
+	{
+		"folke/neodev.nvim",
+		opts = {},
+	},
 	{
 		"stevearc/conform.nvim",
 		config = function()
