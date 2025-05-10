@@ -25,10 +25,10 @@ return {
 						vim.diagnostic.open_float()
 					end, opts)
 					vim.keymap.set("n", "[d", function()
-						vim.diagnostic.goto_prev({ float = true })
+						vim.diagnostic.jump({ count = -1, float = true })
 					end, opts)
 					vim.keymap.set("n", "]d", function()
-						vim.diagnostic.goto_next({ float = true })
+						vim.diagnostic.jump({ count = 1, float = true })
 					end, opts)
 					vim.keymap.set("n", "<leader>ca", function()
 						vim.lsp.buf.code_action()
@@ -44,12 +44,6 @@ return {
 					end, opts)
 				end,
 			})
-			-- for server, config in pairs(opts.servers) do
-			-- 	-- passing config.capabilities to blink.cmp merges with the capabilities in your
-			-- 	-- `opts[server].capabilities, if you've defined it
-			-- 	config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-			-- 	lspconfig[server].setup(config)
-			-- end
 		end,
 	},
 	{
@@ -61,24 +55,8 @@ return {
 		config = function()
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
+				automatic_enable = true,
 				ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright", "ruff", "clangd" },
-				handlers = {
-					lua_ls = function()
-						require("lspconfig").lua_ls.setup({})
-					end,
-					basedpyright = function()
-						require("lspconfig").basedpyright.setup({
-
-							settings = {
-								basedpyright = {
-									analysis = {
-										typeCheckingMode = "standard",
-									},
-								},
-							},
-						})
-					end,
-				},
 			})
 
 			-- Diagnostics
@@ -100,8 +78,13 @@ return {
 			o.spell = true
 
 			-- Show inline diagnostics
-			vim.lsp.handlers["textDocument/publishDiagnostics"] =
-				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })
+			vim.diagnostic.config({
+				virtual_text = true,
+				signs = true,
+				underline = true,
+				update_in_insert = false,
+				severity_sort = true,
+			})
 
 			-- Show inlay hints
 			vim.lsp.inlay_hint.enable(true, { 0 })
