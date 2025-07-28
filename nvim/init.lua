@@ -6,6 +6,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Source neovim config
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
+
 -- Navigate between windows
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move focus to the upper window" })
@@ -135,7 +138,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.opt.mouse = "a"
 
 -- Extra goodies
-vim.opt.scrolloff = 999 -- Keep cursor always in the middle
+vim.opt.scrolloff = 999       -- Keep cursor always in the middle
 vim.opt.virtualedit = "block" -- Allow cursor to be positioned where there is no actual character in Visual Block mode
 
 vim.g.border_style = "rounded" ---@type "single"|"double"|"rounded"
