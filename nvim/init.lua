@@ -95,7 +95,7 @@ vim.diagnostic.config({
 	},
 })
 
--- -- Spelling
+-- Spelling
 local o = vim.opt
 o.spelllang = { "en" }
 o.spell = true
