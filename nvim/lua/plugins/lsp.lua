@@ -43,6 +43,7 @@ return {
 				end,
 			})
 
+			-- Python settings
 			vim.lsp.config("basedpyright", {
 				settings = {
 					basedpyright = {
@@ -51,6 +52,12 @@ return {
 						},
 					},
 				},
+			})
+			vim.lsp.config("ruff", {
+				on_attach = function(client, bufnr)
+					-- Disable ruff's diagnostic capabilities, keep only formatting
+					client.server_capabilities.diagnosticProvider = false
+				end,
 			})
 		end,
 	},
