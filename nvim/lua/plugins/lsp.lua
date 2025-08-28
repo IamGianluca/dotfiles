@@ -83,8 +83,8 @@ return {
 	},
 	{
 		"mrcjkb/rustaceanvim",
-		version = "^5",
-		lazy = false, -- this plugin is already lazy
+		version = "^6",
+		lazy = false, -- This plugin is already lazy
 	},
 	{
 		"stevearc/conform.nvim",
