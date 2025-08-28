@@ -68,7 +68,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "rust_analyzer", "basedpyright", "ruff", "clangd" },
+			ensure_installed = { "lua_ls", "basedpyright", "ruff", "clangd" },
 			automatic_enable = true,
 		},
 	},
