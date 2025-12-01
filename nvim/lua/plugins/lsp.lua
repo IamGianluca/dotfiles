@@ -66,7 +66,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "ty", "ruff", "clangd" },
+			ensure_installed = { "lua_ls", "ty", "ruff", "clangd", "tinymist" },
 			automatic_enable = true,
 		},
 	},
@@ -89,10 +89,14 @@ return {
 		config = function()
 			require("conform").setup({
 				formatters_by_ft = {
+					-- NOTE: mason-lspconfig can install automatically only install LSP
+					-- servers. Therefore, these formatters need to be installed manually
+					-- via the Mason UI
 					lua = { "stylua" },
 					-- ruff_fix to sort imports, ruff_format to format the rest of the file
 					python = { "ruff_fix", "ruff_format" },
 					rust = { "rust_analyzer" },
+					typst = { "typstyle" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
