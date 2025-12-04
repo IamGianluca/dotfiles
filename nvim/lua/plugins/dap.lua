@@ -3,6 +3,7 @@ return {
 	dependencies = {
 		"jay-babu/mason-nvim-dap.nvim",
 		"rcarriga/nvim-dap-ui",
+		"theHamsta/nvim-dap-virtual-text",
 		"nvim-neotest/nvim-nio",
 	},
 	config = function()
@@ -14,6 +15,10 @@ return {
 			automatic_installation = true,
 			handlers = {}, -- Sets up dap in the predefined manner
 		})
+		-- Process:
+		-- <Leader> b/B to set a breakpoint
+		-- <F5> to start the debugging session (continue)
+		-- <F1/2/3/5> to step through the code base
 		vim.keymap.set("n", "<F5>", function()
 			require("dap").continue()
 		end, { desc = "DAP continue" })
@@ -57,6 +62,7 @@ return {
 		end, { desc = "DAP UI display scope widget" })
 
 		require("dapui").setup()
+		require("nvim-dap-virtual-text").setup()
 
 		local dap, dapui = require("dap"), require("dapui")
 		dap.listeners.after.event_initialized["dapui_config"] = function()

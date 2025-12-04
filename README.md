@@ -19,3 +19,11 @@ git clone git@github.com:IamGianluca/dotfiles.git .dotfiles && cd .dotfiles && .
 This will take care of automatically generate the necessary folders and symlinks to get you started.
 
 A companion [repository](https://github.com/IamGianluca/ansible/tree/main) exists to install all dependencies needed to replicate my Operating System.
+
+# Notes
+
+To add a new config file to the repository:
+
+1. Copy dotfile in the repository
+1. Add entry in `install.conf.yaml`
+1. Run `./install`

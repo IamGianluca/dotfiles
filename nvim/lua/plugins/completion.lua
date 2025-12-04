@@ -22,7 +22,6 @@ return {
 				},
 			},
 			menu = {
-
 				border = vim.g.border_style,
 				scrolloff = 1,
 				scrollbar = false,
