@@ -138,7 +138,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.opt.mouse = "a"
 
 -- Extra goodies
-vim.opt.scrolloff = 999       -- Keep cursor always in the middle
+vim.opt.scrolloff = 999 -- Keep cursor always in the middle
 vim.opt.virtualedit = "block" -- Allow cursor to be positioned where there is no actual character in Visual Block mode
 
 vim.g.border_style = "rounded" ---@type "single"|"double"|"rounded"
