@@ -83,7 +83,7 @@ return {
 		opts = {
 			mappings = {
 				enabled = true,
-				cmdline = true,
+				cmdline = false,
 				disabled_filetypes = {},
 				pairs = {},
 			},

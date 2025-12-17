@@ -44,12 +44,10 @@ return {
 			})
 
 			-- Python settings
-			vim.lsp.config("basedpyright", {
+			vim.lsp.config("ty", {
 				settings = {
-					basedpyright = {
-						analysis = {
-							typeCheckingMode = "standard",
-						},
+					ty = {
+						-- ty language server settings go here
 					},
 				},
 			})
@@ -68,7 +66,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "basedpyright", "ruff", "clangd" },
+			ensure_installed = { "lua_ls", "ty", "ruff", "clangd" },
 			automatic_enable = true,
 		},
 	},
