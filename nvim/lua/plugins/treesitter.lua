@@ -69,15 +69,6 @@ return {
 						},
 					},
 				},
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<Leader>ss", -- Selection start
-						node_incremental = "<Leader>si", -- Selection increase
-						scope_incremental = "<Leader>sc", -- Selection scope
-						node_decremental = "<Leader>sd", -- Selection decrease
-					},
-				},
 			})
 		end,
 	},
@@ -103,5 +94,18 @@ return {
 				separator = nil,
 			})
 		end,
+	},
+	{
+		-- Better incremental selection compared to the one provided by nvim-treesitter
+		"sustech-data/wildfire.nvim",
+		event = "VeryLazy",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		opts = {
+			keymaps = {
+				init_selection = "<CR>",
+				node_incremental = "<CR>",
+				node_decremental = "<BS>",
+			},
+		},
 	},
 }
