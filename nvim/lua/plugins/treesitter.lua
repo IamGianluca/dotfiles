@@ -1,13 +1,16 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "master",
 		build = ":TSUpdate",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter-textobjects",
+			{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "master" },
 		},
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust" },
+				ignore_install = {},
+				modules = {},
 				sync_install = false,
 				auto_install = true,
 				highlight = {
