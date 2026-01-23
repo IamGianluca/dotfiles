@@ -76,6 +76,7 @@ return {
 			end, { desc = "Swap current argument with previous one" })
 
 			-- Set keymaps for textobjects move
+			-- Note: [c and ]c are default mappings to navigate diff changes. I'm overriding them
 			local prev_start = require("nvim-treesitter-textobjects.move").goto_previous_start
 			vim.keymap.set({ "n", "x", "o" }, "[a", function()
 				prev_start("@parameter.inner", "textobjects")
