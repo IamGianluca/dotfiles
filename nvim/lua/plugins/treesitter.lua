@@ -8,7 +8,7 @@ return {
 		"MeanderingProgrammer/treesitter-modules.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		opts = {
-			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust", "zig" },
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust" },
 			ignore_install = {},
 			modules = {},
 			sync_install = false,
@@ -129,16 +129,13 @@ return {
 					"method",
 				},
 			},
-			exact_patterns = {
-				-- rust = true,
-			},
 			zindex = 20,
 			mode = "cursor",
 			separator = nil,
 		},
 	},
 	{
-		-- Better incremental selection compared to the one provided by nvim-treesitter
+		-- Better incremental selection compared to the one provided by nvim-treesitter / nvim-treesitter-modules
 		"sustech-data/wildfire.nvim",
 		event = "VeryLazy",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
