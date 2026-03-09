@@ -22,7 +22,9 @@
     ~/.zshrc: 
       force: true
       path: zsh/zshrc
-    ~/.zshenv: zsh/zshenv
+    ~/.zshenv:
+      force: true
+      path: zsh/zshenv
     ~/.p10k.zsh: zsh/p10k.zsh
     ~/.config/direnv/direnvrc: direnv/direnvrc
     ~/.config/nvim: 
