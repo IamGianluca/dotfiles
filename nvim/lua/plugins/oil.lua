@@ -11,7 +11,6 @@ return {
 					["<C-l>"] = false,
 					["q"] = "actions.close",
 				},
-				vim.keymap.set("n", "<leader>e", ":Oil --float<CR>", { desc = "Start oil.nvim" }),
 				float = {
 					border = "rounded",
 				},
@@ -22,6 +21,7 @@ return {
 					border = "rounded",
 				},
 			})
+			vim.keymap.set("n", "<leader>e", ":Oil --float<CR>", { desc = "Start oil.nvim" })
 		end,
 	},
 }
