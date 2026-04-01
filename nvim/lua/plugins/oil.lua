@@ -9,8 +9,19 @@ return {
 				keymaps = {
 					["<C-h>"] = false,
 					["<C-l>"] = false,
+					["q"] = "actions.close",
+					["<Esc>"] = "actions.close",
 				},
-				vim.keymap.set("n", "<leader>e", ":Oil<CR>", { desc = "Start oil.nvim" }),
+				vim.keymap.set("n", "<leader>e", ":Oil --float<CR>", { desc = "Start oil.nvim" }),
+				float = {
+					border = "rounded",
+				},
+				progress = {
+					border = "rounded",
+				},
+				confirmation = {
+					border = "rounded",
+				},
 			})
 		end,
 	},
