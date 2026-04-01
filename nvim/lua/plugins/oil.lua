@@ -10,7 +10,6 @@ return {
 					["<C-h>"] = false,
 					["<C-l>"] = false,
 					["q"] = "actions.close",
-					["<Esc>"] = "actions.close",
 				},
 				vim.keymap.set("n", "<leader>e", ":Oil --float<CR>", { desc = "Start oil.nvim" }),
 				float = {
