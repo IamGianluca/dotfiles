@@ -67,7 +67,7 @@ return {
 					border = vim.g.border_style,
 				},
 			},
-			fuzzy = { implementation = "prefer_rust_with_warning" },
+			fuzzy = { implementation = "rust" },
 		},
 		opts_extend = { "sources.default" },
 	},
