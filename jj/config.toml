@@ -1,0 +1,13 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "Gianluca Rossi"
+email = "gr.gianlucarossi@gmail.com"
+
+[ui]
+default-command = "log"
+editor = "nvim"
+
+[aliases]
+# run pre-commits before jj git push
+push = ["util", "exec", "--", "uvx", "jj-pre-push", "push"]

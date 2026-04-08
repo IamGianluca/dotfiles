@@ -1,29 +1,31 @@
-This repository provides my personal configuration for several tools, including:
-  * `neovim`: Using `lazy` as package manager, and with a modular configuration for the plugin installed. Plugins and LSP servers are also automatically installed installed and set up the first you start `neovim` on a fresh environment!
-  * `tmux`: Using `tpm` as a package manager. Save and restore state, even after rebooting your operating system!
-  * `zsh`: Using `oh-my-zsh` and the `powerlevel10k` theme. Very snappy!
-  * `ghostty`: Extremely fast GPU-based terminal emulator.
-* Configurations for `dwm` window manager:
-  * It's okay if you don't use `dwm`! The configuration will be automatically ignored.
-  * Includes settings for `dwmblocks` and custom binary executable scripts to pull informations like the Linux kernel's version, the battery status, the sound settings, the current date and time, etc. 
-* Copy and paste text to the system clipboard via ANSI OSC52 sequence, even when working on remote machines ― e.g., copy from/to the host system clipboard to/from remote system clipboard or even a `neovim` client.
+Personal dotfiles managed with [Dotbot](https://github.com/anishathalye/dotbot). Covers editor, terminal, shell, and desktop environment.
 
-# Installation
+## What's included
 
-To download and install the dotfiles, run the following command in a terminal emulator.
+| Tool | Notes |
+|---|---|
+| `neovim` | `lazy.nvim` plugin manager, modular config under `nvim/lua/plugins/`. Plugins and LSP servers auto-install on first launch. |
+| `tmux` | `tpm` plugin manager. Session persistence via tmux-resurrect + tmux-continuum. OSC52 clipboard support. |
+| `zsh` | `oh-my-zsh` with Powerlevel10k theme. Plugins: `zsh-vi-mode`, `fzf`, `zsh-autosuggestions`, `direnv`, `zsh-syntax-highlighting`. |
+| `ghostty` | GPU-accelerated terminal emulator. |
+| `jj` | Jujutsu version control system. |
+| `direnv` | Custom `layout_uv` and `layout_poetry` helpers for Python virtualenvs. |
+| `dwm` | Window manager config, `dwmblocks-async` status bar scripts (battery, CPU temp, network, volume, etc.). Safe to ignore if not using dwm. |
+
+## Installation
 
 ```bash
-git clone git@github.com:IamGianluca/dotfiles.git .dotfiles && cd .dotfiles && ./install
+git clone git@github.com:IamGianluca/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && ./install
 ```
 
-This will take care of automatically generate the necessary folders and symlinks to get you started.
+`./install` creates all symlinks and directories declared in `install.conf.yaml`. Safe to re-run — existing symlinks are relinked, not duplicated.
 
-A companion [repository](https://github.com/IamGianluca/ansible/tree/main) exists to install all dependencies needed to replicate my Operating System.
+A companion [Ansible repository](https://github.com/IamGianluca/ansible/tree/main) installs all system dependencies.
 
-# Notes
+## Adding a new dotfile
 
-To add a new config file to the repository:
-
-1. Copy dotfile in the repository
-1. Add entry in `install.conf.yaml`
-1. Run `./install`
+```bash
+mv ~/.config/tool/config ~/.dotfiles/tool/config   # move into repo
+# add entry to install.conf.yaml
+./install                                           # create symlink
+```
