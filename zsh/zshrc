@@ -189,7 +189,7 @@ export PATH=$PATH:$HOME/.local/bin/statusbar/
 . "$HOME/.local/bin/env"
 
 # source binaries installed with npm
-export PATH="$HOME/.local/npm/bin:$PATH"'
+export PATH="$HOME/.local/npm/bin:$PATH"
 
 # rose-pine theme for fzf
 export FZF_DEFAULT_OPTS="
