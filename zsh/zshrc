@@ -177,7 +177,7 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 alias luamake=/home/gianluca/git/lua-language-server/3rd/luamake/luamake
 
 # source binaries needed by dwmblocks
-export PATH=$PATH:~/.local/bin/statusbar/
+export PATH=$PATH:$HOME/.local/bin/statusbar/
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/zsh/p10k.zsh.
 [[ ! -f ~/.dotfiles/zsh/p10k.zsh ]] || source ~/.dotfiles/zsh/p10k.zsh
@@ -187,6 +187,9 @@ export PATH=$PATH:~/.local/bin/statusbar/
 
 # needed by uv-python
 . "$HOME/.local/bin/env"
+
+# source binaries installed with npm
+export PATH="$HOME/.local/npm/bin:$PATH"'
 
 # rose-pine theme for fzf
 export FZF_DEFAULT_OPTS="
