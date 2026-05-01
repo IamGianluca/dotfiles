@@ -5,7 +5,7 @@ return {
 	-- changes, we can switch to using the upstream repo.
 	-- Link to the PR: https://github.com/norcalli/nvim-colorizer.lua/pull/115
 	-- "norcalli/nvim-colorizer.lua",
-	"iamgianluca/nvim-colorizer.lua",
-	event = "BufEnter",
-	opts = { "*" },
+	"catgoose/nvim-colorizer.lua",
+	event = "BufReadPre",
+	opts = {},
 }
