@@ -1,0 +1,203 @@
+{
+    "schemeVersion": 0,
+    "enabled": true,
+    "fetchNews": false,
+    "theme": {
+        "mode": 1,
+        "brightness": 92,
+        "contrast": 92,
+        "grayscale": 0,
+        "sepia": 20,
+        "useFont": false,
+        "fontFamily": "Open Sans",
+        "textStroke": 0,
+        "engine": "dynamicTheme",
+        "stylesheet": "",
+        "darkSchemeBackgroundColor": "#282828",
+        "darkSchemeTextColor": "#ebdbb2",
+        "lightSchemeBackgroundColor": "#dcdad7",
+        "lightSchemeTextColor": "#181a1b",
+        "scrollbarColor": "",
+        "selectionColor": "auto",
+        "styleSystemControls": false,
+        "lightColorScheme": "Default",
+        "darkColorScheme": "Default",
+        "immediateModify": false
+    },
+    "presets": [],
+    "customThemes": [
+        {
+            "url": [
+                "*.officeapps.live.com"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 100,
+                "contrast": 100,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "cssFilter",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#181a1b",
+                "darkSchemeTextColor": "#e8e6e3",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "",
+                "selectionColor": "auto",
+                "styleSystemControls": false,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            },
+            "builtIn": true
+        },
+        {
+            "url": [
+                "*.sharepoint.com"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 100,
+                "contrast": 100,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "cssFilter",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#181a1b",
+                "darkSchemeTextColor": "#e8e6e3",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "",
+                "selectionColor": "auto",
+                "styleSystemControls": false,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            },
+            "builtIn": true
+        },
+        {
+            "url": [
+                "docs.google.com"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 100,
+                "contrast": 100,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "cssFilter",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#181a1b",
+                "darkSchemeTextColor": "#e8e6e3",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "",
+                "selectionColor": "auto",
+                "styleSystemControls": false,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            },
+            "builtIn": true
+        },
+        {
+            "url": [
+                "onedrive.live.com"
+            ],
+            "theme": {
+                "mode": 1,
+                "brightness": 100,
+                "contrast": 100,
+                "grayscale": 0,
+                "sepia": 0,
+                "useFont": false,
+                "fontFamily": "Open Sans",
+                "textStroke": 0,
+                "engine": "cssFilter",
+                "stylesheet": "",
+                "darkSchemeBackgroundColor": "#181a1b",
+                "darkSchemeTextColor": "#e8e6e3",
+                "lightSchemeBackgroundColor": "#dcdad7",
+                "lightSchemeTextColor": "#181a1b",
+                "scrollbarColor": "",
+                "selectionColor": "auto",
+                "styleSystemControls": false,
+                "lightColorScheme": "Default",
+                "darkColorScheme": "Default",
+                "immediateModify": false
+            },
+            "builtIn": true
+        }
+    ],
+    "enabledByDefault": true,
+    "enabledFor": [],
+    "disabledFor": [],
+    "changeBrowserTheme": false,
+    "syncSettings": true,
+    "syncSitesFixes": false,
+    "automation": {
+        "enabled": false,
+        "mode": "",
+        "behavior": "OnOff"
+    },
+    "time": {
+        "activation": "18:00",
+        "deactivation": "9:00"
+    },
+    "location": {
+        "latitude": null,
+        "longitude": null
+    },
+    "previewNewDesign": false,
+    "previewNewestDesign": false,
+    "enableForPDF": true,
+    "enableForProtectedPages": false,
+    "enableContextMenus": false,
+    "detectDarkTheme": true,
+    "applyToListedOnly": false,
+    "displayedNews": [
+        "firefox-bugs"
+    ],
+    "notifyOfNews": false,
+    "readNews": [
+        "firefox-bugs",
+        "g-search-crash",
+        "thanks-2023",
+        "news-2023",
+        "filter-mode",
+        "v5-survey",
+        "mobile",
+        "detect-dark-theme",
+        "no-war",
+        "chrome-favorites-2021",
+        "thanks-2021",
+        "5m-users",
+        "v4-9-16",
+        "v4-9",
+        "attention",
+        "dr-5-announcement",
+        "2m-users",
+        "automation",
+        "product-hunt-golden-kitty-2018",
+        "time-settings",
+        "safari",
+        "500k-users",
+        "stylish",
+        "product-hunt",
+        "custom-site-settings",
+        "thanks-for-contribution",
+        "dynamic-theme"
+    ],
+    "siteList": [],
+    "siteListEnabled": []
+}
