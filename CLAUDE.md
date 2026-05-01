@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a personal dotfiles repository managed by [Dotbot](https://github.com/anishathalye/dotbot). It configures: Neovim (lazy.nvim), Tmux (tpm), Zsh (oh-my-zsh + Powerlevel10k), Ghostty terminal, direnv, and a dwm-based Linux desktop environment. The Rose Pine color scheme is used consistently across all tools.
+This is a personal dotfiles repository managed by [Dotbot](https://github.com/anishathalye/dotbot). It configures: Neovim (lazy.nvim), Tmux (tpm), Zsh (oh-my-zsh + Powerlevel10k), Ghostty terminal, direnv, and a dwm-based Linux desktop environment. The Gruvbox color scheme is used consistently across all tools.
 
 ## Common Commands
 

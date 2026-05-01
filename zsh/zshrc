@@ -191,7 +191,7 @@ export PATH=$PATH:$HOME/.local/bin/statusbar/
 # source binaries installed with npm
 export PATH="$HOME/.local/npm/bin:$PATH"
 
-# rose-pine theme for fzf
+# gruvbox theme for fzf
 export FZF_DEFAULT_OPTS="--color=fg:#ebdbb2,bg:#282828,hl:#b16286 \
     --color=fg+:#689d6a,bg+:#32302f,hl+:#d3869b \
     --color=info:#d65d0e,prompt:#458588,pointer:#fe8019 \
