@@ -8,6 +8,11 @@ email = "gr.gianlucarossi@gmail.com"
 default-command = "log"
 editor = "nvim"
 
+# While in the built-in scm-diff-editor to review "jj split" tasks:
+# c — confirm/save your selection
+# Space or Enter — toggle hunks on/off
+# q — quit without changes
+
 [aliases]
 # run pre-commits before jj git push
 push = ["util", "exec", "--", "uvx", "jj-pre-push", "push"]
