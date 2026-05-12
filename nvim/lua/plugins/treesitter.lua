@@ -8,7 +8,7 @@ return {
 		"MeanderingProgrammer/treesitter-modules.nvim",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		opts = {
-			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust", "make" },
+			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "rust", "make", "tmux" },
 			ignore_install = {},
 			modules = {},
 			sync_install = false,

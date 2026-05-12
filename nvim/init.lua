@@ -104,7 +104,12 @@ o.spell = true
 -- Visual Settings
 --=====================================================
 
-vim.opt.termguicolors = true
+-- Only enable 24-bit color when the terminal supports it.
+-- Over mosh (which caps at 256 colors), this stays off so Neovim
+-- uses cterm values that map cleanly to the terminal's palette.
+if vim.env.COLORTERM == "truecolor" or vim.env.COLORTERM == "24bit" then
+	vim.opt.termguicolors = true
+end
 
 -- Display relative line numbers
 vim.opt.number = true
