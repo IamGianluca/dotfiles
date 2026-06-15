@@ -1,8 +1,17 @@
 return {
 	{
 		"saghen/blink.cmp",
-		dependencies = "rafamadriz/friendly-snippets",
-		version = "1.*",
+		dependencies = { "rafamadriz/friendly-snippets", "saghen/blink.lib" },
+
+		-- v2 has no tagged release yet, so track main rather than pinning a
+		-- version. A moving branch has no prebuilt release binaries, so we
+		-- build() the Rust fuzzy matcher from source (requires cargo).
+		-- Once v2 is tagged, switch to version = "2.*" and build() -> download().
+		branch = "main",
+		build = function()
+			require("blink.cmp").build():pwait()
+		end,
+
 		opts = {
 			keymap = {
 				["<S-Tab>"] = { "select_prev", "fallback" },
@@ -81,7 +90,9 @@ return {
 		dependencies = "saghen/blink.lib",
 		version = "*",
 
-		-- download prebuilt binaries from github releases, must be on a versioned release
+		-- Pinned to a versioned release, so download() the prebuilt binary from
+		-- the GitHub release (fast, no toolchain needed). download() only works
+		-- on a tagged release; on a moving branch use build() instead (see blink.cmp).
 		build = function()
 			require("blink.pairs").download():pwait(60000)
 		end,
