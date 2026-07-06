@@ -7,7 +7,7 @@
         "brightness": 100,
         "contrast": 100,
         "grayscale": 0,
-        "sepia": 20,
+        "sepia": 15,
         "useFont": false,
         "fontFamily": "Open Sans",
         "textStroke": 0,
@@ -17,132 +17,19 @@
         "darkSchemeTextColor": "#ebdbb2",
         "lightSchemeBackgroundColor": "#dcdad7",
         "lightSchemeTextColor": "#181a1b",
-        "scrollbarColor": "",
-        "selectionColor": "auto",
+        "scrollbarColor": "#504945",
+        "selectionColor": "#504945",
         "styleSystemControls": false,
         "lightColorScheme": "Default",
         "darkColorScheme": "Default",
         "immediateModify": false
     },
     "presets": [],
-    "customThemes": [
-        {
-            "url": [
-                "*.officeapps.live.com"
-            ],
-            "theme": {
-                "mode": 1,
-                "brightness": 100,
-                "contrast": 100,
-                "grayscale": 0,
-                "sepia": 0,
-                "useFont": false,
-                "fontFamily": "Open Sans",
-                "textStroke": 0,
-                "engine": "cssFilter",
-                "stylesheet": "",
-                "darkSchemeBackgroundColor": "#181a1b",
-                "darkSchemeTextColor": "#e8e6e3",
-                "lightSchemeBackgroundColor": "#dcdad7",
-                "lightSchemeTextColor": "#181a1b",
-                "scrollbarColor": "",
-                "selectionColor": "auto",
-                "styleSystemControls": false,
-                "lightColorScheme": "Default",
-                "darkColorScheme": "Default",
-                "immediateModify": false
-            },
-            "builtIn": true
-        },
-        {
-            "url": [
-                "*.sharepoint.com"
-            ],
-            "theme": {
-                "mode": 1,
-                "brightness": 100,
-                "contrast": 100,
-                "grayscale": 0,
-                "sepia": 0,
-                "useFont": false,
-                "fontFamily": "Open Sans",
-                "textStroke": 0,
-                "engine": "cssFilter",
-                "stylesheet": "",
-                "darkSchemeBackgroundColor": "#181a1b",
-                "darkSchemeTextColor": "#e8e6e3",
-                "lightSchemeBackgroundColor": "#dcdad7",
-                "lightSchemeTextColor": "#181a1b",
-                "scrollbarColor": "",
-                "selectionColor": "auto",
-                "styleSystemControls": false,
-                "lightColorScheme": "Default",
-                "darkColorScheme": "Default",
-                "immediateModify": false
-            },
-            "builtIn": true
-        },
-        {
-            "url": [
-                "docs.google.com"
-            ],
-            "theme": {
-                "mode": 1,
-                "brightness": 100,
-                "contrast": 100,
-                "grayscale": 0,
-                "sepia": 0,
-                "useFont": false,
-                "fontFamily": "Open Sans",
-                "textStroke": 0,
-                "engine": "cssFilter",
-                "stylesheet": "",
-                "darkSchemeBackgroundColor": "#181a1b",
-                "darkSchemeTextColor": "#e8e6e3",
-                "lightSchemeBackgroundColor": "#dcdad7",
-                "lightSchemeTextColor": "#181a1b",
-                "scrollbarColor": "",
-                "selectionColor": "auto",
-                "styleSystemControls": false,
-                "lightColorScheme": "Default",
-                "darkColorScheme": "Default",
-                "immediateModify": false
-            },
-            "builtIn": true
-        },
-        {
-            "url": [
-                "onedrive.live.com"
-            ],
-            "theme": {
-                "mode": 1,
-                "brightness": 100,
-                "contrast": 100,
-                "grayscale": 0,
-                "sepia": 0,
-                "useFont": false,
-                "fontFamily": "Open Sans",
-                "textStroke": 0,
-                "engine": "cssFilter",
-                "stylesheet": "",
-                "darkSchemeBackgroundColor": "#181a1b",
-                "darkSchemeTextColor": "#e8e6e3",
-                "lightSchemeBackgroundColor": "#dcdad7",
-                "lightSchemeTextColor": "#181a1b",
-                "scrollbarColor": "",
-                "selectionColor": "auto",
-                "styleSystemControls": false,
-                "lightColorScheme": "Default",
-                "darkColorScheme": "Default",
-                "immediateModify": false
-            },
-            "builtIn": true
-        }
-    ],
+    "customThemes": [],
     "enabledByDefault": true,
     "enabledFor": [],
     "disabledFor": [],
-    "changeBrowserTheme": false,
+    "changeBrowserTheme": true,
     "syncSettings": true,
     "syncSitesFixes": false,
     "automation": {
