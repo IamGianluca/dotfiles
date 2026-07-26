@@ -28,6 +28,18 @@
       path: zsh/zshenv
     ~/.p10k.zsh: zsh/p10k.zsh
     ~/.config/direnv/direnvrc: direnv/direnvrc
+    ~/.pi/agent/AGENTS.md:
+      force: true
+      path: pi/agent/AGENTS.md
+    ~/.pi/agent/settings.json:
+      force: true
+      path: pi/agent/settings.json
+    ~/.pi/agent/extensions:
+      force: true
+      path: pi/agent/extensions/
+    ~/.pi/agent/skills:
+      force: true
+      path: pi/agent/skills/
     ~/.config/nvim: 
       force: true
       path: nvim/

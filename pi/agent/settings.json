@@ -1,0 +1,10 @@
+{
+  "lastChangelogVersion": "0.80.10",
+  "theme": "gruvbox-dark-hard",
+  "packages": [
+    "git:github.com/hasit/pi-community-themes"
+  ],
+  "defaultProvider": "opencode-go",
+  "defaultModel": "kimi-k3",
+  "defaultThinkingLevel": "max"
+}
