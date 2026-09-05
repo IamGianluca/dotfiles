@@ -88,13 +88,15 @@ return {
 	{
 		"saghen/blink.pairs",
 		dependencies = "saghen/blink.lib",
-		version = "*",
+		branch = "main",
 
-		-- Pinned to a versioned release, so download() the prebuilt binary from
-		-- the GitHub release (fast, no toolchain needed). download() only works
-		-- on a tagged release; on a moving branch use build() instead (see blink.cmp).
+		-- The latest tagged release (v0.6.0) calls blink.lib's `types.catchall`,
+		-- which blink.lib removed on main. Since blink.cmp and blink.lib track
+		-- main, blink.pairs must track main too or the config schemas get out of
+		-- sync. A moving branch has no prebuilt release binaries, so build() from
+		-- source (requires cargo; same as blink.cmp above).
 		build = function()
-			require("blink.pairs").download():pwait(60000)
+			require("blink.pairs").build():pwait(60000)
 		end,
 
 		--- @module 'blink.pairs'
