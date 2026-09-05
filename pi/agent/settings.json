@@ -1,10 +1,10 @@
 {
-  "lastChangelogVersion": "0.80.10",
+  "lastChangelogVersion": "0.85.1",
   "theme": "gruvbox-dark-hard",
   "packages": [
     "git:github.com/hasit/pi-community-themes"
   ],
   "defaultProvider": "opencode-go",
-  "defaultModel": "kimi-k3",
+  "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "max"
 }
