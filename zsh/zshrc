@@ -160,7 +160,6 @@ alias gcam="git commit -am"
 alias gl="git log --oneline --graph --decorate"
 
 # tmux
-alias tmux="tmux -2"
 alias ta="tmux attach"
 
 # nvim
