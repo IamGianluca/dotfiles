@@ -27,6 +27,9 @@
       force: true
       path: zsh/zshenv
     ~/.p10k.zsh: zsh/p10k.zsh
+    ~/.gitconfig:
+      force: true
+      path: git/gitconfig
     ~/.config/direnv/direnvrc: direnv/direnvrc
     ~/.pi/agent/AGENTS.md:
       force: true

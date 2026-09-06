@@ -63,6 +63,7 @@ Shell scripts placed at `~/.local/bin/statusbar/` that feed system stats (batter
 | `~/.zshrc` | `zsh/zshrc` |
 | `~/.zshenv` | `zsh/zshenv` |
 | `~/.p10k.zsh` | `zsh/p10k.zsh` |
+| `~/.gitconfig` | `git/gitconfig` |
 | `~/.config/nvim` | `nvim/` |
 | `~/.config/ghostty/config` | `ghostty/config` |
 | `~/.config/direnv/direnvrc` | `direnv/direnvrc` |

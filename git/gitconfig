@@ -1,0 +1,73 @@
+[user]
+	email = gr.gianlucarossi@gmail.com
+	name = Gianluca Rossi
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+	pager = delta
+[credential]
+	helper = store
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+        navigate = true
+        dark = true
+        syntax-theme = gruvbox-dark
+[delta "gruvbox-dark"]
+        # General appearance
+        dark = true
+        syntax-theme = gruvbox-dark
+        navigate = true
+    
+        # File
+        file-style = "#fabd2f" bold
+        file-decoration-style = "#fabd2f" ul
+        file-added-label = [+]
+        file-copied-label = [==]
+        file-modified-label = [*]
+        file-removed-label = [-]
+        file-renamed-label = [->]
+    
+        # No hunk headers
+        hunk-header-style = "#83a598" bold
+        hunk-header-decoration-style = "#665c54" box
+    
+        # Line numbers
+        line-numbers = true
+        line-numbers-left-style = "#3c3836"
+        line-numbers-right-style = "#3c3836"
+        line-numbers-minus-style = "#fb4934"
+        line-numbers-plus-style = "#b8bb26"
+        line-numbers-zero-style = "#665c54"
+        line-numbers-left-format = " {nm:>3} │"
+        line-numbers-right-format = " {np:>3} │"
+    
+        # Diff contents
+        inline-hint-style = syntax
+        minus-style = syntax "#3f2d2d"
+        minus-emph-style = syntax "#6f3b3b"
+        minus-non-emph-style = syntax auto
+        plus-style = syntax "#32361a"
+        plus-emph-style = syntax "#4f5518"
+        plus-non-emph-style = syntax auto
+        whitespace-error-style = "#fb4934" reverse
+    
+        # Commit hash
+        commit-style = "#ebdbb2" bold
+        commit-decoration-style = "#665c54" box
+    
+        # Blame
+        blame-code-style = syntax
+        blame-format = "{author:>18} ({commit:>8}) {timestamp:<13} "
+        blame-palette = "#282828 #3c3836 #504945 #665c54"
+    
+        # Merge conflicts
+        merge-conflict-begin-symbol = ⌃
+        merge-conflict-end-symbol = ⌄
+        merge-conflict-ours-diff-header-style = "#fabd2f" bold
+        merge-conflict-theirs-diff-header-style = "#fabd2f" bold overline
+        merge-conflict-ours-diff-header-decoration-style = ''
+        merge-conflict-theirs-diff-header-decoration-style = ''
+[merge]
+	conflictStyle = zdiff3
