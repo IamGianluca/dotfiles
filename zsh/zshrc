@@ -125,10 +125,14 @@ if [[ $(uname) == "Linux" ]]; then
     alias ergkb='setxkbmap -layout "us" -option'
 
     # monitors
-    alias home_screen="xrandr --output eDP-1 --off --output DP-1 --mode 3840x2160"  
-    alias upstate_screen="xrandr --output eDP-1 --off --output DP-1 --mode 2560x1440 --scale 1.5x1.5"
-    alias xps_screen="xrandr --output eDP-1 --mode 3200x1800 --output DP-1 --off"
-    alias precision_screen="xrandr --output eDP-1 --mode 3840x2160"
+    alias home_screen="xrandr --output eDP-1 --off --output DP-1 --mode 3840x2560 --rate 120 && \
+  echo 'Xft.dpi: 164' | xrdb -merge"
+    alias upstate_screen="xrandr --output eDP-1 --off --output DP-1 --mode 2560x1440 && \
+  echo 'Xft.dpi: 96' | xrdb -merge"
+    alias xps_screen="xrandr --output eDP-1 --mode 3200x1800 --output DP-1 --off && \
+  echo 'Xft.dpi: 192' | xrdb -merge"
+    alias precision_screen="xrandr --output eDP-1 --mode 3840x2160 && \
+  echo 'Xft.dpi: 192' | xrdb -merge"
 
     # helpers
     alias desktop="ergkb && home_screen"
