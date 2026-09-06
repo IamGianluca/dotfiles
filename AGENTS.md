@@ -39,7 +39,7 @@ Leader key is `<Space>`. Plugins are loaded lazily; first launch on a new machin
 
 ### Zsh (`zsh/`)
 
-- `zshenv` — minimal; sets `skip_global_compinit` and sources Cargo env
+- `zshenv` — minimal; sources Cargo env
 - `zshrc` — oh-my-zsh with plugins: `zsh-vi-mode`, `fzf`, `zsh-autosuggestions`, `direnv`, `zsh-syntax-highlighting`
 - `p10k.zsh` — generated Powerlevel10k prompt config (do not hand-edit)
 
