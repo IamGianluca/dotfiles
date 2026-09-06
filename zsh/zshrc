@@ -89,7 +89,7 @@ plugins=(
 )
 
 ZVM_INIT_MODE=sourcing
-source $ZSH/oh-my-zsh.sh
+[[ -r $ZSH/oh-my-zsh.sh ]] && source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
