@@ -141,10 +141,10 @@ elif [[ $OSTYPE == darwin* ]]; then
 fi
 
 # bash
-alias ll='ls -alh'
-alias la='ls -A'
-alias l='ls -CFlh'
-alias lsd="ls -alF | grep /$"
+alias ll='ls -alh'             # long listing: all files, human-readable sizes
+alias la='ls -A'               # all files except . and ..
+alias l='ls -CFlh'             # columnar long listing; / marks dirs, @ marks symlinks
+alias lsd="ls -ld *(D/)"        # directories only (incl. hidden, like -a did)
 
 # git
 alias gs="git status"
