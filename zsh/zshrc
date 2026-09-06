@@ -115,7 +115,7 @@ export VISUAL=nvim
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 if [[ $OSTYPE == linux* ]]; then
-    alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
+    alias update="sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove"
 
     # keyboard
     alias xpskb='setxkbmap us -variant dvorak -option ctrl:swapcaps'
