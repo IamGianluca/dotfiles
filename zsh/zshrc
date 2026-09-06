@@ -193,6 +193,11 @@ export FZF_DEFAULT_OPTS="--color=fg:#ebdbb2,bg:#282828,hl:#b16286 \
     --color=info:#d65d0e,prompt:#458588,pointer:#fe8019 \
     --color=marker:#8ec07c,spinner:#cc241d,header:#fabd2f"
 
+# zoxide — smart directory jumping (provides z/zi commands)
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
 # fd-based file search for Ctrl-T with bat preview (binary is batcat on Debian/Ubuntu)
 export FZF_CTRL_T_COMMAND="fd --type f --type d --hidden --exclude .git"
 export FZF_CTRL_T_OPTS="--preview '[ -d {} ] && ls -lh {} || batcat --color=always --style=plain --line-range :80 {} 2>/dev/null'"
