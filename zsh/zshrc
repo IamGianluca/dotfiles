@@ -114,7 +114,7 @@ export VISUAL=nvim
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ $(uname) == "Linux" ]]; then
+if [[ $OSTYPE == linux* ]]; then
     alias update="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
 
     # keyboard
@@ -136,7 +136,7 @@ if [[ $(uname) == "Linux" ]]; then
     alias upstate="ergkb && upstate_screen"
     alias xps="xpskb && xps_screen"
     alias precision="xpskb && precision_screen"
-elif [[ $(uname) == "Darwin" ]]; then
+elif [[ $OSTYPE == darwin* ]]; then
     alias update="brew update && brew upgrade"
 fi
 
