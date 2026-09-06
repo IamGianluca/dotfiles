@@ -197,6 +197,13 @@ export FZF_DEFAULT_OPTS="--color=fg:#ebdbb2,bg:#282828,hl:#b16286 \
     --color=info:#d65d0e,prompt:#458588,pointer:#fe8019 \
     --color=marker:#8ec07c,spinner:#cc241d,header:#fabd2f"
 
+# Lazy-load nvm to keep interactive startup fast; nvm.sh is expensive to source.
+# First call to nvm/node/npm loads it and installs the real implementations.
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+_lazy_load_nvm() {
+  unset -f _lazy_load_nvm nvm node npm
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+}
+nvm()  { _lazy_load_nvm; nvm "$@"; }
+node() { _lazy_load_nvm; node "$@"; }
+npm()  { _lazy_load_nvm; npm "$@"; }
