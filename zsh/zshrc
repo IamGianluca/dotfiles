@@ -218,3 +218,6 @@ _lazy_load_nvm() {
 nvm()  { _lazy_load_nvm; nvm "$@"; }
 node() { _lazy_load_nvm; node "$@"; }
 npm()  { _lazy_load_nvm; npm "$@"; }
+
+# Added by the Hunk installer (https://hunk.dev)
+export PATH='/home/gianluca/.hunk/bin':"$PATH"

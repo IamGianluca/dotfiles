@@ -7,6 +7,7 @@
 - create:
   - ~/.config/nvim
   - ~/.config/ghostty
+  - ~/.config/hunk
   - ~/.config/gtk-4.0
   - ~/.config/direnv
   - ~/.dwm
@@ -17,6 +18,7 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/ghostty/config: ghostty/config
     ~/.config/jj/config.toml: jj/config.toml
+    ~/.config/hunk/config.toml: hunk/config.toml
     ~/.config/gtk-4.0: 
       force: true
       path: gtk-4.0/
