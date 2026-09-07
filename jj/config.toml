@@ -7,7 +7,6 @@ email = "gr.gianlucarossi@gmail.com"
 [ui]
 default-command = "log"
 editor = "nvim"
-pager = ["delta", "--features", "gruvbox-dark"]
 diff-formatter = ":git"
 
 # While in the built-in scm-diff-editor to review "jj split" tasks:
