@@ -5,6 +5,7 @@
 	defaultBranch = main
 [core]
 	editor = nvim
+	pager = hunk pager
 [credential]
 	helper = store
 [merge]
