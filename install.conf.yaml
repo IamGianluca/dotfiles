@@ -17,7 +17,9 @@
 - link:
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/ghostty/config: ghostty/config
-    ~/.config/jj/config.toml: jj/config.toml
+    ~/.config/jj/config.toml: 
+      force: true
+      path: jj/config.toml
     ~/.config/hunk/config.toml: hunk/config.toml
     ~/.config/gtk-4.0: 
       force: true
