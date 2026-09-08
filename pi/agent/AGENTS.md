@@ -29,14 +29,17 @@ Fight complexity. Every change should make the codebase simpler, not just correc
 ## Testing
 
 - **No mocks.** Do not use unittest.mock, MagicMock, monkey-patching, or similar test doubles that mimic real dependencies. They couple tests to implementation details and break on refactors.
-- Use **nullable infrastructure** instead: production classes that can be instantiated in a "null" mode for testing, returning configurable responses without real I/O. Infrastructure wrappers own the boundary and expose a nullable factory method.
-- Tests should be **sociable** — exercise real code paths through collaborating objects. Only the outermost infrastructure boundary gets a nullable stand-in.
+- Prefer **fakes**: hand-written classes in test code that implement the same interface as the real dependency (e.g. a `FakeHttpClient` with a configurable response table). Fakes are not mocks — they implement real, predictable logic without real I/O, so interface drift fails loudly instead of silently passing. Production code defines the seam (Protocol/ABC); fakes implement it.
+- **Inject fakes through constructors.** Adapters and services accept external dependencies as optional `__init__` parameters defaulting to the real implementation. Production callers omit them; test callers pass fakes. Never subclass or monkey-patch production classes to inject test doubles.
+- Fakes live in **test code** (e.g. `tests/fakes/`), never in production. Production code has zero awareness of tests.
+- File-based adapters (JSON files, SQLite, ...) are usually best tested against real I/O with pytest `tmp_path`, not a fake filesystem.
+- Tests should be **sociable** — exercise real code paths through collaborating objects. Only the outermost infrastructure boundary gets a fake.
 - Use **Given / When / Then** comments to structure every test:
 
 ```python
 def test_enrollment_expires_after_trial_period():
     # Given
-    clock = NullableClock(now=datetime(2025, 1, 1))
+    clock = FakeClock(now=datetime(2025, 1, 1))
     enrollment = Enrollment.create(user_id="u1", clock=clock)
 
     # When
