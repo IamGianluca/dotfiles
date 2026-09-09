@@ -15,6 +15,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- plenary.nvim (archived) and telescope v0.2.0 still call vim.F.if_nil, which is
+-- deprecated (removed in Nvim 0.15). Alias it to its replacement so loading them
+-- doesn't pollute :checkhealth vim.deprecated.
+if vim.F and vim.nonnil then
+	vim.F.if_nil = vim.nonnil
+end
+
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
