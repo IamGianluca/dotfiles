@@ -51,7 +51,9 @@
       force: true
       path: nvim/
     ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
-    ~/git/dwm-flexipatch/config.h: dwm-flexipatch/config.h
+    ~/git/dwm-flexipatch/config.h:
+      force: true
+      path: dwm-flexipatch/config.h
     ~/.dwm/autostart.sh: dwm-flexipatch/autostart.sh
     ~/.xinitrc: dwm-flexipatch/xinitrc
     ~/.Xresources: dwm-flexipatch/Xresources
