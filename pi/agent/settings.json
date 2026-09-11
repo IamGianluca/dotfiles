@@ -5,6 +5,6 @@
     "git:github.com/hasit/pi-community-themes"
   ],
   "defaultProvider": "opencode-go",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultModel": "deepseek-v4.1-flash",
   "defaultThinkingLevel": "max"
 }
