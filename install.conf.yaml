@@ -8,9 +8,7 @@
   - ~/.config/nvim
   - ~/.config/ghostty
   - ~/.config/hunk
-  - ~/.config/gtk-4.0
   - ~/.config/direnv
-  - ~/.dwm
   - ~/.zfunc
   - ~/.local/bin
 
@@ -21,7 +19,8 @@
       force: true
       path: jj/config.toml
     ~/.config/hunk/config.toml: hunk/config.toml
-    ~/.config/gtk-4.0: 
+    ~/.config/gtk-4.0:
+      if: &linux '[ "$(uname)" = Linux ]'
       force: true
       path: gtk-4.0/
     ~/.zshrc: 
@@ -50,19 +49,37 @@
     ~/.config/nvim: 
       force: true
       path: nvim/
-    ~/git/dwm-flexipatch/patches.h: dwm-flexipatch/patches.h
+    # X11 / dwm: Linux only
+    ~/git/dwm-flexipatch/patches.h:
+      if: *linux
+      path: dwm-flexipatch/patches.h
     ~/git/dwm-flexipatch/config.h:
+      if: *linux
       force: true
       path: dwm-flexipatch/config.h
-    ~/.dwm/autostart.sh: dwm-flexipatch/autostart.sh
-    ~/.xinitrc: dwm-flexipatch/xinitrc
-    ~/.Xresources: dwm-flexipatch/Xresources
-    ~/git/dmenu-flexipatch/patches.h: dmenu-flexipatch/patches.h
-    ~/git/dmenu-flexipatch/config.h: dmenu-flexipatch/config.h
+    ~/.dwm/autostart.sh:
+      if: *linux
+      create: true
+      path: dwm-flexipatch/autostart.sh
+    ~/.xinitrc:
+      if: *linux
+      path: dwm-flexipatch/xinitrc
+    ~/.Xresources:
+      if: *linux
+      path: dwm-flexipatch/Xresources
+    ~/git/dmenu-flexipatch/patches.h:
+      if: *linux
+      path: dmenu-flexipatch/patches.h
+    ~/git/dmenu-flexipatch/config.h:
+      if: *linux
+      path: dmenu-flexipatch/config.h
     ~/git/dwmblocks-async/config.h:
+      if: *linux
       force: true
       path: dwmblocks-async/config.h
-    ~/.local/bin/statusbar: bin/statusbar/
+    ~/.local/bin/statusbar:
+      if: *linux
+      path: bin/statusbar/
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
