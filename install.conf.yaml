@@ -10,6 +10,7 @@
   - ~/.agents/skills
   - ~/.claude
   - ~/.claude/skills
+  - ~/.pi/agent
   - ~/.config/nvim
   - ~/.config/ghostty
   - ~/.config/hunk
