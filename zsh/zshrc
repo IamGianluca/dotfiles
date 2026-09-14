@@ -198,12 +198,20 @@ if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
 
-# fd-based file search for Ctrl-T with bat preview (binary is batcat on Debian/Ubuntu)
-export FZF_CTRL_T_COMMAND="fd --type f --type d --hidden --exclude .git"
-export FZF_CTRL_T_OPTS="--preview '[ -d {} ] && ls -lh {} || batcat --color=always --style=plain --line-range :80 {} 2>/dev/null'"
+# Resolve the bat binary: Debian/Ubuntu's package installs it as `batcat`,
+# while homebrew and Arch use `bat`. whence -p skips aliases/functions so this
+# stays correct when the file is re-sourced.
+_bat_bin=$(whence -p bat || whence -p batcat)
+[[ $_bat_bin == *batcat ]] && alias bat=batcat
 
-# batcat is installed as batcat on Debian/Ubuntu; expose the usual name
-alias bat=batcat
+# fd-based file search for Ctrl-T, with a bat preview when bat is available
+export FZF_CTRL_T_COMMAND="fd --type f --type d --hidden --exclude .git"
+if [[ -n $_bat_bin ]]; then
+  export FZF_CTRL_T_OPTS="--preview '[ -d {} ] && ls -lh {} || $_bat_bin --color=always --style=plain --line-range :80 {} 2>/dev/null'"
+else
+  export FZF_CTRL_T_OPTS="--preview '[ -d {} ] && ls -lh {} || head -n 80 {} 2>/dev/null'"
+fi
+unset _bat_bin
 
 # gruvbox theme for bat
 export BAT_THEME=gruvbox-dark
