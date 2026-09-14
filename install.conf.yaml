@@ -2,7 +2,9 @@
     link:
       relink: true
 
-- clean: ['~']
+# Only removes broken links pointing into this repo, so npx-managed
+# skill links in ~/.agents and ~/.claude are left alone.
+- clean: ['~', '~/.agents/skills', '~/.claude/skills']
 
 - create:
   - ~/.agents/skills
