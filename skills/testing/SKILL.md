@@ -1,4 +1,5 @@
 ---
+name: testing
 description: Use when writing, reviewing, or refactoring tests. Covers infrastructure wrapping, sociable state-based tests, Given/When/Then structure, A-Frame architecture, dependency injection with fakes, and migrating from mocks. Trigger on test files, unittest.mock, MagicMock, patch, monkeypatch, pytest fixtures with mocks, or any test that interacts with infrastructure (databases, HTTP, file systems, clocks, queues).
 ---
 

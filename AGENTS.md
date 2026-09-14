@@ -48,7 +48,26 @@ Leader key is `<Space>`. Plugins are loaded lazily; first launch on a new machin
 - `CLAUDE.md` — global instructions applied to every project
 - `settings.json` — model, theme, and permission defaults
 
-Both are symlinked into `~/.claude/`, which also holds untracked machine-local state (sessions, history, plugins, skills). Only these two files are tracked.
+Both are symlinked into `~/.claude/`, which also holds untracked machine-local state (sessions, history, plugins). Only these two files are tracked, plus the shared skills below.
+
+### Shared Agent Skills (`skills/`)
+
+Skills used by both Claude Code and pi: `software-design`, `refactoring`, `testing`, `agent-evals`. Single source of truth — edit here, both agents see it.
+
+`~/.agents/` is the shared cross-agent location; each agent's own directory holds only agent-specific config. The two agents support this unevenly, so the linking differs:
+
+- **pi** reads `~/.agents/skills/` natively ([docs](https://pi.dev/docs/latest/skills)), alongside `~/.pi/agent/skills/`. No per-agent link needed.
+- **Claude Code** does *not* read `~/.agents/`; it only reads `~/.claude/skills/` ([docs](https://code.claude.com/docs/en/skills)). It does support a skill entry being a symlink elsewhere, so each skill is linked into `~/.claude/skills/` as a bridge.
+
+Both link targets point at this repo directly rather than chaining through `~/.agents/`, keeping one level of indirection.
+
+`~/.agents/skills/` also holds eval skills installed by `npx skills` from [ai-evals-course/evals-skills](https://github.com/ai-evals-course/evals-skills), tracked in its own `~/.agents/.skill-lock.json` and symlinked onward into `~/.claude/skills/`. Those are not tracked here — manage them with `npx skills`.
+
+Every `SKILL.md` needs both `name` and `description` frontmatter; pi and Claude Code both require them.
+
+### pi (`pi/agent/`)
+
+Agent-specific config: `AGENTS.md` (global instructions), `settings.json`, and TypeScript extensions. `AGENTS.md` stays pi-only — Claude Code reads `CLAUDE.md`, not `AGENTS.md`, and pi's much smaller system prompt makes always-on design guidance worth its context cost there in a way it isn't for Claude.
 
 ### Direnv (`direnv/direnvrc`)
 
@@ -76,3 +95,5 @@ Shell scripts placed at `~/.local/bin/statusbar/` that feed system stats (batter
 | `~/.config/direnv/direnvrc` | `direnv/direnvrc` |
 | `~/.claude/CLAUDE.md` | `claude/CLAUDE.md` |
 | `~/.claude/settings.json` | `claude/settings.json` |
+| `~/.claude/skills/<skill>` | `skills/<skill>/` (one link per skill) |
+| `~/.agents/skills/<skill>` | `skills/<skill>/` (one link per skill) |

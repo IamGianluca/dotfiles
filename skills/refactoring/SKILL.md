@@ -1,4 +1,5 @@
 ---
+name: refactoring
 description: Use when modifying existing code, adding features to legacy or untested code, cleaning up code smells, restructuring modules, or breaking dependencies for testability. Covers code smells (long method, feature envy, shotgun surgery, primitive obsession, etc.), refactoring moves (extract method, move method, replace primitive with object), and legacy code techniques (seams, characterization tests, sprout method, wrap method, scratch refactoring).
 ---
 

@@ -1,4 +1,5 @@
 ---
+name: software-design
 description: Use when designing new modules, reviewing code architecture, evaluating API boundaries, splitting or merging classes, handling errors, writing comments, or naming things. Covers deep vs shallow modules, information hiding, defining errors out of existence, pull complexity downward, design it twice, and red flags like pass-through methods, information leakage, and temporal decomposition.
 ---
 

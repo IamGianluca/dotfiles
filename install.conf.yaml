@@ -5,7 +5,9 @@
 - clean: ['~']
 
 - create:
+  - ~/.agents/skills
   - ~/.claude
+  - ~/.claude/skills
   - ~/.config/nvim
   - ~/.config/ghostty
   - ~/.config/hunk
@@ -41,6 +43,30 @@
     ~/.claude/settings.json:
       force: true
       path: claude/settings.json
+    ~/.agents/skills/agent-evals:
+      force: true
+      path: skills/agent-evals/
+    ~/.agents/skills/refactoring:
+      force: true
+      path: skills/refactoring/
+    ~/.agents/skills/software-design:
+      force: true
+      path: skills/software-design/
+    ~/.agents/skills/testing:
+      force: true
+      path: skills/testing/
+    ~/.claude/skills/agent-evals:
+      force: true
+      path: skills/agent-evals/
+    ~/.claude/skills/refactoring:
+      force: true
+      path: skills/refactoring/
+    ~/.claude/skills/software-design:
+      force: true
+      path: skills/software-design/
+    ~/.claude/skills/testing:
+      force: true
+      path: skills/testing/
     ~/.pi/agent/AGENTS.md:
       force: true
       path: pi/agent/AGENTS.md
@@ -50,9 +76,6 @@
     ~/.pi/agent/extensions:
       force: true
       path: pi/agent/extensions/
-    ~/.pi/agent/skills:
-      force: true
-      path: pi/agent/skills/
     ~/.config/nvim: 
       force: true
       path: nvim/

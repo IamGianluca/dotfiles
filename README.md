@@ -10,6 +10,8 @@ Personal dotfiles managed with [Dotbot](https://github.com/anishathalye/dotbot).
 | `ghostty` | GPU-accelerated terminal emulator. |
 | `jj` | Jujutsu version control system. |
 | `claude` | Claude Code global config: `CLAUDE.md` instructions and `settings.json`. Machine-local state (sessions, history, plugins) stays untracked in `~/.claude/`. |
+| `skills` | Agent skills shared by Claude Code and pi — software design, refactoring, testing, agent evals. Linked into `~/.agents/skills/` (read natively by pi) and bridged into `~/.claude/skills/`. |
+| `pi` | pi.dev agent config: `AGENTS.md` instructions, `settings.json`, and TypeScript extensions. |
 | `direnv` | Custom `layout_uv` and `layout_poetry` helpers for Python virtualenvs. |
 | `dwm` | Window manager config, `dwmblocks-async` status bar scripts (battery, CPU temp, network, volume, etc.). Safe to ignore if not using dwm. |
 
