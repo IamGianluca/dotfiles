@@ -43,6 +43,13 @@ Leader key is `<Space>`. Plugins are loaded lazily; first launch on a new machin
 - `zshrc` — oh-my-zsh with plugins: `zsh-vi-mode`, `fzf`, `zsh-autosuggestions`, `direnv`, `zsh-syntax-highlighting`
 - `p10k.zsh` — generated Powerlevel10k prompt config (do not hand-edit)
 
+### Claude Code (`claude/`)
+
+- `CLAUDE.md` — global instructions applied to every project
+- `settings.json` — model, theme, and permission defaults
+
+Both are symlinked into `~/.claude/`, which also holds untracked machine-local state (sessions, history, plugins, skills). Only these two files are tracked.
+
 ### Direnv (`direnv/direnvrc`)
 
 Defines custom `layout_uv` and `layout_poetry` functions for Python virtual environments. Projects using these layouts need a `.envrc` with e.g. `layout uv` or `layout poetry`.
@@ -67,3 +74,5 @@ Shell scripts placed at `~/.local/bin/statusbar/` that feed system stats (batter
 | `~/.config/nvim` | `nvim/` |
 | `~/.config/ghostty/config` | `ghostty/config` |
 | `~/.config/direnv/direnvrc` | `direnv/direnvrc` |
+| `~/.claude/CLAUDE.md` | `claude/CLAUDE.md` |
+| `~/.claude/settings.json` | `claude/settings.json` |

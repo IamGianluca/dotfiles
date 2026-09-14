@@ -9,6 +9,7 @@ Personal dotfiles managed with [Dotbot](https://github.com/anishathalye/dotbot).
 | `zsh` | `oh-my-zsh` with Powerlevel10k theme. Plugins: `zsh-vi-mode`, `fzf`, `zsh-autosuggestions`, `direnv`, `zsh-syntax-highlighting`. |
 | `ghostty` | GPU-accelerated terminal emulator. |
 | `jj` | Jujutsu version control system. |
+| `claude` | Claude Code global config: `CLAUDE.md` instructions and `settings.json`. Machine-local state (sessions, history, plugins) stays untracked in `~/.claude/`. |
 | `direnv` | Custom `layout_uv` and `layout_poetry` helpers for Python virtualenvs. |
 | `dwm` | Window manager config, `dwmblocks-async` status bar scripts (battery, CPU temp, network, volume, etc.). Safe to ignore if not using dwm. |
 

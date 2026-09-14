@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - create:
+  - ~/.claude
   - ~/.config/nvim
   - ~/.config/ghostty
   - ~/.config/hunk
@@ -34,6 +35,12 @@
       force: true
       path: git/gitconfig
     ~/.config/direnv/direnvrc: direnv/direnvrc
+    ~/.claude/CLAUDE.md:
+      force: true
+      path: claude/CLAUDE.md
+    ~/.claude/settings.json:
+      force: true
+      path: claude/settings.json
     ~/.pi/agent/AGENTS.md:
       force: true
       path: pi/agent/AGENTS.md
