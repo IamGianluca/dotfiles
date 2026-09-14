@@ -141,7 +141,7 @@ elif [[ $OSTYPE == darwin* ]]; then
 fi
 
 # bash
-alias ls='eza --icons'            # list with file type icons
+alias ls='eza --icons=auto'        # list with file type icons (auto: only on TTYs)
 alias ll='eza -la --git --icons'  # long listing: all files, git status column
 alias lt='eza --tree --icons'     # directory tree
 
