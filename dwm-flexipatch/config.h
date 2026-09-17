@@ -856,8 +856,23 @@ static const char *xkb_layouts[]  = {
 #if !NODMENU_PATCH
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 #endif // NODMENU_PATCH
+/* Launchers go through systemd, and the pipeline stays in the foreground.
+ *
+ * Chrome opens its file dialogs through the xdg-desktop-portal, whose frontend
+ * refuses callers whose /proc/<pid>/root it cannot open ("Portal operation not
+ * allowed").  GDM's session tree is non-dumpable and children inherit that,
+ * so a browser started straight from dmenu gets no file chooser at all --
+ * neither for uploads nor downloads.  systemd sets PR_SET_DUMPABLE=1 for the
+ * units it starts, so the launcher is spawned through `systemd-run --user`.
+ *
+ * dmenu_run backgrounds its pipeline and returns; systemd then tears down the
+ * unit's cgroup and kills the freshly started dmenu.  The pipeline is therefore
+ * inlined in the foreground, so the unit lives exactly as long as dmenu does.
+ *
+ * Keep this when merging upstream changes into config.h. */
 static const char *dmenucmd[] = {
-	"dmenu_run",
+	"systemd-run", "--user", "--quiet", "--collect", "--slice=app.slice", "--",
+	"/bin/sh", "-c", "dmenu_path | dmenu \"$@\" | ${SHELL:-/bin/sh}", "dmenu",
 	#if !NODMENU_PATCH
 	"-m", dmenumon,
 	#endif // NODMENU_PATCH
@@ -871,7 +886,7 @@ static const char *dmenucmd[] = {
 	#endif // BAR_DMENUMATCHTOP_PATCH
 	NULL
 };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "systemd-run", "--user", "--quiet", "--collect", "--slice=app.slice", "--", "st", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
