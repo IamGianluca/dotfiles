@@ -15,6 +15,7 @@
   - ~/.config/ghostty
   - ~/.config/hunk
   - ~/.config/direnv
+  - ~/.config/systemd/user/xdg-desktop-portal-gtk.service.d
   - ~/.zfunc
   - ~/.local/bin
 
@@ -110,6 +111,9 @@
       if: *linux
       force: true
       path: dwmblocks-async/config.h
+    ~/.config/systemd/user/xdg-desktop-portal-gtk.service.d/restart.conf:
+      if: *linux
+      path: systemd/xdg-desktop-portal-gtk-restart.conf
     ~/.local/bin/statusbar:
       if: *linux
       path: bin/statusbar/
