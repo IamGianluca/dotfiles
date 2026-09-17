@@ -1,7 +1,8 @@
 #!/bin/sh
 
+# HiDPI: Xft.dpi lives in ~/.Xresources.  GDM sessions merge it themselves,
+# but a startx session only gets it if it is merged before dwm starts.
+xrdb -merge ~/.Xresources
+
 # start dwm
 exec dwm
-
-# scale resolution for hidpi monitor
-xrdb -merge ~/.Xresources
