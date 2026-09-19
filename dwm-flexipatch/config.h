@@ -887,6 +887,8 @@ static const char *dmenucmd[] = {
 	NULL
 };
 static const char *termcmd[]  = { "systemd-run", "--user", "--quiet", "--collect", "--slice=app.slice", "--", "st", NULL };
+/* Screenshot editor; launched through systemd for the same reason as the launchers above. */
+static const char *flameshotcmd[] = { "systemd-run", "--user", "--quiet", "--collect", "--slice=app.slice", "--", "flameshot", "gui", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -920,6 +922,7 @@ static const Key keys[] = {
     	{ 0, XF86XK_MonBrightnessUp,    spawn,        	SHCMD("brightnessctl set 10%+;  pkill -RTMIN+10 dwmblocks") },
     	{ 0, XF86XK_MonBrightnessDown,  spawn, 		SHCMD("brightnessctl set 10%-;  pkill -RTMIN+10 dwmblocks") },
 	/* modifier                     key            function                argument */
+	{ 0,                            XK_Print,      spawn,                  {.v = flameshotcmd } },
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },
 	#endif // KEYMODES_PATCH
