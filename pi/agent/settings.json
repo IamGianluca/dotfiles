@@ -1,10 +1,11 @@
 {
-  "lastChangelogVersion": "0.99.1",
+  "lastChangelogVersion": "1.0.0",
   "theme": "gruvbox-dark-hard/gruvbox-dark-hard",
   "packages": [
     "git:github.com/hasit/pi-community-themes"
   ],
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4.1-flash",
-  "defaultThinkingLevel": "max"
+  "defaultThinkingLevel": "max",
+  "tuiMode": "regular"
 }
