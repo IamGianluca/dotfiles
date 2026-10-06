@@ -62,6 +62,8 @@ The test for a good task: **two domain experts, working independently, reach the
 Every task must be passable by an agent that simply follows instructions. This fails in subtle ways. A classic: the task says "write a script," the grader checks a specific filepath, and the task description never mentions that path. The agent fails through no fault of its own.
 
 **Everything the grader checks must be discoverable from the task description.**
+Discoverable is not demonstrated: the spec may state the requirement, but the
+agent's context must not show the answer to a specific graded task.
 
 Write a **reference solution** for each task — a known-good output that passes all graders. It proves the task is solvable and that the graders are wired up correctly.
 
@@ -103,13 +105,14 @@ Default: deterministic where possible, model-based where necessary, human occasi
 
 Scoring per task can be **binary** (all graders pass), **weighted** (combined score clears a threshold), or hybrid.
 
-Five rules that matter more than the taxonomy:
+Six rules that matter more than the taxonomy:
 
 1. **Grade outcomes, not paths.** There's a strong instinct to assert an exact sequence of tool calls. Resist it — agents routinely find valid approaches the eval author didn't anticipate, and rigid path checks punish exactly the creativity you want.
 2. **Build in partial credit.** An agent that identifies the problem and verifies the customer but fumbles the refund is meaningfully better than one that fails at turn one. Represent the continuum.
 3. **Give the LLM judge an exit.** Instruct it to return "Unknown" when it lacks information. Otherwise it hallucinates a verdict.
 4. **Isolate judge dimensions.** Structured rubric, one dimension per judge call, rather than a single judge scoring everything at once.
-5. **Make graders hack-resistant.** Passing should require solving the problem, not finding a loophole in the checker.
+5. **Make graders hack-resistant.** Passing should require solving the problem, not finding a loophole in the checker — or in the prompt. A worked example that mirrors a task lets the agent pass by copying.
+6. **Keep the graded answer out of the agent's context.** The agent sees its system prompt, so an example there is a possible answer in context. If an example mirrors a task's scenario or answer, the task measures copying, not capability. Draw examples from different worlds than any task, never write a reference by paraphrasing one, and treat a prompt edit that lifts a failing task as a smell: fix the general rule, then check the other tasks.
 
 **Grading bugs are common and expensive.** Opus 4.5 initially scored 42% on CORE-Bench; investigation turned up rigid grading that rejected `96.12` against an expected `96.124991…`, ambiguous task specs, and stochastic tasks that couldn't be reproduced. After fixes and a less constrained scaffold, the score was 95%. METR similarly found tasks that asked agents to *reach* a threshold while the grader required *exceeding* it — penalizing models that followed instructions. Assume your graders have bugs of this shape until you've verified otherwise.
 
@@ -122,6 +125,8 @@ When a task fails, the transcript is what tells you whether the agent made a rea
 Invest in transcript-viewing tooling early. Read transcripts from many trials, not one.
 
 **Rule of thumb: don't take an eval score at face value until someone has dug into the details and read some transcripts.** If grading is unfair, tasks are ambiguous, valid solutions are penalized, or the harness constrains the model — revise the eval.
+
+**A leaked task hides in the passing transcripts.** An agent that recites a worked example from its system prompt produces an answer that looks clean; check whether it reasoned about this task or echoed a shape it was handed. When a prompt example and a task share a scenario or wording, the task is measuring copying — revise the example, the task, or both.
 
 ### Step 7 — Watch for saturation
 
@@ -262,6 +267,7 @@ Run through this before trusting a suite:
 - [ ] No reference solution proving the task is solvable
 - [ ] Only positive cases — no "should not fire" tasks
 - [ ] State leaking between trials
+- [ ] Prompt or scaffold contains a worked example that mirrors a graded task (leaked answer)
 - [ ] Eval scaffold diverging from the production scaffold
 - [ ] LLM judge with no "Unknown" escape hatch, or grading all dimensions in one call
 - [ ] LLM judge never calibrated against human ratings
@@ -273,4 +279,4 @@ Run through this before trusting a suite:
 
 ## The short version
 
-Start early and small. Source tasks from real failures. Make success criteria unambiguous and verify them with reference solutions. Combine grader types and grade what was produced, not the route taken. Keep the problems hard enough to leave headroom. Iterate to improve signal-to-noise. And read the transcripts.
+Start early and small. Source tasks from real failures. Make success criteria unambiguous and verify them with reference solutions. Combine grader types and grade what was produced, not the route taken. Keep the graded answer out of the agent's prompt. Keep the problems hard enough to leave headroom. Iterate to improve signal-to-noise. And read the transcripts.
