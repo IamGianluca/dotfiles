@@ -2,7 +2,27 @@
   "lastChangelogVersion": "1.4.0",
   "theme": "gruvbox-dark-hard/gruvbox-dark-hard",
   "packages": [
-    "git:github.com/hasit/pi-community-themes"
+    "git:github.com/hasit/pi-community-themes",
+    {
+      "source": "git:github.com/mitsuhiko/agent-stuff",
+      "extensions": [
+        "extensions/btw.ts",
+        "extensions/session-breakdown.ts",
+        "extensions/notify.ts",
+        "extensions/todos.ts",
+        "extensions/answer.ts",
+        "extensions/whimsical.ts"
+      ],
+      "skills": [
+        "skills/uv",
+        "skills/summarize",
+        "skills/web-browser",
+        "skills/native-web-search",
+        "skills/tmux"
+      ],
+      "prompts": [],
+      "themes": []
+    }
   ],
   "defaultProvider": "opencode-go",
   "defaultModel": "deepseek-v4.1-flash",
