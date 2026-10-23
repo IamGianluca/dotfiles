@@ -7,3 +7,8 @@ menu_bar = true
 agent_notes = false
 copy_decorations = false
 cursor_line = "row"
+
+# Auto-reload repository reviews opened with `hunk diff`.
+# This does not affect `hunk pager` (jj diff), which reads a fixed stdin patch.
+[vcs]
+watch = true
