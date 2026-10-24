@@ -121,6 +121,11 @@ vim.opt.signcolumn = "yes"
 -- Also set it immediately in case it's before colorscheme loading
 vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#eb6f92" })
 
+-- Toggle the 80-column color column in the current window
+vim.keymap.set("n", "<leader>cc", function()
+	vim.wo.colorcolumn = vim.wo.colorcolumn == "" and "80" or ""
+end, { desc = "Toggle 80-column color column" })
+
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
 
