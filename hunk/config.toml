@@ -8,7 +8,8 @@ agent_notes = true
 copy_decorations = false
 cursor_line = "row"
 
-# Auto-reload repository reviews opened with `hunk diff`.
-# This does not affect `hunk pager` (jj diff), which reads a fixed stdin patch.
+# Auto-reload repository reviews (`hunk diff`) when their source changes.
+# Must stay in a command table: top-level `watch` also applies to `hunk pager`,
+# which reads jj's stdin patch and cannot be watched, breaking `jj diff`.
 [vcs]
 watch = true
