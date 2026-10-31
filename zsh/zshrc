@@ -216,6 +216,15 @@ unset _bat_bin
 # gruvbox theme for bat
 export BAT_THEME=gruvbox-dark
 
+# Scripts do not inherit the lazy node()/npm() functions below, so a
+# `#!/usr/bin/env node` shebang resolves the first real binary on PATH — and
+# until the first interactive call PATH has no nvm bin at all. Put the newest
+# installed version's bin on PATH so scripts and the prompt agree. Listing the
+# directory is free; sourcing nvm.sh is the expensive part the lazy load avoids.
+nvm_bin=$(ls -1 "$HOME/.nvm/versions/node" 2>/dev/null | sort -V | tail -1)
+[ -n "$nvm_bin" ] && export PATH="$HOME/.nvm/versions/node/$nvm_bin/bin:$PATH"
+unset nvm_bin
+
 # Lazy-load nvm to keep interactive startup fast; nvm.sh is expensive to source.
 # First call to nvm/node/npm loads it and installs the real implementations.
 export NVM_DIR="$HOME/.nvm"
